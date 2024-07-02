@@ -1,0 +1,292 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|c:\\users\\kelvin pilger\\source\\repos\\e.s\\menu - kelvin\\menu - kelvin\\formul\u00E1rios\\frmfornecedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\formul\u00E1rios\\frmfornecedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\formul\u00E1rios\\frmfornecedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\formul\u00E1rios\\frmfornecedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\formul\u00E1rios\\frmfornecedor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\formul\u00E1rios\\frmfornecedor.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\classes\\planilhas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\classes\\planilhas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\formul\u00E1rios\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\formul\u00E1rios\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\formul\u00E1rios\\frmestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\formul\u00E1rios\\frmestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\formul\u00E1rios\\frmexportarcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\formul\u00E1rios\\frmexportarcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\formul\u00E1rios\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\formul\u00E1rios\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\classes\\db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\classes\\db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\formul\u00E1rios\\frmestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\formul\u00E1rios\\frmestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\classes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\classes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\classes\\altforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\classes\\altforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\tabelas\\fornecedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\tabelas\\fornecedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\tabelas\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\tabelas\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\formul\u00E1rios\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\formul\u00E1rios\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\formul\u00E1rios\\frmmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\formul\u00E1rios\\frmmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\menu - kelvin\\formul\u00E1rios\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA95AF14-8E64-439E-8EC5-DC38D6B7FF3A}|Menu - Kelvin\\Menu - Kelvin.csproj|solutionrelative:menu - kelvin\\formul\u00E1rios\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 14,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Classes\\Program.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Classes\\Program.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Classes\\Program.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Classes\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T02:09:03.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Clientes.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Tabelas\\Clientes.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Tabelas\\Clientes.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Tabelas\\Clientes.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Tabelas\\Clientes.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAowBgAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T02:08:02.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Fornecedor.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Tabelas\\Fornecedor.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Tabelas\\Fornecedor.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Tabelas\\Fornecedor.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Tabelas\\Fornecedor.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T02:08:00.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmFornecedor.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.Designer.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.Designer.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.Designer.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.Designer.cs",
+              "ViewState": "AQIAAOgAAAAAAAAAAAAjwPgAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T01:47:56.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DB.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Classes\\DB.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Classes\\DB.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Classes\\DB.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Classes\\DB.cs",
+              "ViewState": "AQIAAIUAAAAAAAAAAAAYwI4AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T01:45:23.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Planilhas.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Classes\\Planilhas.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Classes\\Planilhas.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Classes\\Planilhas.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Classes\\Planilhas.cs",
+              "ViewState": "AQIAACkBAAAAAAAAAAAuwFABAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T00:56:49.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AltForms.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Classes\\AltForms.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Classes\\AltForms.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Classes\\AltForms.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Classes\\AltForms.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAIwF8AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T00:56:17.686Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "frmMenu.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmMenu.Designer.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Formul\u00E1rios\\frmMenu.Designer.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmMenu.Designer.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Formul\u00E1rios\\frmMenu.Designer.cs",
+              "ViewState": "AQIAAEkAAAAAAAAAAAAjwFoAAABYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T00:56:00.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "frmMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmMenu.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Formul\u00E1rios\\frmMenu.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmMenu.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Formul\u00E1rios\\frmMenu.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAlwB8AAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T00:55:33.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmEstoque.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmEstoque.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Formul\u00E1rios\\frmEstoque.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmEstoque.cs [Design]",
+              "RelativeToolTip": "Menu - Kelvin\\Formul\u00E1rios\\frmEstoque.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T00:54:45.87Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmEstoque.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmEstoque.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Formul\u00E1rios\\frmEstoque.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmEstoque.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Formul\u00E1rios\\frmEstoque.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAWwEAAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T00:09:28.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmMenu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmMenu.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Formul\u00E1rios\\frmMenu.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmMenu.cs [Design]",
+              "RelativeToolTip": "Menu - Kelvin\\Formul\u00E1rios\\frmMenu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T00:47:41.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmExportarCliente.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmExportarCliente.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Formul\u00E1rios\\frmExportarCliente.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmExportarCliente.cs [Design]",
+              "RelativeToolTip": "Menu - Kelvin\\Formul\u00E1rios\\frmExportarCliente.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T00:43:55.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmFornecedor.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAA4wEcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T00:43:32.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "frmCliente.cs",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmCliente.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Formul\u00E1rios\\frmCliente.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmCliente.cs",
+              "RelativeToolTip": "Menu - Kelvin\\Formul\u00E1rios\\frmCliente.cs",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAWwFMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T00:43:16.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmCliente.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmCliente.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Formul\u00E1rios\\frmCliente.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmCliente.cs [Design]",
+              "RelativeToolTip": "Menu - Kelvin\\Formul\u00E1rios\\frmCliente.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T00:41:11.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmFornecedor.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.cs",
+              "RelativeDocumentMoniker": "Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.cs",
+              "ToolTip": "C:\\Users\\Kelvin Pilger\\source\\repos\\E.S\\Menu - Kelvin\\Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.cs [Design]",
+              "RelativeToolTip": "Menu - Kelvin\\Formul\u00E1rios\\frmFornecedor.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T00:41:03.988Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

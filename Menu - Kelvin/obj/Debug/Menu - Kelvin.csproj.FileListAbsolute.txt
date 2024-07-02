@@ -1,0 +1,45 @@
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\Menu - Kelvin.exe.config
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\Menu - Kelvin.exe
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\Menu - Kelvin.pdb
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu - Kelvin.csproj.AssemblyReference.cache
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu___Kelvin.frmMenu.resources
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu___Kelvin.Properties.Resources.resources
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu - Kelvin.csproj.GenerateResource.cache
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu - Kelvin.csproj.CoreCompileInputs.cache
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu - Kelvin.exe
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu - Kelvin.pdb
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu - K.9DC7A518.Up2Date
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu___Kelvin.frmCliente.resources
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\ClosedXML.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\ExcelNumberFormat.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\Irony.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\SixLabors.Fonts.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.Buffers.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.IO.Packaging.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.Memory.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\XLParser.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\ClosedXML.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\ExcelNumberFormat.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\SixLabors.Fonts.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.Buffers.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.IO.Packaging.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.Memory.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu___Kelvin.Formulários.frmExportarCliente.resources
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\EPPlus.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\EPPlus.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu___Kelvin.frmEstoque.resources
+C:\Users\Kelvin Pilger\source\repos\E.S\Menu - Kelvin\Menu - Kelvin\obj\Debug\Menu___Kelvin.frmFornecedor.resources
