@@ -1,5 +1,6 @@
 ﻿using Menu___Kelvin.Classes;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -56,6 +57,9 @@ namespace Menu___Kelvin
                 case Keys.F4:
                     AltForms.OpenFrmExportacaoCliente();
                     break;
+                case Keys.F5:
+                    Planilhas.ImportarEstoque();    
+                    break;
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -104,6 +108,11 @@ namespace Menu___Kelvin
                 DB.SelecionaProduto(dgEstoque, cbTodosClientes, dtpInicial, dtpFinal);
                 dgEstoque.Focus();
             }
+        }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            Planilhas.ImportarEstoque();
         }
     }
 }

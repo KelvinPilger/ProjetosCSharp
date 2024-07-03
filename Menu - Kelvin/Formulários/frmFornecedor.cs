@@ -104,5 +104,10 @@ namespace Menu___Kelvin
         {
             Planilhas.ExportarFornecedoresGrid(dgFornecedor);
         }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            AltForms.CloseFrmFornecedor(this);
+        }
     }
 }

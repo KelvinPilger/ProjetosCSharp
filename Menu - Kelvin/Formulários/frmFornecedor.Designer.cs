@@ -49,6 +49,7 @@
             this.cmFornecedor = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exportarDadosDaGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnFechar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbDatas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFornecedor)).BeginInit();
@@ -246,7 +247,7 @@
             this.cmFornecedor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exportarDadosDaGridToolStripMenuItem});
             this.cmFornecedor.Name = "cmFornecedor";
-            this.cmFornecedor.Size = new System.Drawing.Size(196, 48);
+            this.cmFornecedor.Size = new System.Drawing.Size(196, 26);
             // 
             // exportarDadosDaGridToolStripMenuItem
             // 
@@ -266,11 +267,26 @@
             this.label6.TabIndex = 23;
             this.label6.Text = "* Botão direito na grid para Exportação.";
             // 
+            // btnFechar
+            // 
+            this.btnFechar.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnFechar.FlatAppearance.BorderSize = 0;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Location = new System.Drawing.Point(1162, 9);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Size = new System.Drawing.Size(10, 10);
+            this.btnFechar.TabIndex = 24;
+            this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            // 
             // frmFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnFechar;
             this.ClientSize = new System.Drawing.Size(1184, 453);
+            this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -319,5 +335,6 @@
         private System.Windows.Forms.ContextMenuStrip cmFornecedor;
         private System.Windows.Forms.ToolStripMenuItem exportarDadosDaGridToolStripMenuItem;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnFechar;
     }
 }

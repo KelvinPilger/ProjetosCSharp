@@ -90,10 +90,11 @@ namespace Menu___Kelvin
 
         public static void CloseFrmEstoque(frmEstoque frmEstoque)
         {
-            Task.Run(() =>
-            {
-                frmEstoque.Close();
-            });
+            frmEstoque.Close();
+        }
+
+        public static void CloseFrmFornecedor(frmFornecedor frmFornecedor) {
+            frmFornecedor.Close();
         }
     }
 }

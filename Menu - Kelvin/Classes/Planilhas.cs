@@ -10,6 +10,8 @@ using System.Configuration;
 using DocumentFormat.OpenXml.Math;
 using System.Text;
 using Menu___Kelvin.Tabelas;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using System.Security.Cryptography.Xml;
 
 namespace Menu___Kelvin.Classes
 {
@@ -389,39 +391,48 @@ namespace Menu___Kelvin.Classes
 
                         using (FbConnection conexao = new FbConnection(stringConexao))
                         {
+                            for (int i = 2; i <= totalLinhas; i++)
+                            {
+                                conexao.Open();
                                 Clientes clienteCadastro = new Clientes();
                                 clienteCadastro.Cpf = "NULL";
                                 clienteCadastro.Cnpj = "NULL";
 
-                                if (planilhaExcel.Cells[i, 3].Value != null || planilhaExcel.Cells[i, 4].Value == null)
+                                if (planilhaExcel.Cells[i, 3].Value != null && planilhaExcel.Cells[i, 4].Value == null)
                                 {
                                     clienteCadastro.Cnpj = "'" + planilhaExcel.Cells[i, 3].Value.ToString().Trim().ToUpper() + "'";
                                     clienteCadastro.Cpf = "NULL";
                                     clienteCadastro.Tipo = "JURÍDICA";
                                 }
-                                else if (planilhaExcel.Cells[i, 4].Value != null || planilhaExcel.Cells[i, 3].Value == null)
+                                else if (planilhaExcel.Cells[i, 4].Value != null && planilhaExcel.Cells[i, 3].Value == null)
                                 {
                                     clienteCadastro.Cpf = "'" + planilhaExcel.Cells[i, 4].Value.ToString().Trim().ToUpper() + "'";
                                     clienteCadastro.Cnpj = "NULL";
                                     clienteCadastro.Tipo = "FÍSICA";
                                 }
-                                else {
-                                    MessageBox.Show("Cliente não pode ter CPF e CNPJ Nulos!");
+                                else if (planilhaExcel.Cells[i, 4].Value == null && planilhaExcel.Cells[i, 3].Value == null)
+                                {
+                                    MessageBox.Show("Sem dados suficientes para concluir o cadastro!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     break;
                                 }
-                                
+                                else
+                                {
+                                    MessageBox.Show("Cliente não pode ter CNPJ e CPF no mesmo cadastro!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    break;
+                                }
+
                                 string cliente = planilhaExcel.Cells[i, 1].Value.ToString().Trim().ToUpper();
-                                string fantasia = planilhaExcel.Cells[i, 2].Value?.ToString().Trim().ToUpper() ?? string.Empty;
-                                string rg = planilhaExcel.Cells[i, 5].Value?.ToString().Trim().ToUpper() ?? string.Empty;
-                                string endereco = planilhaExcel.Cells[i, 6].Value?.ToString().Trim().ToUpper() ?? string.Empty;
-                                string complemento = planilhaExcel.Cells[i, 7].Value?.ToString().Trim().ToUpper() ?? string.Empty;
-                                string bairro = planilhaExcel.Cells[i, 8].Value?.ToString().Trim().ToUpper() ?? string.Empty;
-                                string cep = planilhaExcel.Cells[i, 9].Value?.ToString().Trim().ToUpper() ?? string.Empty;
-                                string numero = planilhaExcel.Cells[i, 10].Value?.ToString().Trim().ToUpper() ?? string.Empty;
-                                string municipio = planilhaExcel.Cells[i, 11].Value?.ToString().Trim().ToUpper() ?? string.Empty;
-                                string uf = planilhaExcel.Cells[i, 12].Value?.ToString().Trim().ToUpper() ?? string.Empty;
-                                string telefone = planilhaExcel.Cells[i, 13].Value?.ToString().Trim().ToUpper() ?? string.Empty;
-                                string email = planilhaExcel.Cells[i, 14].Value?.ToString().Trim().ToUpper() ?? string.Empty;
+                                string fantasia = planilhaExcel.Cells[i, 2].Value?.ToString().Trim().ToUpper();
+                                string rg = planilhaExcel.Cells[i, 5].Value?.ToString().Trim().ToUpper();
+                                string endereco = planilhaExcel.Cells[i, 6].Value?.ToString().Trim().ToUpper();
+                                string complemento = planilhaExcel.Cells[i, 7].Value?.ToString().Trim().ToUpper();
+                                string bairro = planilhaExcel.Cells[i, 8].Value?.ToString().Trim().ToUpper();
+                                string cep = planilhaExcel.Cells[i, 9].Value?.ToString().Trim().ToUpper();
+                                string numero = planilhaExcel.Cells[i, 10].Value?.ToString().Trim().ToUpper();
+                                string municipio = planilhaExcel.Cells[i, 11].Value?.ToString().Trim().ToUpper();
+                                string uf = planilhaExcel.Cells[i, 12].Value?.ToString().Trim().ToUpper();
+                                string telefone = planilhaExcel.Cells[i, 13].Value?.ToString().Trim().ToUpper();
+                                string email = planilhaExcel.Cells[i, 14].Value?.ToString().Trim().ToUpper();
 
                                 string insert = $@"INSERT INTO TCLIENTE (CLIENTE, DATAHORACADASTRO, ATIVO, FANTASIA,
                                 CNPJ, CPF, RG, ENDERECO, COMPLEMENTO, BAIRRO, CEP, NUMERO, CIDADE, UF, TELEFONE, EMAIL, PAIS, TIPOCLIENTE, CODIGOPAIS) 
@@ -433,13 +444,17 @@ namespace Menu___Kelvin.Classes
                                     comando.ExecuteNonQuery();
                                     conexao.Close();
                                 }
+
+                                if (i == totalLinhas)
+                                {
+                                    MessageBox.Show("Dados Importados com sucesso!", "Importação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
                             }
-                            MessageBox.Show("Dados Importados com sucesso!", "Importação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
                 else {
-                    MessageBox.Show("Diretório não selecionado!", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Diretório não selecionado!", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -484,27 +499,31 @@ namespace Menu___Kelvin.Classes
                                 fornecedorCadastro.Cpf = "NULL";
                                 fornecedorCadastro.Cnpj = "NULL";
 
-                                if (planilhaExcel.Cells[i, 3].Value != null || planilhaExcel.Cells[i, 4].Value == null)
+                                if (planilhaExcel.Cells[i, 3].Value != null && planilhaExcel.Cells[i, 4].Value == null)
                                 {
                                     fornecedorCadastro.Cnpj = "'" + planilhaExcel.Cells[i, 3].Value.ToString().Trim().ToUpper() + "'";
                                     fornecedorCadastro.Cpf = "NULL";
-                                    fornecedorCadastro.Ie = "'" + planilhaExcel.Cells[i, 5].Value?.ToString().Trim().ToUpper() + "'";
+                                    fornecedorCadastro.Ie = "'" + planilhaExcel.Cells[i, 4].Value?.ToString().Trim().ToUpper() + "'";
                                     fornecedorCadastro.Rg = "NULL";
                                 }
-                                else if (planilhaExcel.Cells[i, 4].Value != null || planilhaExcel.Cells[i, 3].Value == null)
+                                else if (planilhaExcel.Cells[i, 4].Value != null && planilhaExcel.Cells[i, 3].Value == null)
                                 {
-                                    fornecedorCadastro.Cpf = "'" + planilhaExcel.Cells[i, 4].Value.ToString().Trim().ToUpper() + "'";
+                                    fornecedorCadastro.Cpf = "'" + planilhaExcel.Cells[i, 3].Value.ToString().Trim().ToUpper() + "'";
                                     fornecedorCadastro.Cnpj = "NULL";
-                                    fornecedorCadastro.Rg = "'" + planilhaExcel.Cells[i, 5].Value?.ToString().Trim().ToUpper() + "'";
+                                    fornecedorCadastro.Rg = "'" + planilhaExcel.Cells[i, 4].Value?.ToString().Trim().ToUpper() + "'";
                                     fornecedorCadastro.Ie = "NULL";
                                 }
-                                else
+                                else if (planilhaExcel.Cells[i, 4].Value == null && planilhaExcel.Cells[i, 3].Value == null)
                                 {
-                                    MessageBox.Show("Fornecedor não pode ter CPF e CNPJ Nulos!");
+                                    MessageBox.Show("Sem dados suficientes para concluir o cadastro!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    break;
+                                }
+                                else {
+                                    MessageBox.Show("Fornecedor não pode ter CNPJ e CPF no mesmo cadastro!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     break;
                                 }
 
-                                string razaosocial = planilhaExcel.Cells[i, 1].Value.ToString().Trim().ToUpper();
+                                string razaosocial = planilhaExcel.Cells[i, 1].Value.ToString().Trim().ToUpper() ?? string.Empty;
                                 string fantasia = planilhaExcel.Cells[i, 2].Value?.ToString().Trim().ToUpper() ?? string.Empty;
                                 string endereco = planilhaExcel.Cells[i, 6].Value?.ToString().Trim().ToUpper() ?? string.Empty;
                                 string complemento = planilhaExcel.Cells[i, 7].Value?.ToString().Trim().ToUpper() ?? string.Empty;
@@ -526,14 +545,101 @@ namespace Menu___Kelvin.Classes
                                     comando.ExecuteNonQuery();
                                     conexao.Close();
                                 }
+
+                                if (i == totalLinhas) {
+                                    MessageBox.Show("Dados Importados com sucesso!", "Importação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
                             }
-                            MessageBox.Show("Dados Importados com sucesso!", "Importação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Diretório não selecionado!", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Diretório não selecionado!", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex}");
+            }
+        }
+
+        public static void ImportarEstoque() {
+            OpenFileDialog selecaoDiretorio = new OpenFileDialog
+            {
+                Title = "Selecione o diretório de salvamento: ",
+                AddExtension = true,
+                Filter = "Arquivo do Excel (*.xlsx)|*.xlsx",
+                DefaultExt = "xlsx"
+            };
+
+            string diretorio = "";
+            try
+            {
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                if (selecaoDiretorio.ShowDialog() == DialogResult.OK)
+                {
+                    diretorio = @selecaoDiretorio.FileName;
+                    string stringConexao = DB.ConectarBD();
+
+                    FileInfo fileInfo = new FileInfo(diretorio);
+                    using (ExcelPackage excelPackage = new ExcelPackage(fileInfo))
+                    {
+                        ExcelWorksheet planilhaExcel = excelPackage.Workbook.Worksheets[0];
+                        int totalLinhas = planilhaExcel.Dimension.Rows;
+
+                        using (FbConnection conexao = new FbConnection(stringConexao))
+                        {
+                            
+                            for (int i = 2; i <= totalLinhas; i++)
+                            {
+                                Estoque estoque = new Estoque();
+                                conexao.Open();
+                                estoque.produto = planilhaExcel.Cells[i, 1].Value == null ? "NULL" : planilhaExcel.Cells[i, 1].Value.ToString().Trim().ToUpper();
+                                estoque.referencia = planilhaExcel.Cells[i, 2].Value == null ? "NULL" : "'" + planilhaExcel.Cells[i, 2].Value.ToString().Trim().ToUpper() + "'";
+                                estoque.qtdeInicial = planilhaExcel.Cells[i, 3].Value == null ? "NULL" : planilhaExcel.Cells[i, 3].Value.ToString().Trim().ToUpper();
+                                estoque.codBarras = planilhaExcel.Cells[i, 4].Value == null ? "NULL" : planilhaExcel.Cells[i, 4].Value.ToString().Trim().ToUpper();
+                                estoque.precoCusto = planilhaExcel.Cells[i, 5].Value == null ? "NULL" : planilhaExcel.Cells[i, 5].Value.ToString().Trim().ToUpper().Replace(',', '.');
+                                estoque.precoVenda = planilhaExcel.Cells[i, 6].Value == null ? "NULL" : planilhaExcel.Cells[i, 6].Value.ToString().Trim().ToUpper().Replace(',', '.');
+                                estoque.csosn = planilhaExcel.Cells[i, 7].Value == null ? "NULL" : planilhaExcel.Cells[i, 7].Value.ToString().Trim().ToUpper();
+                                estoque.aliquotaIcms = planilhaExcel.Cells[i, 8].Value == null ? "NULL" : "'" + planilhaExcel.Cells[i, 8].Value.ToString().Trim().ToUpper() + "'";
+                                estoque.cstIpi = planilhaExcel.Cells[i, 9].Value == null ? "NULL" : "'" + planilhaExcel.Cells[i, 9].Value.ToString().Trim().ToUpper() + "'";
+                                estoque.cstPis = planilhaExcel.Cells[i, 10].Value == null ? "NULL" : "'" + planilhaExcel.Cells[i, 10].Value.ToString().Trim().ToUpper() + "'";
+                                estoque.cstCofins = planilhaExcel.Cells[i, 11].Value == null ? "NULL" : "'" + planilhaExcel.Cells[i, 11].Value.ToString().Trim().ToUpper() + "'";
+                                estoque.ncm = planilhaExcel.Cells[i, 12].Value == null ? "NULL" : "'" + planilhaExcel.Cells[i, 12].Value.ToString().Trim().ToUpper() + "'";
+
+                                string insert = $@"
+                                INSERT INTO TESTOQUE (
+                                    PRODUTO, CODBARRAS, CSOSN, UNIDADE, PRECOCUSTO, PRECOVENDA, PERCLUCRO, CODUNIDADEMEDIDA, CODCSTORIGEM, FATORCONVERSAO,
+                                    IAT, IPPT, TRIBUTADO, PESADO
+                                ) 
+                                VALUES (
+                                    '{estoque.produto}',  
+                                    '{estoque.codBarras}, 
+                                    {estoque.csosn},
+                                    UN,
+                                    {estoque.precoCusto},
+                                    {estoque.precoVenda},
+                                    0, 1, 1, '*', A, T, NÃO, NÃO'
+                                );";
+
+                                using (FbCommand comando = new FbCommand(insert, conexao))
+                                {
+                                    comando.ExecuteNonQuery();
+                                    conexao.Close();
+                                }
+
+                                if (i == totalLinhas)
+                                {
+                                    MessageBox.Show("Dados Importados com sucesso!", "Importação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Diretório não selecionado!", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

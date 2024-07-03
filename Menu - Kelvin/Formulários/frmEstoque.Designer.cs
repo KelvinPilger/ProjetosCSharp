@@ -141,6 +141,7 @@ namespace Menu___Kelvin
             this.btnImportar.Size = new System.Drawing.Size(35, 35);
             this.btnImportar.TabIndex = 1;
             this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // btnExportar
             // 
@@ -286,6 +287,7 @@ namespace Menu___Kelvin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.CancelButton = this.btnFechar;
             this.ClientSize = new System.Drawing.Size(1184, 453);

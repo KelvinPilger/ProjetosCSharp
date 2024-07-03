@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Menu___Kelvin.Classes
 {
-    public class Clientes
+    internal class Clientes
     {
         public string Nome { get; set; }
         public string Fantasia { get; set; }

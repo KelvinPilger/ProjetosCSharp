@@ -191,6 +191,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Tabelas\Estoque.cs" />
     <Compile Include="Tabelas\Fornecedor.cs" />
     <EmbeddedResource Include="Formulários\frmExportarCliente.resx">
       <DependentUpon>frmExportarCliente.cs</DependentUpon>
