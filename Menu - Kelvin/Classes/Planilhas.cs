@@ -389,9 +389,6 @@ namespace Menu___Kelvin.Classes
 
                         using (FbConnection conexao = new FbConnection(stringConexao))
                         {
-                            for (int i = 2; i <= totalLinhas; i++)
-                            {
-                                conexao.Open();
                                 Clientes clienteCadastro = new Clientes();
                                 clienteCadastro.Cpf = "NULL";
                                 clienteCadastro.Cnpj = "NULL";
