@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Importador
 {
-    public partial class Form1 : Form
+    public partial class frmImportador : Form
     {
-        public Form1()
+        public frmImportador()
         {
             InitializeComponent();
         }
