@@ -208,7 +208,7 @@
             this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Enabled = false;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(304, 81);
             this.button2.Name = "button2";
@@ -221,7 +221,7 @@
             this.btnStatusOrigem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnStatusOrigem.BackColor = System.Drawing.Color.Red;
             this.btnStatusOrigem.Enabled = false;
-            this.btnStatusOrigem.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnStatusOrigem.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnStatusOrigem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatusOrigem.Location = new System.Drawing.Point(304, 24);
             this.btnStatusOrigem.Name = "btnStatusOrigem";
