@@ -1,0 +1,16 @@
+C:\Projetos\ImportadorAK\ImportadorFDB5\bin\Debug\ImportadorFDB5.exe.config
+C:\Projetos\ImportadorAK\ImportadorFDB5\bin\Debug\ImportadorFDB5.exe
+C:\Projetos\ImportadorAK\ImportadorFDB5\bin\Debug\ImportadorFDB5.pdb
+C:\Projetos\ImportadorAK\ImportadorFDB5\obj\Debug\ImportadorFDB5.csproj.AssemblyReference.cache
+C:\Projetos\ImportadorAK\ImportadorFDB5\obj\Debug\ImportadorFDB5.Properties.Resources.resources
+C:\Projetos\ImportadorAK\ImportadorFDB5\obj\Debug\ImportadorFDB5.csproj.GenerateResource.cache
+C:\Projetos\ImportadorAK\ImportadorFDB5\obj\Debug\ImportadorFDB5.csproj.CoreCompileInputs.cache
+C:\Projetos\ImportadorAK\ImportadorFDB5\obj\Debug\ImportadorFDB5.exe
+C:\Projetos\ImportadorAK\ImportadorFDB5\obj\Debug\ImportadorFDB5.pdb
+C:\Projetos\ImportadorAK\ImportadorFDB5\obj\Debug\ImportadorFDB5.frmImportador.resources
+C:\Projetos\ImportadorAK\ImportadorFDB5\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\Projetos\ImportadorAK\ImportadorFDB5\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Projetos\ImportadorAK\ImportadorFDB5\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Projetos\ImportadorAK\ImportadorFDB5\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Projetos\ImportadorAK\ImportadorFDB5\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Projetos\ImportadorAK\ImportadorFDB5\obj\Debug\Importad.6B772E17.Up2Date
