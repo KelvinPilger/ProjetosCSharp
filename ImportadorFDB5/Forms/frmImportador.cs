@@ -47,6 +47,7 @@ namespace ImportadorFDB5
             if (origem.ShowDialog() == DialogResult.OK)
             {
                 txtOrigem.Text = origem.FileName;
+                Importacao.dire = @txtOrigem.Text;
                 Importacao.ConexaoOrigem(txtOrigem, btnStatusOrigem);
             }
             else {
@@ -69,10 +70,13 @@ namespace ImportadorFDB5
             if (destino.ShowDialog() == DialogResult.OK)
             {
                 txtDestino.Text = destino.FileName;
+                Importacao.dire = txtDestino.Text;
+                Importacao.ConexaoDestino(txtDestino, btnStatusDestino);
             }
             else
             {
                 txtDestino.Text = "Selecione o banco de destino.";
+                btnStatusDestino.BackColor = Color.Red;
             }
         }
 
@@ -80,7 +84,5 @@ namespace ImportadorFDB5
         {
 
         }
-
-        
     }
 }

@@ -43,7 +43,7 @@
             this.btnOrigem = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnStatusDestino = new System.Windows.Forms.Button();
             this.btnStatusOrigem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -203,18 +203,18 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Progresso";
             // 
-            // button2
+            // btnStatusDestino
             // 
-            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Enabled = false;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(304, 81);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(12, 12);
-            this.button2.TabIndex = 14;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnStatusDestino.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatusDestino.BackColor = System.Drawing.Color.Red;
+            this.btnStatusDestino.Enabled = false;
+            this.btnStatusDestino.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnStatusDestino.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatusDestino.Location = new System.Drawing.Point(304, 81);
+            this.btnStatusDestino.Name = "btnStatusDestino";
+            this.btnStatusDestino.Size = new System.Drawing.Size(12, 12);
+            this.btnStatusDestino.TabIndex = 14;
+            this.btnStatusDestino.UseVisualStyleBackColor = false;
             // 
             // btnStatusOrigem
             // 
@@ -237,7 +237,7 @@
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(761, 251);
             this.Controls.Add(this.btnStatusOrigem);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnStatusDestino);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.btnImportar);
@@ -273,7 +273,6 @@
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ProgressBar pgbImportar;
-        private System.Windows.Forms.TextBox txtOrigem;
         private System.Windows.Forms.Button btnOrigem;
         private System.Windows.Forms.TextBox txtDestino;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -285,8 +284,9 @@
         private System.Windows.Forms.Button btnImportar;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnStatusDestino;
         private System.Windows.Forms.Button btnStatusOrigem;
+        public System.Windows.Forms.TextBox txtOrigem;
     }
 }
 

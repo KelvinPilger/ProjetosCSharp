@@ -17,6 +17,7 @@ namespace ImportadorFDB5
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmImportador());
+
         }
     }
 }
