@@ -124,7 +124,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::ImportadorFDB5.Properties.Resources.png_transparent_bathroom_aesthetics_person_ak_logo_angle_text_triangle_thumbnail_removebg_preview;
-            this.pictureBox3.Location = new System.Drawing.Point(349, -35);
+            this.pictureBox3.Location = new System.Drawing.Point(369, -35);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(355, 264);
             this.pictureBox3.TabIndex = 11;
