@@ -29,8 +29,6 @@ namespace ImportadorFDB5
         public frmImportador()
         {
             InitializeComponent();
-
-
         }
 
         private void btnOrigem_Click(object sender, EventArgs e)
@@ -84,7 +82,6 @@ namespace ImportadorFDB5
         {
             
         }
-
         private void btnImportar_Click(object sender, EventArgs e)
         {
             Importacao.ExportarDados(Importacao.PreencherNomeTabelas(), pgbImportar);
