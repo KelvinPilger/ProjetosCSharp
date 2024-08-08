@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using FirebirdSql.Data.Client;
 using FirebirdSql.Data.FirebirdClient;
 using System.IO;
+using static System.Windows.Forms.LinkLabel;
 
 namespace ImportadorFDB5.Classes
 {
     internal class Importacao
     {
-        public static string dire;
+        public static string diretorioOrigem;
+        public static string diretorioDestino;
         
 
         public static string PortaFdbDois() {
@@ -59,7 +61,7 @@ namespace ImportadorFDB5.Classes
 
         public static void ConexaoOrigem(TextBox origem, Button btnStatus)
         {
-            string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={dire};DataSource=localhost;Port={portaUm};
+            string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={diretorioOrigem};DataSource=localhost;Port={portaUm};
                                     Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
                                     Packet Size=8192;ServerType=0;";
             using (FbConnection conexao = new FbConnection(stringConexao))
@@ -84,7 +86,7 @@ namespace ImportadorFDB5.Classes
 
         public static void ConexaoDestino(TextBox destino, Button btnStatus)
         {
-            string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={dire};DataSource=localhost;Port={portaDois};
+            string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
         '                           Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
                                     Packet Size=8192;\r\nServerType=0;";
             using (FbConnection conexaoDest = new FbConnection(stringConexao))
@@ -107,32 +109,101 @@ namespace ImportadorFDB5.Classes
             }
         }
 
-        public List<string> PreencherTabelas()
-        {
-            
-            string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={dire};DataSource=localhost;{portaUm};
-                                   Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
-                                   Packet Size=8192;\r\nServerType=0;";
+        public static List<string> PreencherNomeTabelas() {
+            string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={diretorioOrigem};DataSource=localhost;Port={portaUm};
+                                    Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
+                                    Packet Size=8192;ServerType=0;";
+            FbConnection conexao = new FbConnection(stringConexao);
+            List<string> nomeTabela = new List<string>();
 
-            using (FbConnection conexaoDest = new FbConnection(stringConexao))
-            {
-                List<string> nomeTabelas = new List<string>();
-                string select = "SELECT RDB$RELATION_NAME FROM RDB$RELATIONS WHERE RDB$SYSTEM_FLAG = '0'";
-
-                FbCommand comando = new FbCommand(select, conexaoDest);
-                conexaoDest.Open();
-                FbDataReader reader = comando.ExecuteReader();
-
-                while (reader.Read())
+            conexao.Open();
+            string select = "SELECT RDB$RELATION_NAME FROM RDB$RELATIONS WHERE RDB$SYSTEM_FLAG = '0'";
+            using (FbCommand comando = new FbCommand(select, conexao)) { 
+                using(FbDataReader leitor = comando.ExecuteReader())
                 {
-                    nomeTabelas.Add(reader["RDB$RELATION_NAME"].ToString().Trim());
+                    while (leitor.Read())
+                    {
+                        nomeTabela.Add(leitor.GetString(0).Trim());
+                    }
                 }
+                return nomeTabela;
+            }
+        }
 
-                foreach (string list in nomeTabelas) { 
-                
+        public static void ExportarDados(List<string> tabelas, ProgressBar progresso) {
+            string stringConexaoDestino = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
+                                    Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
+                                    Packet Size=8192;ServerType=0;";
+            string stringConexaoOrigem = $@"User=SYSDBA;Password=masterkey;Database={diretorioOrigem};DataSource=localhost;Port={portaUm};
+                                    Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
+                                    Packet Size=8192;ServerType=0;";
+
+            FbConnection conexaoDestino = new FbConnection(stringConexaoDestino);
+            FbConnection conexaoOrigem = new FbConnection(stringConexaoOrigem);
+
+            List<string> tabelasExportar = PreencherNomeTabelas();
+            bool validar = false;
+            conexaoOrigem.Open();
+            conexaoDestino.Open();
+
+            decimal valor = progresso.Maximum / tabelasExportar.Count;
+
+            foreach (string tabela in tabelasExportar)
+            {
+                string select = $@"SELECT * FROM {tabela}";
+
+                using (FbCommand comandoSelect = new FbCommand(select, conexaoOrigem)) {
+                    using (FbDataReader leitor = comandoSelect.ExecuteReader())
+                    {
+                        DataTable schemaTable = leitor.GetSchemaTable();
+                        List<string> colunas = new List<string>();
+                        List<string> parametros = new List<string>();
+                        foreach (DataRow linha in schemaTable.Rows)
+                        {
+                            string coluna = linha["ColumnName"].ToString();
+                            colunas.Add(coluna);
+                            parametros.Add($"@{coluna}");
+                        }
+
+                        
+
+                        using(FbCommand comandoDestino = new FbCommand(select, conexaoDestino)) {
+                            using (FbDataReader leitorDestino = comandoDestino.ExecuteReader())
+                            {
+                                if(leitorDestino.Read())
+                                {
+                                    validar = true;
+                                }
+
+                                /* DataTable schemaTableDestino = leitorDestino.GetSchemaTable();
+                                List<string> colunasDestino = new List<string>();
+                                List<string> parametroDestino = new List<string>();
+                                foreach (DataRow linhaDestino in schemaTableDestino.Rows) 
+                                {
+                                    string colunaDestino = linhaDestino["ColumnName"].ToString();
+                                    colunasDestino.Add(colunaDestino);
+                                    parametros.Add($"@{colunaDestino}");
+                                } */
+                            }
+                        }
+
+                        if (validar == false)
+                        {
+                            string insert = $"INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
+                            while (leitor.Read())
+                            {
+                                using (FbCommand comandoInsert = new FbCommand(insert, conexaoDestino))
+                                {
+                                    foreach (string coluna in colunas)
+                                    {
+                                        comandoInsert.Parameters.AddWithValue($@"{coluna}", coluna);
+                                    }
+                                    comandoInsert.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                    }
                 }
-                conexaoDest.Close();
-                return nomeTabelas;
             }
         }
     }

@@ -146,6 +146,7 @@
             this.btnImportar.Text = "Importar Dados";
             this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // pictureBox2
             // 

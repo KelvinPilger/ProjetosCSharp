@@ -47,7 +47,7 @@ namespace ImportadorFDB5
             if (origem.ShowDialog() == DialogResult.OK)
             {
                 txtOrigem.Text = origem.FileName;
-                Importacao.dire = @txtOrigem.Text;
+                Importacao.diretorioOrigem = @txtOrigem.Text;
                 Importacao.ConexaoOrigem(txtOrigem, btnStatusOrigem);
             }
             else {
@@ -70,7 +70,7 @@ namespace ImportadorFDB5
             if (destino.ShowDialog() == DialogResult.OK)
             {
                 txtDestino.Text = destino.FileName;
-                Importacao.dire = txtDestino.Text;
+                Importacao.diretorioDestino = txtDestino.Text;
                 Importacao.ConexaoDestino(txtDestino, btnStatusDestino);
             }
             else
@@ -82,7 +82,12 @@ namespace ImportadorFDB5
 
         private void frmImportador_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            Importacao.ExportarDados(Importacao.PreencherNomeTabelas(), pgbImportar);
         }
     }
 }
