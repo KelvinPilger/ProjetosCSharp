@@ -18,18 +18,21 @@ namespace ImportadorFDB5.Classes
     {
         public static string diretorioOrigem;
         public static string diretorioDestino;
-        
 
-        public static string PortaFdbDois() {
+
+        public static string PortaFdbDois()
+        {
             string diretorioFdb = @"C:\Program Files\Firebird\Firebird_2_5\firebird.conf";
-            if (!File.Exists(diretorioFdb)) {
+            if (!File.Exists(diretorioFdb))
+            {
                 diretorioFdb = @"C:\Program Files (x86)\Firebird\Firebird_2_5\firebird.conf";
             }
 
             string[] lines = File.ReadAllLines(diretorioFdb);
             string portaOrigem = lines.FirstOrDefault(line => line.Trim().StartsWith("RemoteServicePort", StringComparison.OrdinalIgnoreCase));
-            
-            if (portaOrigem is null) {
+
+            if (portaOrigem is null)
+            {
                 portaOrigem = "3050";
             }
 
@@ -100,8 +103,8 @@ namespace ImportadorFDB5.Classes
                     }
                 }
                 catch
-                { 
-                    btnStatus.BackColor= System.Drawing.Color.Red;
+                {
+                    btnStatus.BackColor = System.Drawing.Color.Red;
                     destino.Text = "Selecione o banco de origem.";
                     MessageBox.Show(@"-> O Serviço do Firebird Está Ativo?\n-> O banco de dados selecionado é pertencente a V5.0 do\n     
                                     Firebird?", "Revisar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -109,7 +112,8 @@ namespace ImportadorFDB5.Classes
             }
         }
 
-        public static List<string> PreencherNomeTabelas() {
+        public static List<string> PreencherNomeTabelas()
+        {
             string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={diretorioOrigem};DataSource=localhost;Port={portaUm};
                                     Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
                                     Packet Size=8192;ServerType=0;";
@@ -118,8 +122,9 @@ namespace ImportadorFDB5.Classes
 
             conexao.Open();
             string select = "SELECT RDB$RELATION_NAME FROM RDB$RELATIONS WHERE RDB$SYSTEM_FLAG = '0'";
-            using (FbCommand comando = new FbCommand(select, conexao)) { 
-                using(FbDataReader leitor = comando.ExecuteReader())
+            using (FbCommand comando = new FbCommand(select, conexao))
+            {
+                using (FbDataReader leitor = comando.ExecuteReader())
                 {
                     while (leitor.Read())
                     {
@@ -130,7 +135,40 @@ namespace ImportadorFDB5.Classes
             }
         }
 
-        public static void ExportarDados(List<string> tabelas, ProgressBar progresso) {
+        public static void DropForeignKey() {
+            string stringConexaoDestino = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
+                                    Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
+                                    Packet Size=8192;ServerType=0;";
+
+            FbConnection conexao = new FbConnection(stringConexaoDestino);
+
+            string consultaForeignKeys = @"
+            SELECT 
+                RDB$CONSTRAINT_NAME, 
+                RDB$RELATION_NAME 
+            FROM 
+                RDB$RELATION_CONSTRAINTS 
+            WHERE 
+                RDB$CONSTRAINT_TYPE = 'FOREIGN KEY'";
+            conexao.Open();
+            using (FbCommand comando = new FbCommand(consultaForeignKeys, conexao)) {
+                using (FbDataReader leitor = comando.ExecuteReader()) {
+                    while (leitor.Read()) { 
+                        string nomeConstraint = leitor["RDB$CONSTRAINT_NAME"].ToString();
+                        string nomeTabela = leitor["RDB$RELATION_NAME"].ToString();
+
+                        string comandoDrop = $@"ALTER TABLE {nomeTabela} DROP CONSTRAINT {nomeConstraint}";
+
+                        using (FbCommand drop = new FbCommand(comandoDrop, conexao)) {
+                            drop.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void ExportarDados(List<string> tabelas, ProgressBar progresso)
+        {
             string stringConexaoDestino = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
                                     Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
                                     Packet Size=8192;ServerType=0;";
@@ -152,12 +190,14 @@ namespace ImportadorFDB5.Classes
             {
                 string select = $@"SELECT * FROM {tabela}";
 
-                using (FbCommand comandoSelect = new FbCommand(select, conexaoOrigem)) {
+                using (FbCommand comandoSelect = new FbCommand(select, conexaoOrigem))
+                {
                     using (FbDataReader leitor = comandoSelect.ExecuteReader())
                     {
                         DataTable schemaTable = leitor.GetSchemaTable();
                         List<string> colunas = new List<string>();
                         List<string> parametros = new List<string>();
+
                         foreach (DataRow linha in schemaTable.Rows)
                         {
                             string coluna = linha["ColumnName"].ToString();
@@ -165,46 +205,27 @@ namespace ImportadorFDB5.Classes
                             parametros.Add($"@{coluna}");
                         }
 
-                        
-
-                        using(FbCommand comandoDestino = new FbCommand(select, conexaoDestino)) {
-                            using (FbDataReader leitorDestino = comandoDestino.ExecuteReader())
-                            {
-                                if(leitorDestino.Read())
-                                {
-                                    validar = true;
-                                }
-
-                                /* DataTable schemaTableDestino = leitorDestino.GetSchemaTable();
-                                List<string> colunasDestino = new List<string>();
-                                List<string> parametroDestino = new List<string>();
-                                foreach (DataRow linhaDestino in schemaTableDestino.Rows) 
-                                {
-                                    string colunaDestino = linhaDestino["ColumnName"].ToString();
-                                    colunasDestino.Add(colunaDestino);
-                                    parametros.Add($"@{colunaDestino}");
-                                } */
-                            }
-                        }
-
                         if (validar == false)
                         {
-                            string insert = $"INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
-                            while (leitor.Read())
-                            {
-                                using (FbCommand comandoInsert = new FbCommand(insert, conexaoDestino))
+                            if (tabela != "TALIQUOTAFCP" && tabela != "TECF" && tabela != "TSCRIPT" && tabela != "TCONFIGAGENDA" && tabela != "TCONFIGALUGUEL" && tabela != "TCONFIGBACKUP") {
+                                while (leitor.Read())
                                 {
-                                    foreach (string coluna in colunas)
+                                    string insert = $"UPDATE OR INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
+                                    using (FbCommand comandoInsert = new FbCommand(insert, conexaoDestino))
                                     {
-                                        comandoInsert.Parameters.AddWithValue($@"{coluna}", coluna);
+                                        foreach (string coluna in colunas)
+                                        {
+                                            comandoInsert.Parameters.AddWithValue($@"{coluna}", leitor[coluna]);
+                                        }
+                                        comandoInsert.ExecuteNonQuery();
                                     }
-                                    comandoInsert.ExecuteNonQuery();
                                 }
                             }
                         }
                     }
                 }
             }
+            MessageBox.Show("Importação Concluída com Sucesso!");
         }
     }
 }
