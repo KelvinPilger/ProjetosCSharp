@@ -135,7 +135,7 @@ namespace ImportadorFDB5.Classes
             }
         }
 
-        public static void DropForeignKey() {
+        public static void DropKeys() {
             string stringConexaoDestino = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
                                     Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
                                     Packet Size=8192;ServerType=0;";
@@ -150,9 +150,17 @@ namespace ImportadorFDB5.Classes
                 RDB$RELATION_CONSTRAINTS 
             WHERE 
                 RDB$CONSTRAINT_TYPE = 'FOREIGN KEY'";
+
+            string consultaUniqueKeys = @"
+            SELECT 
+                RDB$CONSTRAINT_NAME, 
+                RDB$RELATION_NAME 
+            FROM 
+                RDB$RELATION_CONSTRAINTS 
+            WHERE RDB$CONSTRAINT_NAME LIKE '%UNQ%'";
             conexao.Open();
-            using (FbCommand comando = new FbCommand(consultaForeignKeys, conexao)) {
-                using (FbDataReader leitor = comando.ExecuteReader()) {
+            using (FbCommand comandoFk = new FbCommand(consultaForeignKeys, conexao)) {
+                using (FbDataReader leitor = comandoFk.ExecuteReader()) {
                     while (leitor.Read()) { 
                         string nomeConstraint = leitor["RDB$CONSTRAINT_NAME"].ToString();
                         string nomeTabela = leitor["RDB$RELATION_NAME"].ToString();
@@ -165,6 +173,27 @@ namespace ImportadorFDB5.Classes
                     }
                 }
             }
+
+
+            using (FbCommand comandoUnq = new FbCommand(consultaUniqueKeys, conexao))
+            {
+                using (FbDataReader leitor = comandoUnq.ExecuteReader())
+                {
+                    while (leitor.Read())
+                    {
+                        string nomeUnique = leitor["RDB$CONSTRAINT_NAME"].ToString();
+                        string nomeTabela = leitor["RDB$RELATION_NAME"].ToString();
+
+                        string comandoDrop = $@"ALTER TABLE {nomeTabela} DROP CONSTRAINT {nomeUnique}";
+
+                        using (FbCommand drop = new FbCommand(comandoDrop, conexao))
+                        {
+                            drop.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+
         }
 
         public static void ExportarDados(List<string> tabelas, ProgressBar progresso)
@@ -207,7 +236,7 @@ namespace ImportadorFDB5.Classes
 
                         if (validar == false)
                         {
-                            if (tabela != "TALIQUOTAFCP" && tabela != "TECF" && tabela != "TSCRIPT" && tabela != "TCONFIGAGENDA" && tabela != "TCONFIGALUGUEL" && tabela != "TCONFIGBACKUP") {
+                            if (tabela != "TALIQUOTAFCP" && tabela != "TECF" && tabela != "TSCRIPT" &&  tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE") {
                                 while (leitor.Read())
                                 {
                                     string insert = $"UPDATE OR INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";

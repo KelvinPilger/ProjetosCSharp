@@ -40,10 +40,11 @@
               "RelativeDocumentMoniker": "ImportadorFDB5\\Forms\\frmImportador.cs",
               "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.cs",
               "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAowFkAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAqwFkAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T00:20:18.05Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -53,9 +54,10 @@
               "RelativeDocumentMoniker": "ImportadorFDB5\\Forms\\frmImportador.cs",
               "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.cs [Design]",
               "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-05T23:28:35.241Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Bookmark",
@@ -82,8 +84,9 @@
               "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.Designer.cs",
               "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
-              "WhenOpened": "2024-08-06T22:55:10.267Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T22:55:10.267Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -93,7 +96,7 @@
               "RelativeDocumentMoniker": "ImportadorFDB5\\Classes\\Importacao.cs",
               "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Classes\\Importacao.cs",
               "RelativeToolTip": "ImportadorFDB5\\Classes\\Importacao.cs",
-              "ViewState": "AQIAAKcAAAAAAAAAAAAgwNsAAAAoAAAA",
+              "ViewState": "AQIAANQAAAAAAAAAAAAgwPgAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T01:23:26.661Z",
               "EditorCaption": ""
