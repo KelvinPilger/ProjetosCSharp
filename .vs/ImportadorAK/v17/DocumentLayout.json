@@ -41,10 +41,9 @@
               "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.cs",
               "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.cs",
               "ViewState": "AQIAAEcAAAAAAAAAAAAowFkAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
               "WhenOpened": "2024-08-06T00:20:18.05Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -54,10 +53,9 @@
               "RelativeDocumentMoniker": "ImportadorFDB5\\Forms\\frmImportador.cs",
               "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.cs [Design]",
               "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
               "WhenOpened": "2024-08-05T23:28:35.241Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -84,9 +82,8 @@
               "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.Designer.cs",
               "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T22:55:10.267Z",
-              "EditorCaption": ""
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2024-08-06T22:55:10.267Z"
             },
             {
               "$type": "Document",
@@ -96,7 +93,7 @@
               "RelativeDocumentMoniker": "ImportadorFDB5\\Classes\\Importacao.cs",
               "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Classes\\Importacao.cs",
               "RelativeToolTip": "ImportadorFDB5\\Classes\\Importacao.cs",
-              "ViewState": "AQIAAMEAAAAAAAAAAAAowNsAAAAoAAAA",
+              "ViewState": "AQIAAKcAAAAAAAAAAAAgwNsAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T01:23:26.661Z",
               "EditorCaption": ""

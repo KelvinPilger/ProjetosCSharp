@@ -133,6 +133,7 @@
             // btnImportar
             // 
             this.btnImportar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnImportar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImportar.FlatAppearance.BorderSize = 0;
             this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -160,6 +161,7 @@
             // btnDestino
             // 
             this.btnDestino.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDestino.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDestino.FlatAppearance.BorderSize = 0;
             this.btnDestino.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDestino.Image = global::ImportadorFDB5.Properties.Resources.pasta;
@@ -174,6 +176,7 @@
             // btnOrigem
             // 
             this.btnOrigem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnOrigem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOrigem.FlatAppearance.BorderSize = 0;
             this.btnOrigem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrigem.Image = global::ImportadorFDB5.Properties.Resources.pasta;
