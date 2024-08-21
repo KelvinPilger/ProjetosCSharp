@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using FirebirdSql.Data.Client;
 using FirebirdSql.Data.FirebirdClient;
 using System.IO;
-using static System.Windows.Forms.LinkLabel;
+using System.Reflection.Emit;
 
 namespace ImportadorFDB5.Classes
 {
@@ -135,12 +135,17 @@ namespace ImportadorFDB5.Classes
             }
         }
 
-        public static void DropKeys() {
+        public static void DropKeys(System.Windows.Forms.Label lbl)
+        {
             string stringConexaoDestino = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
                                     Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
                                     Packet Size=8192;ServerType=0;";
 
             FbConnection conexao = new FbConnection(stringConexaoDestino);
+
+            string consultaTrigger = @"
+            SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS WHERE RDB$FLAGS = 1;
+            ";
 
             string consultaForeignKeys = @"
             SELECT 
@@ -158,22 +163,48 @@ namespace ImportadorFDB5.Classes
             FROM 
                 RDB$RELATION_CONSTRAINTS 
             WHERE RDB$CONSTRAINT_NAME LIKE '%UNQ%'";
+
             conexao.Open();
-            using (FbCommand comandoFk = new FbCommand(consultaForeignKeys, conexao)) {
-                using (FbDataReader leitor = comandoFk.ExecuteReader()) {
-                    while (leitor.Read()) { 
-                        string nomeConstraint = leitor["RDB$CONSTRAINT_NAME"].ToString();
-                        string nomeTabela = leitor["RDB$RELATION_NAME"].ToString();
 
-                        string comandoDrop = $@"ALTER TABLE {nomeTabela} DROP CONSTRAINT {nomeConstraint}";
-
-                        using (FbCommand drop = new FbCommand(comandoDrop, conexao)) {
-                            drop.ExecuteNonQuery();
+            using (FbCommand comandoTrigger = new FbCommand(consultaTrigger, conexao))
+            {
+                using (FbDataReader leitor = comandoTrigger.ExecuteReader())
+                {
+                    while (leitor.Read())
+                    {
+                        string nomeTrigger = leitor["RDB$TRIGGER_NAME"].ToString();
+                        string comandoInactive = $@"ALTER TRIGGER {nomeTrigger} INACTIVE";
+                        using (FbCommand comandoInativar = new FbCommand(comandoInactive, conexao))
+                        {
+                            comandoInativar.ExecuteNonQuery();
                         }
                     }
                 }
             }
 
+            using (FbCommand comandoFk = new FbCommand(consultaForeignKeys, conexao))
+            {
+                using (FbDataReader leitor = comandoFk.ExecuteReader())
+                {
+                    while (leitor.Read())
+                    {
+                        string nomeConstraint = leitor["RDB$CONSTRAINT_NAME"].ToString();
+                        string nomeTabela = leitor["RDB$RELATION_NAME"].ToString();
+
+                        string comandoDrop = $@"ALTER TABLE {nomeTabela} DROP CONSTRAINT {nomeConstraint}";
+                        string pkDefere = "SET CONSTRAINTS ALL DEFERRED;";
+
+                        using (FbCommand drop = new FbCommand(comandoDrop, conexao))
+                        {
+                            drop.ExecuteNonQuery();
+                        }
+                        using (FbCommand defere = new FbCommand(pkDefere, conexao))
+                        {
+                            defere.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
 
             using (FbCommand comandoUnq = new FbCommand(consultaUniqueKeys, conexao))
             {
@@ -195,15 +226,18 @@ namespace ImportadorFDB5.Classes
             }
 
         }
-
-        public static void ExportarDados(List<string> tabelas, ProgressBar progresso)
+        public static void ExportarDados(List<string> tabelas, ProgressBar progresso, System.Windows.Forms.Label lbl)
         {
+            progresso.Maximum = tabelas.Count();
+
             string stringConexaoDestino = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
                                     Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
                                     Packet Size=8192;ServerType=0;";
             string stringConexaoOrigem = $@"User=SYSDBA;Password=masterkey;Database={diretorioOrigem};DataSource=localhost;Port={portaUm};
                                     Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
                                     Packet Size=8192;ServerType=0;";
+
+            bool temPk = false;
 
             FbConnection conexaoDestino = new FbConnection(stringConexaoDestino);
             FbConnection conexaoOrigem = new FbConnection(stringConexaoOrigem);
@@ -212,8 +246,6 @@ namespace ImportadorFDB5.Classes
             bool validar = false;
             conexaoOrigem.Open();
             conexaoDestino.Open();
-
-            decimal valor = progresso.Maximum / tabelasExportar.Count;
 
             foreach (string tabela in tabelasExportar)
             {
@@ -232,13 +264,46 @@ namespace ImportadorFDB5.Classes
                             string coluna = linha["ColumnName"].ToString();
                             colunas.Add(coluna);
                             parametros.Add($"@{coluna}");
+
+                            string pKey = linha["ColumnName"].ToString();
+                            temPk = (bool)linha["IsKey"];
                         }
+
+
+
+
+
+                        progresso.Value += 1;
 
                         if (validar == false)
                         {
-                            if (tabela != "TALIQUOTAFCP" && tabela != "TECF" && tabela != "TSCRIPT" &&  tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE") {
+                            /* string sqlCheckView = $"SELECT RDB$VIEW_SOURCE FROM RDB$RELATIONS WHERE RDB$RELATION_NAME = '{tabela.ToUpper()}'";
+                            bool isView = false;
+
+                            using (FbCommand cmdCheckView = new FbCommand(sqlCheckView, conexaoOrigem))
+                            {
+                                object result = cmdCheckView.ExecuteScalar();
+                                if (result != DBNull.Value && result != null)
+                                {
+                                    isView = true;
+                                }
+                            }
+
+                            if (isView)
+                            {
+                                MessageBox.Show($"A tabela {tabela} é uma visão baseada em mais de uma tabela. O comando UPDATE OR INSERT será ignorado.");
+                            } */
+
+                            if (tabela != "TCSTCFOP" && tabela != "TALIQUOTAFCP" && tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE" && tabela != "TECF" && tabela != "TPARCELAMENTO" && tabela != "TSCRIPT" && tabela != "TSEQUENCIANFE" && tabela != "TXML" && tabela != "TAUTORIZACAOXML")
+                            {
                                 while (leitor.Read())
                                 {
+                                    lbl.Text = $@"Importando Tabela: {tabela}";
+                                    lbl.Visible = true;
+                                    lbl.ForeColor = System.Drawing.Color.Black;
+                                    lbl.BringToFront();
+                                    lbl.Location = new System.Drawing.Point(102, 223);
+
                                     string insert = $"UPDATE OR INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
                                     using (FbCommand comandoInsert = new FbCommand(insert, conexaoDestino))
                                     {

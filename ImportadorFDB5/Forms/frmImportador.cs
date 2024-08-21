@@ -80,14 +80,14 @@ namespace ImportadorFDB5
 
         private void frmImportador_Load(object sender, EventArgs e)
         {
-            
+            lblTabela.Visible = false;
         }
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            Importacao.DropKeys();
-            pgbImportar.Value += 30;
-            Importacao.ExportarDados(Importacao.PreencherNomeTabelas(), pgbImportar);
-            pgbImportar.Value += 30;
+            Importacao.DropKeys(lblTabela);
+            lblTabela.Text = null;
+            lblTabela.Visible = true;
+            Importacao.ExportarDados(Importacao.PreencherNomeTabelas(), pgbImportar, lblTabela);
         }
     }
 }

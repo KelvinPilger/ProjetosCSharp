@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnStatusDestino = new System.Windows.Forms.Button();
             this.btnStatusOrigem = new System.Windows.Forms.Button();
+            this.lblTabela = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -52,7 +53,7 @@
             // 
             // pgbImportar
             // 
-            this.pgbImportar.Location = new System.Drawing.Point(78, 212);
+            this.pgbImportar.Location = new System.Drawing.Point(78, 203);
             this.pgbImportar.Name = "pgbImportar";
             this.pgbImportar.Size = new System.Drawing.Size(214, 17);
             this.pgbImportar.TabIndex = 1;
@@ -201,7 +202,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(146, 195);
+            this.label2.Location = new System.Drawing.Point(146, 185);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 14);
             this.label2.TabIndex = 12;
@@ -233,6 +234,16 @@
             this.btnStatusOrigem.TabIndex = 15;
             this.btnStatusOrigem.UseVisualStyleBackColor = false;
             // 
+            // lblTabela
+            // 
+            this.lblTabela.AutoSize = true;
+            this.lblTabela.Font = new System.Drawing.Font("Verdana", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTabela.Location = new System.Drawing.Point(102, 223);
+            this.lblTabela.Name = "lblTabela";
+            this.lblTabela.Size = new System.Drawing.Size(9, 10);
+            this.lblTabela.TabIndex = 16;
+            this.lblTabela.Text = "-";
+            // 
             // frmImportador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +251,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(761, 251);
+            this.Controls.Add(this.lblTabela);
             this.Controls.Add(this.btnStatusOrigem);
             this.Controls.Add(this.btnStatusDestino);
             this.Controls.Add(this.label2);
@@ -291,6 +303,7 @@
         private System.Windows.Forms.Button btnStatusDestino;
         private System.Windows.Forms.Button btnStatusOrigem;
         public System.Windows.Forms.TextBox txtOrigem;
+        public System.Windows.Forms.Label lblTabela;
     }
 }
 
