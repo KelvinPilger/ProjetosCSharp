@@ -46,6 +46,7 @@
             this.btnStatusDestino = new System.Windows.Forms.Button();
             this.btnStatusOrigem = new System.Windows.Forms.Button();
             this.lblTabela = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -240,9 +241,17 @@
             this.lblTabela.Font = new System.Drawing.Font("Verdana", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTabela.Location = new System.Drawing.Point(102, 223);
             this.lblTabela.Name = "lblTabela";
-            this.lblTabela.Size = new System.Drawing.Size(9, 10);
+            this.lblTabela.Size = new System.Drawing.Size(0, 10);
             this.lblTabela.TabIndex = 16;
-            this.lblTabela.Text = "-";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(101, 223);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(14, 13);
+            this.lblStatus.TabIndex = 17;
+            this.lblStatus.Text = "T";
             // 
             // frmImportador
             // 
@@ -251,6 +260,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(761, 251);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblTabela);
             this.Controls.Add(this.btnStatusOrigem);
             this.Controls.Add(this.btnStatusDestino);
@@ -304,6 +314,7 @@
         private System.Windows.Forms.Button btnStatusOrigem;
         public System.Windows.Forms.TextBox txtOrigem;
         public System.Windows.Forms.Label lblTabela;
+        private System.Windows.Forms.Label lblStatus;
     }
 }
 

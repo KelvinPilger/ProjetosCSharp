@@ -11,6 +11,7 @@ using FirebirdSql.Data.Client;
 using FirebirdSql.Data.FirebirdClient;
 using System.IO;
 using System.Reflection.Emit;
+using System.Threading.Tasks.Sources;
 
 namespace ImportadorFDB5.Classes
 {
@@ -135,7 +136,7 @@ namespace ImportadorFDB5.Classes
             }
         }
 
-        public static void DropKeys(System.Windows.Forms.Label lbl)
+        public static void DropKeys(System.Windows.Forms.Label label)
         {
             string stringConexaoDestino = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
                                     Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
@@ -226,7 +227,7 @@ namespace ImportadorFDB5.Classes
             }
 
         }
-        public static void ExportarDados(List<string> tabelas, ProgressBar progresso, System.Windows.Forms.Label lbl)
+        public static void ExportarDados(List<string> tabelas, ProgressBar progresso, System.Windows.Forms.Label lblStatus)
         {
             progresso.Maximum = tabelas.Count();
 
@@ -249,6 +250,11 @@ namespace ImportadorFDB5.Classes
 
             foreach (string tabela in tabelasExportar)
             {
+
+                decimal valor = progresso.Maximum / tabelasExportar.Count;
+                lblStatus.Text = $"Importando tabela: {tabela}";
+                lblStatus.Refresh();
+
                 string select = $@"SELECT * FROM {tabela}";
 
                 using (FbCommand comandoSelect = new FbCommand(select, conexaoOrigem))
@@ -298,12 +304,7 @@ namespace ImportadorFDB5.Classes
                             {
                                 while (leitor.Read())
                                 {
-                                    lbl.Text = $@"Importando Tabela: {tabela}";
-                                    lbl.Visible = true;
-                                    lbl.ForeColor = System.Drawing.Color.Black;
-                                    lbl.BringToFront();
-                                    lbl.Location = new System.Drawing.Point(102, 223);
-
+                                  
                                     string insert = $"UPDATE OR INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
                                     using (FbCommand comandoInsert = new FbCommand(insert, conexaoDestino))
                                     {
@@ -318,8 +319,12 @@ namespace ImportadorFDB5.Classes
                         }
                     }
                 }
+                
+                progresso.Value +=(int)valor;
             }
             MessageBox.Show("Importação Concluída com Sucesso!");
         }
+
+
     }
 }
