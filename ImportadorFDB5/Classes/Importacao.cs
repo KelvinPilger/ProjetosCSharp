@@ -196,7 +196,7 @@ namespace ImportadorFDB5.Classes
 
         }
 
-        public static void ExportarDados(List<string> tabelas, ProgressBar progresso)
+        public static void ExportarDados(List<string> tabelas, ProgressBar progresso, Label lblStatus)
         {
             string stringConexaoDestino = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
                                     Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
@@ -217,6 +217,9 @@ namespace ImportadorFDB5.Classes
 
             foreach (string tabela in tabelasExportar)
             {
+                lblStatus.Text = $"Importando: {tabela}";
+                lblStatus.Refresh();
+
                 string select = $@"SELECT * FROM {tabela}";
 
                 using (FbCommand comandoSelect = new FbCommand(select, conexaoOrigem))
@@ -253,6 +256,8 @@ namespace ImportadorFDB5.Classes
                         }
                     }
                 }
+
+                progresso.Value += (int)valor;
             }
             MessageBox.Show("Importação Concluída com Sucesso!");
         }

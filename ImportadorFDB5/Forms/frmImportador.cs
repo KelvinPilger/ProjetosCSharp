@@ -86,7 +86,7 @@ namespace ImportadorFDB5
         {
             Importacao.DropKeys();
             pgbImportar.Value += 30;
-            Importacao.ExportarDados(Importacao.PreencherNomeTabelas(), pgbImportar);
+            Importacao.ExportarDados(Importacao.PreencherNomeTabelas(), pgbImportar, lblStatus);
             pgbImportar.Value += 30;
         }
     }

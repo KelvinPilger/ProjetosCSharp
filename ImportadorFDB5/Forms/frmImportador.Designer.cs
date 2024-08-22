@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnStatusDestino = new System.Windows.Forms.Button();
             this.btnStatusOrigem = new System.Windows.Forms.Button();
+            this.lblStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -233,6 +234,16 @@
             this.btnStatusOrigem.TabIndex = 15;
             this.btnStatusOrigem.UseVisualStyleBackColor = false;
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(121, 232);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(14, 13);
+            this.lblStatus.TabIndex = 16;
+            this.lblStatus.Text = "T";
+            // 
             // frmImportador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +251,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(761, 251);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnStatusOrigem);
             this.Controls.Add(this.btnStatusDestino);
             this.Controls.Add(this.label2);
@@ -291,6 +303,7 @@
         private System.Windows.Forms.Button btnStatusDestino;
         private System.Windows.Forms.Button btnStatusOrigem;
         public System.Windows.Forms.TextBox txtOrigem;
+        public System.Windows.Forms.Label lblStatus;
     }
 }
 
