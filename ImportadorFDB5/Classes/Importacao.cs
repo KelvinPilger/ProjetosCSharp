@@ -199,10 +199,10 @@ namespace ImportadorFDB5.Classes
                         {
                             drop.ExecuteNonQuery();
                         }
-                        using (FbCommand defere = new FbCommand(pkDefere, conexao))
+                        /* using (FbCommand defere = new FbCommand(pkDefere, conexao))
                         {
                             defere.ExecuteNonQuery();
-                        }
+                        } */
                     }
                 }
             }
@@ -244,16 +244,23 @@ namespace ImportadorFDB5.Classes
             FbConnection conexaoOrigem = new FbConnection(stringConexaoOrigem);
 
             List<string> tabelasExportar = PreencherNomeTabelas();
+
             bool validar = false;
             conexaoOrigem.Open();
             conexaoDestino.Open();
 
+            lblStatus.Visible = true;
+
             foreach (string tabela in tabelasExportar)
             {
 
-                decimal valor = progresso.Maximum / tabelasExportar.Count;
+                decimal valor = progresso.Maximum / tabelasExportar.Count() + 1;
+
+
                 lblStatus.Text = $"Importando tabela: {tabela}";
                 lblStatus.Refresh();
+
+
 
                 string select = $@"SELECT * FROM {tabela}";
 
@@ -275,56 +282,46 @@ namespace ImportadorFDB5.Classes
                             temPk = (bool)linha["IsKey"];
                         }
 
-
-
-
-
-                        progresso.Value += 1;
+                        if (progresso.Value < progresso.Maximum)
+                        {
+                            progresso.Value += 1;
+                        }
 
                         if (validar == false)
-                        {
-                            /* string sqlCheckView = $"SELECT RDB$VIEW_SOURCE FROM RDB$RELATIONS WHERE RDB$RELATION_NAME = '{tabela.ToUpper()}'";
-                            bool isView = false;
-
-                            using (FbCommand cmdCheckView = new FbCommand(sqlCheckView, conexaoOrigem))
+                        {    
+                            if (tabela != "TCSTCFOP" && tabela != "TALIQUOTAFCP" && tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE" && tabela != "TECF" && tabela != "TPARCELAMENTO" && tabela != "TSCRIPT" && tabela != "TSEQUENCIANFE" && tabela != "TXML" && tabela != "TAUTORIZACAOXML" && tabela != "VACOUGUE" && tabela != "VCASHBACK" && tabela != "VGNRE" && tabela != "VLIGACAOCRM" && tabela != "VESTOQUEACOUGUE")
                             {
-                                object result = cmdCheckView.ExecuteScalar();
-                                if (result != DBNull.Value && result != null)
+                                try
                                 {
-                                    isView = true;
-                                }
-                            }
-
-                            if (isView)
-                            {
-                                MessageBox.Show($"A tabela {tabela} é uma visão baseada em mais de uma tabela. O comando UPDATE OR INSERT será ignorado.");
-                            } */
-
-                            if (tabela != "TCSTCFOP" && tabela != "TALIQUOTAFCP" && tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE" && tabela != "TECF" && tabela != "TPARCELAMENTO" && tabela != "TSCRIPT" && tabela != "TSEQUENCIANFE" && tabela != "TXML" && tabela != "TAUTORIZACAOXML")
-                            {
-                                while (leitor.Read())
-                                {
-                                  
-                                    string insert = $"UPDATE OR INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
-                                    using (FbCommand comandoInsert = new FbCommand(insert, conexaoDestino))
+                                    if (leitor.IsClosed == false)
                                     {
-                                        foreach (string coluna in colunas)
+                                        while (leitor.Read())
                                         {
-                                            comandoInsert.Parameters.AddWithValue($@"{coluna}", leitor[coluna]);
+
+                                            string insert = $"UPDATE OR INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
+                                            using (FbCommand comandoInsert = new FbCommand(insert, conexaoDestino))
+                                            {
+                                                foreach (string coluna in colunas)
+                                                {
+                                                    comandoInsert.Parameters.AddWithValue($@"{coluna}", leitor[coluna]);
+                                                }
+                                                comandoInsert.ExecuteNonQuery();
+                                            }
                                         }
-                                        comandoInsert.ExecuteNonQuery();
                                     }
                                 }
-                            }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                }
+                            }   
                         }
                     }
                 }
-                
-                progresso.Value +=(int)valor;
             }
-            MessageBox.Show("Importação Concluída com Sucesso!");
+            MessageBox.Show("Importação Concluída com Sucesso!", "Importação FDB5", MessageBoxButtons.OK);
+            lblStatus.Visible = false;
+            progresso.Value = 0;
         }
-
-
     }
 }
