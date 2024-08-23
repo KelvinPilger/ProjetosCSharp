@@ -12,6 +12,8 @@ using FirebirdSql.Data.FirebirdClient;
 using System.IO;
 using System.Reflection.Emit;
 using System.Threading.Tasks.Sources;
+using System.Security.AccessControl;
+using System.Data.SqlClient;
 
 namespace ImportadorFDB5.Classes
 {
@@ -193,7 +195,7 @@ namespace ImportadorFDB5.Classes
                         string nomeTabela = leitor["RDB$RELATION_NAME"].ToString();
 
                         string comandoDrop = $@"ALTER TABLE {nomeTabela} DROP CONSTRAINT {nomeConstraint}";
-                        string pkDefere = "SET CONSTRAINTS ALL DEFERRED;";
+                        // string pkDefere = "SET CONSTRAINTS ALL DEFERRED;";
 
                         using (FbCommand drop = new FbCommand(comandoDrop, conexao))
                         {
@@ -245,6 +247,20 @@ namespace ImportadorFDB5.Classes
 
             List<string> tabelasExportar = PreencherNomeTabelas();
 
+            string tbFilho = "TITEMVENDANFCE";
+            string tbPai = "TVENDANFCE";
+            int i = tabelasExportar.IndexOf(tbFilho);
+            int j = tabelasExportar.IndexOf(tbPai);
+
+            if (i != -1)
+            {
+                tabelasExportar[i] = tbPai;
+            }
+            if (j != -1)
+            {
+                tabelasExportar[j] = tbFilho;
+            }
+
             bool validar = false;
             conexaoOrigem.Open();
             conexaoDestino.Open();
@@ -253,14 +269,10 @@ namespace ImportadorFDB5.Classes
 
             foreach (string tabela in tabelasExportar)
             {
-
                 decimal valor = progresso.Maximum / tabelasExportar.Count() + 1;
-
 
                 lblStatus.Text = $"Importando tabela: {tabela}";
                 lblStatus.Refresh();
-
-
 
                 string select = $@"SELECT * FROM {tabela}";
 
@@ -278,8 +290,10 @@ namespace ImportadorFDB5.Classes
                             colunas.Add(coluna);
                             parametros.Add($"@{coluna}");
 
-                            string pKey = linha["ColumnName"].ToString();
-                            temPk = (bool)linha["IsKey"];
+                            if ((bool)linha["IsKey"])
+                            {
+                                temPk = true;
+                            }
                         }
 
                         if (progresso.Value < progresso.Maximum)
@@ -287,9 +301,68 @@ namespace ImportadorFDB5.Classes
                             progresso.Value += 1;
                         }
 
+                        foreach (string coluna in colunas)
+                        {
+                            using (FbCommand checarColuna = new FbCommand($"SELECT COUNT(*) FROM RDB$RELATION_FIELDS WHERE RDB$FIELD_NAME = '{coluna}' AND RDB$RELATION_NAME = '{tabela}'", conexaoDestino))
+                            {
+                                object result = checarColuna.ExecuteScalar();
+
+                                int colunaExiste = result != null && Convert.ToInt32(result) > 0 ? 1 : 0;
+
+                                if (colunaExiste == 0)
+                                {
+                                    string datatype = "";
+                                    using (FbCommand tipoDatatype = new FbCommand($"SELECT RDB$FIELD_TYPE FROM RDB$RELATION_FIELDS RF JOIN RDB$FIELDS F ON RF.RDB$FIELD_SOURCE = F.RDB$FIELD_NAME WHERE RF.RDB$FIELD_NAME = '{coluna}' AND RF.RDB$RELATION_NAME = '{tabela}'", conexaoOrigem))
+                                    {
+                                        object resultado = tipoDatatype.ExecuteScalar();
+
+                                        int tipoCampo = Convert.ToInt32(resultado);
+                                        switch (tipoCampo)
+                                        {
+                                            case 7:
+                                                datatype = "SMALLINT";
+                                                break;
+                                            case 8:
+                                                datatype = "INTEGER";
+                                                break;
+                                            case 10:
+                                                datatype = "FLOAT";
+                                                break;
+                                            case 12:
+                                                datatype = "DATE";
+                                                break;
+                                            case 13:
+                                                datatype = "TIME";
+                                                break;
+                                            case 14:
+                                            case 37:
+                                                datatype = "VARCHAR(50)";
+                                                break;
+                                            case 16:
+                                                datatype = "BIGINT";
+                                                break;
+                                            case 27:
+                                                datatype = "DOUBLE PRECISION";
+                                                break;
+                                            case 35:
+                                                datatype = "TIMESTAMP";
+                                                break;
+                                            default:
+                                                datatype = "VARCHAR(50)";
+                                                break;
+                                        }
+                                    }
+                                    using (FbCommand createColumnCommand = new FbCommand($"ALTER TABLE {tabela} ADD {coluna} {datatype}", conexaoDestino))
+                                    {
+                                        createColumnCommand.ExecuteNonQuery();
+                                    }
+                                }
+                            }
+                        }
+
                         if (validar == false)
                         {    
-                            if (tabela != "TCSTCFOP" && tabela != "TALIQUOTAFCP" && tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE" && tabela != "TECF" && tabela != "TPARCELAMENTO" && tabela != "TSCRIPT" && tabela != "TSEQUENCIANFE" && tabela != "TXML" && tabela != "TAUTORIZACAOXML" && tabela != "VACOUGUE" && tabela != "VCASHBACK" && tabela != "VGNRE" && tabela != "VLIGACAOCRM" && tabela != "VESTOQUEACOUGUE")
+                            if (tabela != "TALIQUOTAFCP" && tabela != "TCSTCFOP"  && tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE" && tabela != "TECF" && tabela != "TPARCELAMENTO" && tabela != "TSCRIPT" && tabela != "TSEQUENCIANFE" && tabela != "TXML" && tabela != "TAUTORIZACAOXML" && tabela != "VACOUGUE" && tabela != "VCASHBACK" && tabela != "VGNRE" && tabela != "VLIGACAOCRM" && tabela != "VESTOQUEACOUGUE")
                             {
                                 try
                                 {
@@ -297,8 +370,17 @@ namespace ImportadorFDB5.Classes
                                     {
                                         while (leitor.Read())
                                         {
+                                            string insert; 
 
-                                            string insert = $"UPDATE OR INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
+                                            if (temPk)
+                                            {
+                                                insert = $"UPDATE OR INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
+                                            }
+                                            else
+                                            {
+                                                insert = $"INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
+                                            }
+
                                             using (FbCommand comandoInsert = new FbCommand(insert, conexaoDestino))
                                             {
                                                 foreach (string coluna in colunas)

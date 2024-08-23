@@ -84,8 +84,10 @@ namespace ImportadorFDB5
         }
         private void btnImportar_Click(object sender, EventArgs e)
         {
+            btnImportar.Enabled = false;
             Importacao.DropKeys(lblStatus);
             Importacao.ExportarDados(Importacao.PreencherNomeTabelas(), pgbImportar, lblStatus);
+            btnImportar.Enabled = true;
         }
     }
 }

@@ -54,9 +54,9 @@
             // 
             // pgbImportar
             // 
-            this.pgbImportar.Location = new System.Drawing.Point(78, 203);
+            this.pgbImportar.Location = new System.Drawing.Point(60, 203);
             this.pgbImportar.Name = "pgbImportar";
-            this.pgbImportar.Size = new System.Drawing.Size(214, 17);
+            this.pgbImportar.Size = new System.Drawing.Size(259, 17);
             this.pgbImportar.TabIndex = 1;
             // 
             // txtOrigem
@@ -248,7 +248,7 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Verdana", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(98, 223);
+            this.lblStatus.Location = new System.Drawing.Point(58, 223);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(9, 10);
             this.lblStatus.TabIndex = 17;
