@@ -240,8 +240,6 @@ namespace ImportadorFDB5.Classes
                                     Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
                                     Packet Size=8192;ServerType=0;";
 
-            bool temPk = false;
-
             FbConnection conexaoDestino = new FbConnection(stringConexaoDestino);
             FbConnection conexaoOrigem = new FbConnection(stringConexaoOrigem);
 
@@ -252,13 +250,11 @@ namespace ImportadorFDB5.Classes
             int i = tabelasExportar.IndexOf(tbFilho);
             int j = tabelasExportar.IndexOf(tbPai);
 
-            if (i != -1)
+            if (i != -1 && j != -1)
             {
-                tabelasExportar[i] = tbPai;
-            }
-            if (j != -1)
-            {
-                tabelasExportar[j] = tbFilho;
+                string temp = tabelasExportar[i];
+                tabelasExportar[i] = tabelasExportar[j];
+                tabelasExportar[j] = temp;
             }
 
             bool validar = false;
@@ -283,6 +279,7 @@ namespace ImportadorFDB5.Classes
                         DataTable schemaTable = leitor.GetSchemaTable();
                         List<string> colunas = new List<string>();
                         List<string> parametros = new List<string>();
+                        bool temPk = false;
 
                         foreach (DataRow linha in schemaTable.Rows)
                         {
@@ -362,7 +359,7 @@ namespace ImportadorFDB5.Classes
 
                         if (validar == false)
                         {    
-                            if (tabela != "TALIQUOTAFCP" && tabela != "TCSTCFOP"  && tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE" && tabela != "TECF" && tabela != "TPARCELAMENTO" && tabela != "TSCRIPT" && tabela != "TSEQUENCIANFE" && tabela != "TXML" && tabela != "TAUTORIZACAOXML" && tabela != "VACOUGUE" && tabela != "VCASHBACK" && tabela != "VGNRE" && tabela != "VLIGACAOCRM" && tabela != "VESTOQUEACOUGUE")
+                            if (tabela != "TCSTCFOP"  && tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE" && tabela != "TECF" && tabela != "TPARCELAMENTO" && tabela != "TSCRIPT" && tabela != "TSEQUENCIANFE" && tabela != "TXML" && tabela != "TAUTORIZACAOXML" && tabela != "VACOUGUE" && tabela != "VCASHBACK" && tabela != "VGNRE" && tabela != "VLIGACAOCRM" && tabela != "VESTOQUEACOUGUE")
                             {
                                 try
                                 {

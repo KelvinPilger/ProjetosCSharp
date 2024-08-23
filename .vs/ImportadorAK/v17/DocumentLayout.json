@@ -38,8 +38,7 @@
               "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-05T23:28:35.241Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -49,7 +48,7 @@
               "RelativeDocumentMoniker": "ImportadorFDB5\\Classes\\Importacao.cs",
               "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Classes\\Importacao.cs",
               "RelativeToolTip": "ImportadorFDB5\\Classes\\Importacao.cs",
-              "ViewState": "AQIAAEkBAAAAAAAAAAAkwD8BAAA5AAAA",
+              "ViewState": "AQIAAOwAAAAAAAAAAAAUwP0AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T01:23:26.661Z",
               "IsPinned": true,
@@ -66,8 +65,7 @@
               "ViewState": "AQIAAEIAAAAAAAAAAAASwFkAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T00:20:18.05Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -115,8 +113,7 @@
               "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T00:24:53.12Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-21T00:24:53.12Z"
             }
           ]
         },
