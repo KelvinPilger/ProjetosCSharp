@@ -84,8 +84,7 @@ namespace ImportadorFDB5.Classes
                 {
                     btnStatus.BackColor = System.Drawing.Color.Red;
                     origem.Text = "Selecione o banco de origem.";
-                    MessageBox.Show(@"-> O Serviço do Firebird Está Ativo?\n-> O banco de dados selecionado é pertencente a V2.5 do\n     
-                                    Firebird?", "Revisar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("-> O Serviço do Firebird Está Ativo? \n-> O banco de dados selecionado é pertencente a versão 2.5 do Firebird?", "Revisar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -109,11 +108,110 @@ namespace ImportadorFDB5.Classes
                 {
                     btnStatus.BackColor = System.Drawing.Color.Red;
                     destino.Text = "Selecione o banco de origem.";
-                    MessageBox.Show(@"-> O Serviço do Firebird Está Ativo?\n-> O banco de dados selecionado é pertencente a V5.0 do\n     
-                                    Firebird?", "Revisar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("-> O Serviço do Firebird Está Ativo? \n-> O banco de dados selecionado é pertencente a versão 5.0 do Firebird?", "Revisar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
+
+        public static void CreateFaltantes()
+        {
+            string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
+                                    Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
+                                    Packet Size=8192;ServerType=0;";
+
+            using (FbConnection conexaoDest = new FbConnection(stringConexao))
+            {
+                conexaoDest.Open();
+
+                string[] create = new string[4];
+
+                create[0] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'TCONFERENCIAFECHAMENTOCAIXA')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                            CREATE TABLE TCONFERENCIAFECHAMENTOCAIXA (
+                                CONTROLE            INTEGER NOT NULL,
+                                CODCENTROCUSTO      INTEGER NOT NULL,
+                                CENTROCUSTO         VARCHAR(100) COLLATE PT_BR,
+                                CODFUNCIONARIO      INTEGER NOT NULL,
+                                FUNCIONARIO         VARCHAR(100) COLLATE PT_BR,
+                                ESPECIE             VARCHAR(50) COLLATE PT_BR,
+                                VALORRECEBIDO       DECIMAL(15,4),
+                                VALORFECHAMENTO     DECIMAL(15,4),
+                                VALORDIFERENCA      DECIMAL(15,4),
+                                DATAHORAFECHAMENTO  TIMESTAMP NOT NULL
+                            );
+                        ';
+                    END
+                END;";
+
+                create[1] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'TMENSAGEMPADRAO')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                            CREATE TABLE TMENSAGEMPADRAO (
+                                CONTROLE      INTEGER NOT NULL,
+                                ATIVO         CHAR(1) NOT NULL,
+                                MODULO        CHAR(2) NOT NULL,
+                                TIPOMENSAGEM  CHAR(2) NOT NULL,
+                                MENSAGEM      BLOB SUB_TYPE 1 SEGMENT SIZE 80,
+                                VARIAVEIS     BLOB SUB_TYPE 1 SEGMENT SIZE 80 NOT NULL
+                            );
+                        ';
+                    END
+                END;";
+
+                create[2] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'TANTECIPACAOCARTAO')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                            CREATE TABLE TANTECIPACAOCARTAO (
+                                CONTROLE         INTEGER NOT NULL,
+                                CODESPECIE       INTEGER NOT NULL,
+                                TAXAANTECIPACAO  DECIMAL(5,2) NOT NULL,
+                                DIASCREDITO      INTEGER NOT NULL,
+                                ESPECIE          VARCHAR(50) COLLATE PT_BR
+                            );
+                        ';
+                    END
+                END;";
+
+                create[3] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'TCONFIGCASHBACK')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                            CREATE TABLE TCONFIGCASHBACK (
+                                CONTROLE             INTEGER NOT NULL,
+                                MODULOSCASHBACK      VARCHAR(30) DEFAULT ''1,2,3,4,5,6,7,8'' COLLATE PT_BR,
+                                VALORMINIMOCASHBACK  DECIMAL(15,4) DEFAULT 0.0000,
+                                TIPOCASHBACK         CHAR(1) DEFAULT ''0'' COLLATE PT_BR,
+                                VALORCASHBACK        DECIMAL(15,4) DEFAULT 0.0000
+                            );
+                        ';
+                    END
+                END;";
+
+                try
+                {
+                    foreach (string query in create)
+                    {
+                        using (FbCommand queryCriar = new FbCommand(query, conexaoDest))
+                        {
+                            queryCriar.ExecuteNonQuery();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
 
         public static List<string> PreencherNomeTabelas()
         {
@@ -195,16 +293,11 @@ namespace ImportadorFDB5.Classes
                         string nomeTabela = leitor["RDB$RELATION_NAME"].ToString();
 
                         string comandoDrop = $@"ALTER TABLE {nomeTabela} DROP CONSTRAINT {nomeConstraint}";
-                        // string pkDefere = "SET CONSTRAINTS ALL DEFERRED;";
 
                         using (FbCommand drop = new FbCommand(comandoDrop, conexao))
                         {
                             drop.ExecuteNonQuery();
                         }
-                        /* using (FbCommand defere = new FbCommand(pkDefere, conexao))
-                        {
-                            defere.ExecuteNonQuery();
-                        } */
                     }
                 }
             }
@@ -234,28 +327,16 @@ namespace ImportadorFDB5.Classes
             progresso.Maximum = tabelas.Count();
 
             string stringConexaoDestino = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
-                                    Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
-                                    Packet Size=8192;ServerType=0;";
+                                Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
+                                Packet Size=8192;ServerType=0;";
             string stringConexaoOrigem = $@"User=SYSDBA;Password=masterkey;Database={diretorioOrigem};DataSource=localhost;Port={portaUm};
-                                    Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
-                                    Packet Size=8192;ServerType=0;";
+                                Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
+                                Packet Size=8192;ServerType=0;";
 
             FbConnection conexaoDestino = new FbConnection(stringConexaoDestino);
             FbConnection conexaoOrigem = new FbConnection(stringConexaoOrigem);
 
             List<string> tabelasExportar = PreencherNomeTabelas();
-
-            string tbFilho = "TITEMVENDANFCE";
-            string tbPai = "TVENDANFCE";
-            int i = tabelasExportar.IndexOf(tbFilho);
-            int j = tabelasExportar.IndexOf(tbPai);
-
-            if (i != -1 && j != -1)
-            {
-                string temp = tabelasExportar[i];
-                tabelasExportar[i] = tabelasExportar[j];
-                tabelasExportar[j] = temp;
-            }
 
             bool validar = false;
             conexaoOrigem.Open();
@@ -267,8 +348,11 @@ namespace ImportadorFDB5.Classes
             {
                 decimal valor = progresso.Maximum / tabelasExportar.Count() + 1;
 
-                lblStatus.Text = $"Importando tabela: {tabela}";
-                lblStatus.Refresh();
+                lblStatus.Invoke(new Action(() =>
+                {
+                    lblStatus.Text = $"Importando tabela: {tabela}";
+                    lblStatus.Refresh();
+                }));
 
                 string select = $@"SELECT * FROM {tabela}";
 
@@ -293,10 +377,13 @@ namespace ImportadorFDB5.Classes
                             }
                         }
 
-                        if (progresso.Value < progresso.Maximum)
+                        progresso.Invoke(new Action(() =>
                         {
-                            progresso.Value += 1;
-                        }
+                            if (progresso.Value < progresso.Maximum)
+                            {
+                                progresso.Value += 1;
+                            }
+                        }));
 
                         foreach (string coluna in colunas)
                         {
@@ -358,8 +445,8 @@ namespace ImportadorFDB5.Classes
                         }
 
                         if (validar == false)
-                        {    
-                            if (tabela != "TCSTCFOP"  && tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE" && tabela != "TECF" && tabela != "TPARCELAMENTO" && tabela != "TSCRIPT" && tabela != "TSEQUENCIANFE" && tabela != "TXML" && tabela != "TAUTORIZACAOXML" && tabela != "VACOUGUE" && tabela != "VCASHBACK" && tabela != "VGNRE" && tabela != "VLIGACAOCRM" && tabela != "VESTOQUEACOUGUE")
+                        {
+                            if (tabela != "TCSTCFOP" && tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE" && tabela != "TECF" && tabela != "TPARCELAMENTO" && tabela != "TSCRIPT" && tabela != "TSEQUENCIANFE" && tabela != "TXML" && tabela != "TAUTORIZACAOXML" && tabela != "VACOUGUE" && tabela != "VCASHBACK" && tabela != "VGNRE" && tabela != "VLIGACAOCRM" && tabela != "VESTOQUEACOUGUE")
                             {
                                 try
                                 {
@@ -367,7 +454,7 @@ namespace ImportadorFDB5.Classes
                                     {
                                         while (leitor.Read())
                                         {
-                                            string insert; 
+                                            string insert;
 
                                             if (temPk)
                                             {
@@ -393,7 +480,7 @@ namespace ImportadorFDB5.Classes
                                 {
                                     MessageBox.Show(ex.Message);
                                 }
-                            }   
+                            }
                         }
                     }
                 }

@@ -42,16 +42,19 @@ namespace ImportadorFDB5
             origem.Title = "Selecione um Banco de Dados";
             txtOrigem.Text = origem.FileName;
 
+
             if (origem.ShowDialog() == DialogResult.OK)
             {
                 txtOrigem.Text = origem.FileName;
-                Importacao.diretorioOrigem = @txtOrigem.Text;
+                Importacao.diretorioOrigem = txtOrigem.Text;
+
                 Importacao.ConexaoOrigem(txtOrigem, btnStatusOrigem);
             }
-            else {
-                txtOrigem.Text = "Selecione o banco de origem.";
-                btnStatusOrigem.BackColor = Color.Red;
+            else
+            {
+                txtOrigem.Text = "Selecione o banco de destino.";
             }
+
         }
 
         private void btnDestino_Click(object sender, EventArgs e)
@@ -84,10 +87,13 @@ namespace ImportadorFDB5
         }
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            btnImportar.Enabled = false;
-            Importacao.DropKeys(lblStatus);
-            Importacao.ExportarDados(Importacao.PreencherNomeTabelas(), pgbImportar, lblStatus);
-            btnImportar.Enabled = true;
+            if (btnStatusDestino.BackColor != Color.Red && btnStatusOrigem.BackColor != Color.Red) {
+                btnImportar.Enabled = false;
+                Importacao.CreateFaltantes();
+                Importacao.DropKeys(lblStatus);
+                Importacao.ExportarDados(Importacao.PreencherNomeTabelas(), pgbImportar, lblStatus);
+                btnImportar.Enabled = true;
+            }
         }
     }
 }

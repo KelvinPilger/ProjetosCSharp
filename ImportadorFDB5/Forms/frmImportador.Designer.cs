@@ -54,6 +54,7 @@
             // 
             // pgbImportar
             // 
+            this.pgbImportar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pgbImportar.Location = new System.Drawing.Point(60, 203);
             this.pgbImportar.Name = "pgbImportar";
             this.pgbImportar.Size = new System.Drawing.Size(259, 17);
