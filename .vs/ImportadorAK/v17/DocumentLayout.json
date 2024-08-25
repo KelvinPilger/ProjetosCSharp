@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Projetos\\ImportadorAK\\",
+  "WorkspaceRootPath": "C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|C:\\Projetos\\ImportadorAK\\importadorfdb5\\forms\\frmimportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\importadorfdb5\\forms\\frmimportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|solutionrelative:importadorfdb5\\forms\\frmimportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|c:\\projetos\\importadorak\\importadorfdb5\\classes\\importacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|solutionrelative:importadorfdb5\\classes\\importacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|c:\\users\\alexandre\\source\\repos\\importadorfinal\\projetoscsharp\\importadorfdb5\\classes\\controladormod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|solutionrelative:importadorfdb5\\classes\\controladormod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|C:\\Projetos\\ImportadorAK\\importadorfdb5\\forms\\frmimportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\importadorfdb5\\forms\\frmimportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|solutionrelative:importadorfdb5\\forms\\frmimportador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|C:\\Projetos\\ImportadorAK\\importadorfdb5\\forms\\frmimportador.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|solutionrelative:importadorfdb5\\forms\\frmimportador.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|c:\\users\\alexandre\\source\\repos\\importadorfinal\\projetoscsharp\\importadorfdb5\\classes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|solutionrelative:importadorfdb5\\classes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|c:\\users\\alexandre\\source\\repos\\importadorfinal\\projetoscsharp\\importadorfdb5\\classes\\importacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F8B125A-660C-468B-B2D7-F525EC046CC4}|ImportadorFDB5\\ImportadorFDB5.csproj|solutionrelative:importadorfdb5\\classes\\importacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,30 +30,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmImportador.cs [Design]",
-              "DocumentMoniker": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.cs",
-              "RelativeDocumentMoniker": "ImportadorFDB5\\Forms\\frmImportador.cs",
-              "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.cs [Design]",
-              "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T23:28:35.241Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Importacao.cs",
-              "DocumentMoniker": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Classes\\Importacao.cs",
+              "DocumentMoniker": "C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\ImportadorFDB5\\Classes\\Importacao.cs",
               "RelativeDocumentMoniker": "ImportadorFDB5\\Classes\\Importacao.cs",
-              "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Classes\\Importacao.cs",
+              "ToolTip": "C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\ImportadorFDB5\\Classes\\Importacao.cs",
               "RelativeToolTip": "ImportadorFDB5\\Classes\\Importacao.cs",
-              "ViewState": "AQIAAEQBAAAAAAAAAAAzwFIBAABCAAAA",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAwwFUBAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T01:23:26.661Z",
               "IsPinned": true,
@@ -59,19 +50,15 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "frmImportador.cs",
-              "DocumentMoniker": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.cs",
+              "DocumentMoniker": "C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\ImportadorFDB5\\Forms\\frmImportador.cs",
               "RelativeDocumentMoniker": "ImportadorFDB5\\Forms\\frmImportador.cs",
-              "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.cs",
-              "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAIAwwFkAAAAMAAAA",
+              "ToolTip": "C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\ImportadorFDB5\\Forms\\frmImportador.cs*",
+              "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.cs*",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAUwCAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T00:20:18.05Z",
               "IsPinned": true,
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
@@ -84,6 +71,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
@@ -103,30 +94,59 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "frmImportador.Designer.cs",
-              "DocumentMoniker": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.Designer.cs",
-              "RelativeDocumentMoniker": "ImportadorFDB5\\Forms\\frmImportador.Designer.cs",
-              "ToolTip": "C:\\Projetos\\ImportadorAK\\ImportadorFDB5\\Forms\\frmImportador.Designer.cs",
-              "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\ImportadorFDB5\\Classes\\Program.cs",
+              "RelativeDocumentMoniker": "ImportadorFDB5\\Classes\\Program.cs",
+              "ToolTip": "C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\ImportadorFDB5\\Classes\\Program.cs",
+              "RelativeToolTip": "ImportadorFDB5\\Classes\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T00:24:53.12Z",
+              "WhenOpened": "2024-08-24T22:39:00.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ControladorMod.cs",
+              "DocumentMoniker": "C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\ImportadorFDB5\\Classes\\ControladorMod.cs",
+              "RelativeDocumentMoniker": "ImportadorFDB5\\Classes\\ControladorMod.cs",
+              "ToolTip": "C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\ImportadorFDB5\\Classes\\ControladorMod.cs",
+              "RelativeToolTip": "ImportadorFDB5\\Classes\\ControladorMod.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAIwCwAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-24T22:31:36.223Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 230,
-          "SelectedChildIndex": -1,
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmImportador.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\ImportadorFDB5\\Forms\\frmImportador.cs",
+              "RelativeDocumentMoniker": "ImportadorFDB5\\Forms\\frmImportador.cs",
+              "ToolTip": "C:\\Users\\Alexandre\\source\\repos\\ImportadorFinal\\ProjetosCSharp\\ImportadorFDB5\\Forms\\frmImportador.cs [Design]*",
+              "RelativeToolTip": "ImportadorFDB5\\Forms\\frmImportador.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T23:28:35.241Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
