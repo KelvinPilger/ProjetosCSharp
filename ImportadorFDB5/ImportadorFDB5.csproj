@@ -114,6 +114,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="firebird-logo-500-removebg-preview.ico" />
+    <None Include="Resources\AlvoLigth1.png" />
+    <None Include="Resources\PastaDark1.png" />
+    <None Include="Resources\PastaLigth1.png" />
+    <None Include="Resources\Sem fundo 6.png" />
     <None Include="Resources\BaseDedadosDark.png" />
     <None Include="Resources\intercambioDark.png" />
     <None Include="Resources\base-de-dadosDark.png" />

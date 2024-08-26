@@ -47,10 +47,8 @@
             this.btnDestino = new System.Windows.Forms.Button();
             this.btnOrigem = new System.Windows.Forms.Button();
             this.pcbBanco = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAlvo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBanco)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pgbImportar
@@ -182,15 +180,15 @@
             // 
             // btnTrocarMod
             // 
+            this.btnTrocarMod.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTrocarMod.FlatAppearance.BorderSize = 0;
             this.btnTrocarMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTrocarMod.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrocarMod.Image = global::ImportadorFDB5.Properties.Resources.ModLigth;
-            this.btnTrocarMod.Location = new System.Drawing.Point(667, 203);
+            this.btnTrocarMod.Location = new System.Drawing.Point(697, 211);
             this.btnTrocarMod.Name = "btnTrocarMod";
-            this.btnTrocarMod.Size = new System.Drawing.Size(89, 56);
+            this.btnTrocarMod.Size = new System.Drawing.Size(52, 36);
             this.btnTrocarMod.TabIndex = 18;
-            this.btnTrocarMod.Text = "Trocar Tema";
             this.btnTrocarMod.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnTrocarMod.UseVisualStyleBackColor = true;
             this.btnTrocarMod.Click += new System.EventHandler(this.btnTrocarMod_Click);
@@ -216,7 +214,7 @@
             // 
             // pcbAlvo
             // 
-            this.pcbAlvo.Image = global::ImportadorFDB5.Properties.Resources.AlvoLigth;
+            this.pcbAlvo.Image = global::ImportadorFDB5.Properties.Resources.AlvoLigth1;
             this.pcbAlvo.Location = new System.Drawing.Point(30, 95);
             this.pcbAlvo.Name = "pcbAlvo";
             this.pcbAlvo.Size = new System.Drawing.Size(25, 22);
@@ -229,8 +227,8 @@
             this.btnDestino.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDestino.FlatAppearance.BorderSize = 0;
             this.btnDestino.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDestino.Image = global::ImportadorFDB5.Properties.Resources.PastaLigth;
-            this.btnDestino.Location = new System.Drawing.Point(319, 95);
+            this.btnDestino.Image = global::ImportadorFDB5.Properties.Resources.PastaLigth1;
+            this.btnDestino.Location = new System.Drawing.Point(319, 97);
             this.btnDestino.Margin = new System.Windows.Forms.Padding(0);
             this.btnDestino.Name = "btnDestino";
             this.btnDestino.Size = new System.Drawing.Size(27, 22);
@@ -244,8 +242,8 @@
             this.btnOrigem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOrigem.FlatAppearance.BorderSize = 0;
             this.btnOrigem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrigem.Image = global::ImportadorFDB5.Properties.Resources.PastaLigth;
-            this.btnOrigem.Location = new System.Drawing.Point(319, 36);
+            this.btnOrigem.Image = global::ImportadorFDB5.Properties.Resources.PastaLigth1;
+            this.btnOrigem.Location = new System.Drawing.Point(319, 39);
             this.btnOrigem.Margin = new System.Windows.Forms.Padding(0);
             this.btnOrigem.Name = "btnOrigem";
             this.btnOrigem.Size = new System.Drawing.Size(27, 22);
@@ -262,16 +260,6 @@
             this.pcbBanco.TabIndex = 0;
             this.pcbBanco.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ImportadorFDB5.Properties.Resources.png_transparent_bathroom_aesthetics_person_ak_logo_angle_text_triangle_thumbnail_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(385, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(276, 184);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmImportador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,7 +267,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(761, 251);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnTrocarMod);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblTabela);
@@ -310,7 +297,6 @@
             this.Load += new System.EventHandler(this.frmImportador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbAlvo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBanco)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,7 +321,6 @@
         public System.Windows.Forms.PictureBox pcbBanco;
         public System.Windows.Forms.PictureBox pcbAlvo;
         public System.Windows.Forms.Button btnImportar;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

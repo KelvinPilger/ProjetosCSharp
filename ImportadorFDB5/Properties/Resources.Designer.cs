@@ -93,6 +93,16 @@ namespace ImportadorFDB5.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AlvoLigth1 {
+            get {
+                object obj = ResourceManager.GetObject("AlvoLigth1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap base_de_dadosDark {
             get {
                 object obj = ResourceManager.GetObject("base-de-dadosDark", resourceCulture);
@@ -193,9 +203,29 @@ namespace ImportadorFDB5.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PastaDark1 {
+            get {
+                object obj = ResourceManager.GetObject("PastaDark1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PastaLigth {
             get {
                 object obj = ResourceManager.GetObject("PastaLigth", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PastaLigth1 {
+            get {
+                object obj = ResourceManager.GetObject("PastaLigth1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -207,6 +237,16 @@ namespace ImportadorFDB5.Properties {
             get {
                 object obj = ResourceManager.GetObject("png-transparent-bathroom-aesthetics-person-ak-logo-angle-text-triangle-thumbnail-" +
                         "removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sem_fundo_6 {
+            get {
+                object obj = ResourceManager.GetObject("Sem fundo 6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

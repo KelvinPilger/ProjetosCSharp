@@ -35,7 +35,7 @@ namespace ImportadorFDB5.Classes
 
         private static void SetarModoEscuro()
         {
-            pastaMod = Resources.PastaLigth;
+            pastaMod = Resources.PastaLigth1;
             alvoMod = Resources.AlvoLigth;
             bdMod = Resources.base_de_dadosLigth;
             intercambioMod = Resources.intercambio;
@@ -47,7 +47,7 @@ namespace ImportadorFDB5.Classes
 
         private static void SetarModoClaro()
         {
-            pastaMod = Resources.PastaDark;
+            pastaMod = Resources.PastaDark1;
             alvoMod = Resources.AlvoDark;
             bdMod = Resources.BaseDedadosDark   ;
             intercambioMod = Resources.intercambioDark;
