@@ -29,6 +29,20 @@ namespace ImportadorFDB5
         public frmImportador()
         {
             InitializeComponent();
+            SetColor();
+        }
+
+
+        private void SetColor()
+        {
+            this.BackColor = ControladorMod.corFundo;
+            this.ForeColor = ControladorMod.corFonte;
+            btnTrocarMod.Image = ControladorMod.imgMod;
+            btnOrigem.Image = ControladorMod.pastaMod;
+            btnDestino.Image = ControladorMod.pastaMod;
+            pcbAlvo.Image = ControladorMod.alvoMod;
+            pcbBanco.Image = ControladorMod.bdMod;
+            btnImportar.Image = ControladorMod.intercambioMod;
         }
 
         private void btnOrigem_Click(object sender, EventArgs e)
@@ -94,6 +108,12 @@ namespace ImportadorFDB5
                 Importacao.ExportarDados(Importacao.PreencherNomeTabelas(), pgbImportar, lblStatus);
                 btnImportar.Enabled = true;
             }
+        }
+
+        private void btnTrocarMod_Click(object sender, EventArgs e)
+        {
+            ControladorMod.TrocarMod();
+            SetColor();
         }
     }
 }

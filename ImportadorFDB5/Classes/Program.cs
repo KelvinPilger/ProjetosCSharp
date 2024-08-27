@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImportadorFDB5.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace ImportadorFDB5
         [STAThread]
         static void Main()
         {
+            ControladorMod.TrocarMod();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmImportador());

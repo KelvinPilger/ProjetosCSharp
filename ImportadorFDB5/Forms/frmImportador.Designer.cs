@@ -36,20 +36,19 @@
             this.lblDestino = new System.Windows.Forms.Label();
             this.lblVUm = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnImportar = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnDestino = new System.Windows.Forms.Button();
-            this.btnOrigem = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnStatusDestino = new System.Windows.Forms.Button();
             this.btnStatusOrigem = new System.Windows.Forms.Button();
             this.lblTabela = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnTrocarMod = new System.Windows.Forms.Button();
+            this.btnImportar = new System.Windows.Forms.Button();
+            this.pcbAlvo = new System.Windows.Forms.PictureBox();
+            this.btnDestino = new System.Windows.Forms.Button();
+            this.btnOrigem = new System.Windows.Forms.Button();
+            this.pcbBanco = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbAlvo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBanco)).BeginInit();
             this.SuspendLayout();
             // 
             // pgbImportar
@@ -124,82 +123,6 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "FB5.0";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ImportadorFDB5.Properties.Resources.png_transparent_bathroom_aesthetics_person_ak_logo_angle_text_triangle_thumbnail_removebg_preview;
-            this.pictureBox3.Location = new System.Drawing.Point(369, -35);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(355, 264);
-            this.pictureBox3.TabIndex = 11;
-            this.pictureBox3.TabStop = false;
-            // 
-            // btnImportar
-            // 
-            this.btnImportar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnImportar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImportar.FlatAppearance.BorderSize = 0;
-            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportar.Image = global::ImportadorFDB5.Properties.Resources.intercambio;
-            this.btnImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImportar.Location = new System.Drawing.Point(97, 139);
-            this.btnImportar.Margin = new System.Windows.Forms.Padding(0);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(172, 29);
-            this.btnImportar.TabIndex = 0;
-            this.btnImportar.Text = "Importar Dados";
-            this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImportar.UseVisualStyleBackColor = true;
-            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ImportadorFDB5.Properties.Resources.alvo;
-            this.pictureBox2.Location = new System.Drawing.Point(30, 95);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 22);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnDestino
-            // 
-            this.btnDestino.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnDestino.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDestino.FlatAppearance.BorderSize = 0;
-            this.btnDestino.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDestino.Image = global::ImportadorFDB5.Properties.Resources.pasta;
-            this.btnDestino.Location = new System.Drawing.Point(319, 95);
-            this.btnDestino.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDestino.Name = "btnDestino";
-            this.btnDestino.Size = new System.Drawing.Size(27, 22);
-            this.btnDestino.TabIndex = 2;
-            this.btnDestino.UseVisualStyleBackColor = true;
-            this.btnDestino.Click += new System.EventHandler(this.btnDestino_Click);
-            // 
-            // btnOrigem
-            // 
-            this.btnOrigem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnOrigem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOrigem.FlatAppearance.BorderSize = 0;
-            this.btnOrigem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrigem.Image = global::ImportadorFDB5.Properties.Resources.pasta;
-            this.btnOrigem.Location = new System.Drawing.Point(319, 36);
-            this.btnOrigem.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOrigem.Name = "btnOrigem";
-            this.btnOrigem.Size = new System.Drawing.Size(27, 22);
-            this.btnOrigem.TabIndex = 1;
-            this.btnOrigem.UseVisualStyleBackColor = true;
-            this.btnOrigem.Click += new System.EventHandler(this.btnOrigem_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ImportadorFDB5.Properties.Resources.db;
-            this.pictureBox1.Location = new System.Drawing.Point(29, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 22);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -255,31 +178,113 @@
             this.lblStatus.TabIndex = 17;
             this.lblStatus.Text = "-";
             // 
+            // btnTrocarMod
+            // 
+            this.btnTrocarMod.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTrocarMod.FlatAppearance.BorderSize = 0;
+            this.btnTrocarMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrocarMod.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrocarMod.Image = global::ImportadorFDB5.Properties.Resources.ModLigth;
+            this.btnTrocarMod.Location = new System.Drawing.Point(697, 211);
+            this.btnTrocarMod.Name = "btnTrocarMod";
+            this.btnTrocarMod.Size = new System.Drawing.Size(52, 36);
+            this.btnTrocarMod.TabIndex = 18;
+            this.btnTrocarMod.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTrocarMod.UseVisualStyleBackColor = true;
+            this.btnTrocarMod.Click += new System.EventHandler(this.btnTrocarMod_Click);
+            // 
+            // btnImportar
+            // 
+            this.btnImportar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnImportar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImportar.FlatAppearance.BorderSize = 0;
+            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportar.Image = global::ImportadorFDB5.Properties.Resources.intercambio;
+            this.btnImportar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImportar.Location = new System.Drawing.Point(97, 139);
+            this.btnImportar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(172, 29);
+            this.btnImportar.TabIndex = 0;
+            this.btnImportar.Text = "Importar Dados";
+            this.btnImportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
+            // 
+            // pcbAlvo
+            // 
+            this.pcbAlvo.Image = global::ImportadorFDB5.Properties.Resources.AlvoLigth1;
+            this.pcbAlvo.Location = new System.Drawing.Point(30, 95);
+            this.pcbAlvo.Name = "pcbAlvo";
+            this.pcbAlvo.Size = new System.Drawing.Size(25, 22);
+            this.pcbAlvo.TabIndex = 5;
+            this.pcbAlvo.TabStop = false;
+            // 
+            // btnDestino
+            // 
+            this.btnDestino.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDestino.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDestino.FlatAppearance.BorderSize = 0;
+            this.btnDestino.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDestino.Image = global::ImportadorFDB5.Properties.Resources.PastaLigth1;
+            this.btnDestino.Location = new System.Drawing.Point(319, 97);
+            this.btnDestino.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDestino.Name = "btnDestino";
+            this.btnDestino.Size = new System.Drawing.Size(27, 22);
+            this.btnDestino.TabIndex = 2;
+            this.btnDestino.UseVisualStyleBackColor = true;
+            this.btnDestino.Click += new System.EventHandler(this.btnDestino_Click);
+            // 
+            // btnOrigem
+            // 
+            this.btnOrigem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnOrigem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOrigem.FlatAppearance.BorderSize = 0;
+            this.btnOrigem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrigem.Image = global::ImportadorFDB5.Properties.Resources.PastaLigth1;
+            this.btnOrigem.Location = new System.Drawing.Point(319, 39);
+            this.btnOrigem.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOrigem.Name = "btnOrigem";
+            this.btnOrigem.Size = new System.Drawing.Size(27, 22);
+            this.btnOrigem.TabIndex = 1;
+            this.btnOrigem.UseVisualStyleBackColor = true;
+            this.btnOrigem.Click += new System.EventHandler(this.btnOrigem_Click);
+            // 
+            // pcbBanco
+            // 
+            this.pcbBanco.Image = global::ImportadorFDB5.Properties.Resources.base_de_dadosLigth;
+            this.pcbBanco.Location = new System.Drawing.Point(29, 36);
+            this.pcbBanco.Name = "pcbBanco";
+            this.pcbBanco.Size = new System.Drawing.Size(25, 22);
+            this.pcbBanco.TabIndex = 0;
+            this.pcbBanco.TabStop = false;
+            // 
             // frmImportador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(761, 251);
+            this.Controls.Add(this.btnTrocarMod);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblTabela);
             this.Controls.Add(this.btnStatusOrigem);
             this.Controls.Add(this.btnStatusDestino);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblVUm);
             this.Controls.Add(this.lblDestino);
             this.Controls.Add(this.lblOrigem);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pcbAlvo);
             this.Controls.Add(this.txtDestino);
             this.Controls.Add(this.btnDestino);
             this.Controls.Add(this.btnOrigem);
             this.Controls.Add(this.txtOrigem);
             this.Controls.Add(this.pgbImportar);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pcbBanco);
             this.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -290,33 +295,32 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "< Importador FBD >";
             this.Load += new System.EventHandler(this.frmImportador_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbAlvo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBanco)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ProgressBar pgbImportar;
         private System.Windows.Forms.Button btnOrigem;
         private System.Windows.Forms.TextBox txtDestino;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblOrigem;
         private System.Windows.Forms.Label lblDestino;
         private System.Windows.Forms.Label lblVUm;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDestino;
-        private System.Windows.Forms.Button btnImportar;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnStatusDestino;
         private System.Windows.Forms.Button btnStatusOrigem;
         public System.Windows.Forms.TextBox txtOrigem;
         public System.Windows.Forms.Label lblTabela;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button btnTrocarMod;
+        public System.Windows.Forms.PictureBox pcbBanco;
+        public System.Windows.Forms.PictureBox pcbAlvo;
+        public System.Windows.Forms.Button btnImportar;
     }
 }
 
