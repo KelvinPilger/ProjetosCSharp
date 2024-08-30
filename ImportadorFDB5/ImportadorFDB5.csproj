@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>firebird-logo-500-removebg-preview.ico</ApplicationIcon>
+    <ApplicationIcon>f6040fb6-8878-4f9a-a3b8-c61357619ebf.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=10.3.1.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
@@ -113,6 +113,9 @@
     <None Include="Resources\png-transparent-bathroom-aesthetics-person-ak-logo-angle-text-triangle-thumbnail-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1e4fe882-681d-468c-8994-5f439d6f86e5 %282%29.ico" />
+    <Content Include="1e4fe882-681d-468c-8994-5f439d6f86e5.ico" />
+    <Content Include="f6040fb6-8878-4f9a-a3b8-c61357619ebf.ico" />
     <Content Include="firebird-logo-500-removebg-preview.ico" />
     <None Include="Resources\AlvoLigth1.png" />
     <None Include="Resources\PastaDark1.png" />

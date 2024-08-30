@@ -94,19 +94,13 @@ namespace ImportadorFDB5
                 btnStatusDestino.BackColor = Color.Red;
             }
         }
-
-        private void frmImportador_Load(object sender, EventArgs e)
-        {
-            lblStatus.Visible = false;
-        }
         private void btnImportar_Click(object sender, EventArgs e)
         {
             if (btnStatusDestino.BackColor != Color.Red && btnStatusOrigem.BackColor != Color.Red) {
-                btnImportar.Enabled = false;
                 Importacao.CreateFaltantes();
-                Importacao.DropKeys(lblStatus);
-                Importacao.ExportarDados(Importacao.PreencherNomeTabelas(), pgbImportar, lblStatus);
+                Importacao.ImportarTabelas(Importacao.PreencherNomeTabelas(), pgbImportar, lblImportacao);
                 btnImportar.Enabled = true;
+                lblImportacao.Text = null;
             }
         }
 
@@ -114,6 +108,17 @@ namespace ImportadorFDB5
         {
             ControladorMod.TrocarMod();
             SetColor();
+        }
+
+        private void frmImportador_Load(object sender, EventArgs e)
+        {
+            if (ControladorMod.ligado)
+            {
+                lblDestino.ForeColor = Color.White;
+            } else
+            {
+                lblDestino.ForeColor = Color.FromArgb(242, 242, 242);
+            }
         }
     }
 }

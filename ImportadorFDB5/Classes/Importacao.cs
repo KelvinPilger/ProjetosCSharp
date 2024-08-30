@@ -1,19 +1,11 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
-using FirebirdSql.Data.Client;
 using FirebirdSql.Data.FirebirdClient;
 using System.IO;
-using System.Reflection.Emit;
-using System.Threading.Tasks.Sources;
-using System.Security.AccessControl;
-using System.Data.SqlClient;
 
 namespace ImportadorFDB5.Classes
 {
@@ -212,6 +204,79 @@ namespace ImportadorFDB5.Classes
             }
         }
 
+        private static List<string> OrdenarTabelasPorDependencias(List<string> tabelas)
+        {
+            string stringConexaoOrigem = $@"User=SYSDBA;Password=masterkey;Database={diretorioOrigem};DataSource=localhost;Port={portaUm};
+                    Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
+                    Packet Size=8192;ServerType=0;";
+
+            using (FbConnection conexaoOrigem = new FbConnection(stringConexaoOrigem))
+            {
+                conexaoOrigem.Open();
+
+                Dictionary<string, List<string>> dependencias = new Dictionary<string, List<string>>();
+
+                foreach (string tabela in tabelas)
+                {
+                    List<string> tabelasReferenciadas = new List<string>();
+
+                    string consultaReferencias = $@"
+                        SELECT DISTINCT rfc.RDB$RELATION_NAME AS REFERENCED_TABLE_NAME
+                        FROM RDB$RELATION_CONSTRAINTS rc
+                        JOIN RDB$REF_CONSTRAINTS refc ON rc.RDB$CONSTRAINT_NAME = refc.RDB$CONSTRAINT_NAME
+                        JOIN RDB$RELATION_CONSTRAINTS rfc ON refc.RDB$CONST_NAME_UQ = rfc.RDB$CONSTRAINT_NAME
+                        WHERE rc.RDB$RELATION_NAME = '{tabela}' AND rc.RDB$CONSTRAINT_TYPE = 'FOREIGN KEY'";
+
+                    using (FbCommand comandoReferencias = new FbCommand(consultaReferencias, conexaoOrigem))
+                    {
+                        using (FbDataReader leitor = comandoReferencias.ExecuteReader())
+                        {
+                            while (leitor.Read())
+                            {
+                                string referencedTable = leitor["REFERENCED_TABLE_NAME"].ToString().Trim();
+                                if (tabelas.Contains(referencedTable))
+                                {
+                                    tabelasReferenciadas.Add(referencedTable);
+                                }
+                            }
+                        }
+                    }
+
+                    dependencias[tabela] = tabelasReferenciadas;
+                }
+
+                List<string> ordenacao = new List<string>();
+                HashSet<string> visitado = new HashSet<string>();
+
+                void Visitar(string tabela)
+                {
+                    if (!visitado.Contains(tabela))
+                    {
+                        visitado.Add(tabela);
+
+                        if (dependencias.ContainsKey(tabela))
+                        {
+                            foreach (var referenciada in dependencias[tabela])
+                            {
+                                if (!visitado.Contains(referenciada))
+                                {
+                                    Visitar(referenciada);
+                                }
+                            }
+                        }
+
+                        ordenacao.Add(tabela);
+                    }
+                }
+
+                foreach (var tabela in tabelas)
+                {
+                    Visitar(tabela);
+                }
+
+                return ordenacao;
+            }
+        }
 
         public static List<string> PreencherNomeTabelas()
         {
@@ -245,25 +310,25 @@ namespace ImportadorFDB5.Classes
             FbConnection conexao = new FbConnection(stringConexaoDestino);
 
             string consultaTrigger = @"
-            SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS WHERE RDB$FLAGS = 1;
-            ";
+                SELECT RDB$TRIGGER_NAME FROM RDB$TRIGGERS WHERE RDB$FLAGS = 1;
+                ";
 
             string consultaForeignKeys = @"
-            SELECT 
-                RDB$CONSTRAINT_NAME, 
-                RDB$RELATION_NAME 
-            FROM 
-                RDB$RELATION_CONSTRAINTS 
-            WHERE 
-                RDB$CONSTRAINT_TYPE = 'FOREIGN KEY'";
+                SELECT 
+                    RDB$CONSTRAINT_NAME, 
+                    RDB$RELATION_NAME 
+                FROM 
+                    RDB$RELATION_CONSTRAINTS 
+                WHERE 
+                    RDB$CONSTRAINT_TYPE = 'FOREIGN KEY'";
 
             string consultaUniqueKeys = @"
-            SELECT 
-                RDB$CONSTRAINT_NAME, 
-                RDB$RELATION_NAME 
-            FROM 
-                RDB$RELATION_CONSTRAINTS 
-            WHERE RDB$CONSTRAINT_NAME LIKE '%UNQ%'";
+                SELECT 
+                    RDB$CONSTRAINT_NAME, 
+                    RDB$RELATION_NAME 
+                FROM 
+                    RDB$RELATION_CONSTRAINTS 
+                WHERE RDB$CONSTRAINT_NAME LIKE '%UNQ%'";
 
             conexao.Open();
 
@@ -322,172 +387,203 @@ namespace ImportadorFDB5.Classes
             }
 
         }
-        public static void ExportarDados(List<string> tabelas, ProgressBar progresso, System.Windows.Forms.Label lblStatus)
+        public static void ImportarTabelas(List<string> tabelas, ProgressBar progresso, System.Windows.Forms.Label lblStatus)
         {
-            progresso.Maximum = tabelas.Count();
+            lblStatus.Enabled = true;
+
+            List<string> tabelasSemFk = new List<string>();
+            List<string> tabelasComFk = new List<string>();
 
             string stringConexaoDestino = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
-                                Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
-                                Packet Size=8192;ServerType=0;";
+                    Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
+                    Packet Size=8192;ServerType=0;";
             string stringConexaoOrigem = $@"User=SYSDBA;Password=masterkey;Database={diretorioOrigem};DataSource=localhost;Port={portaUm};
-                                Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
-                                Packet Size=8192;ServerType=0;";
+                    Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
+                    Packet Size=8192;ServerType=0;";
 
-            FbConnection conexaoDestino = new FbConnection(stringConexaoDestino);
-            FbConnection conexaoOrigem = new FbConnection(stringConexaoOrigem);
-
-            List<string> tabelasExportar = PreencherNomeTabelas();
-
-            bool validar = false;
-            conexaoOrigem.Open();
-            conexaoDestino.Open();
-
-            lblStatus.Visible = true;
-
-            foreach (string tabela in tabelasExportar)
+            using (FbConnection conexaoDestino = new FbConnection(stringConexaoDestino))
+            using (FbConnection conexaoOrigem = new FbConnection(stringConexaoOrigem))
             {
-                decimal valor = progresso.Maximum / tabelasExportar.Count() + 1;
+                conexaoOrigem.Open();
+                conexaoDestino.Open();
 
-                lblStatus.Invoke(new Action(() =>
+                List<string> tabelasExportar = PreencherNomeTabelas();
+
+                foreach (string tabela in tabelasExportar)
                 {
-                    lblStatus.Text = $"Importando tabela: {tabela}";
-                    lblStatus.Refresh();
-                }));
+                    string consultaView = $@"
+                        SELECT COUNT(*)
+                        FROM RDB$RELATIONS
+                        WHERE RDB$RELATION_NAME = '{tabela}' AND RDB$VIEW_BLR IS NOT NULL";
 
-                string select = $@"SELECT * FROM {tabela}";
-
-                using (FbCommand comandoSelect = new FbCommand(select, conexaoOrigem))
-                {
-                    using (FbDataReader leitor = comandoSelect.ExecuteReader())
+                    using (FbCommand comandoView = new FbCommand(consultaView, conexaoOrigem))
                     {
-                        DataTable schemaTable = leitor.GetSchemaTable();
-                        List<string> colunas = new List<string>();
-                        List<string> parametros = new List<string>();
-                        bool temPk = false;
-
-                        foreach (DataRow linha in schemaTable.Rows)
+                        int isView = Convert.ToInt32(comandoView.ExecuteScalar());
+                        if (isView > 0)
                         {
-                            string coluna = linha["ColumnName"].ToString();
-                            colunas.Add(coluna);
-                            parametros.Add($"@{coluna}");
-
-                            if ((bool)linha["IsKey"])
-                            {
-                                temPk = true;
-                            }
+                            continue;
                         }
+                    }
 
-                        progresso.Invoke(new Action(() =>
+                    string consultaFk = $@"
+                        SELECT COUNT(*)
+                        FROM RDB$RELATION_CONSTRAINTS rc
+                        WHERE rc.RDB$RELATION_NAME = '{tabela}' AND rc.RDB$CONSTRAINT_TYPE = 'FOREIGN KEY'";
+
+                    using (FbCommand comandoFk = new FbCommand(consultaFk, conexaoOrigem))
+                    {
+                        int fkCount = Convert.ToInt32(comandoFk.ExecuteScalar());
+                        if (fkCount == 0)
                         {
-                            if (progresso.Value < progresso.Maximum)
-                            {
-                                progresso.Value += 1;
-                            }
-                        }));
-
-                        foreach (string coluna in colunas)
+                            tabelasSemFk.Add(tabela);
+                        }
+                        else
                         {
-                            using (FbCommand checarColuna = new FbCommand($"SELECT COUNT(*) FROM RDB$RELATION_FIELDS WHERE RDB$FIELD_NAME = '{coluna}' AND RDB$RELATION_NAME = '{tabela}'", conexaoDestino))
+                            tabelasComFk.Add(tabela);
+                        }
+                    }
+                }
+
+                List<string> tabelasOrdenadasComFk = OrdenarTabelasPorDependencias(tabelasComFk);
+
+                List<string> tabelasOrdenadas = new List<string>();
+                tabelasOrdenadas.AddRange(tabelasSemFk);
+                tabelasOrdenadas.AddRange(tabelasOrdenadasComFk);
+
+                progresso.Maximum = tabelasOrdenadas.Count;
+
+                foreach (string tabela in tabelasOrdenadas)
+                {
+                    decimal valor = progresso.Maximum / tabelas.Count() + 1;
+
+                    string select = $@"SELECT * FROM {tabela}";
+
+                    using (FbCommand comandoSelect = new FbCommand(select, conexaoOrigem))
+                    {
+                        using (FbDataReader leitor = comandoSelect.ExecuteReader())
+                        {
+                            DataTable schemaTable = leitor.GetSchemaTable();
+                            List<string> colunas = new List<string>();
+                            List<string> parametros = new List<string>();
+                            List<string> primaryKeyColumns = new List<string>();
+                            bool temPk = false;
+
+                            foreach (DataRow linha in schemaTable.Rows)
                             {
-                                object result = checarColuna.ExecuteScalar();
+                                string coluna = linha["ColumnName"].ToString();
+                                colunas.Add(coluna);
+                                parametros.Add($"@{coluna}");
 
-                                int colunaExiste = result != null && Convert.ToInt32(result) > 0 ? 1 : 0;
-
-                                if (colunaExiste == 0)
+                                if ((bool)linha["IsKey"])
                                 {
-                                    string datatype = "";
-                                    using (FbCommand tipoDatatype = new FbCommand($"SELECT RDB$FIELD_TYPE FROM RDB$RELATION_FIELDS RF JOIN RDB$FIELDS F ON RF.RDB$FIELD_SOURCE = F.RDB$FIELD_NAME WHERE RF.RDB$FIELD_NAME = '{coluna}' AND RF.RDB$RELATION_NAME = '{tabela}'", conexaoOrigem))
-                                    {
-                                        object resultado = tipoDatatype.ExecuteScalar();
+                                    temPk = true;
+                                    primaryKeyColumns.Add(coluna);
+                                }
+                            }
 
-                                        int tipoCampo = Convert.ToInt32(resultado);
-                                        switch (tipoCampo)
-                                        {
-                                            case 7:
-                                                datatype = "SMALLINT";
-                                                break;
-                                            case 8:
-                                                datatype = "INTEGER";
-                                                break;
-                                            case 10:
-                                                datatype = "FLOAT";
-                                                break;
-                                            case 12:
-                                                datatype = "DATE";
-                                                break;
-                                            case 13:
-                                                datatype = "TIME";
-                                                break;
-                                            case 14:
-                                            case 37:
-                                                datatype = "VARCHAR(50)";
-                                                break;
-                                            case 16:
-                                                datatype = "BIGINT";
-                                                break;
-                                            case 27:
-                                                datatype = "DOUBLE PRECISION";
-                                                break;
-                                            case 35:
-                                                datatype = "TIMESTAMP";
-                                                break;
-                                            default:
-                                                datatype = "VARCHAR(50)";
-                                                break;
-                                        }
-                                    }
-                                    using (FbCommand createColumnCommand = new FbCommand($"ALTER TABLE {tabela} ADD {coluna} {datatype}", conexaoDestino))
+                            progresso.Value = Math.Min(progresso.Value + 1, progresso.Maximum);
+                            lblStatus.Text = $"Importando tabela: {tabela}";
+                            lblStatus.Refresh();  
+                            Application.DoEvents();  
+
+                            foreach (string coluna in colunas)
+                            {
+                                using (FbCommand checarColuna = new FbCommand($"SELECT COUNT(*) FROM RDB$RELATION_FIELDS WHERE RDB$FIELD_NAME = '{coluna}' AND RDB$RELATION_NAME = '{tabela}'", conexaoDestino))
+                                {
+                                    object result = checarColuna.ExecuteScalar();
+
+                                    int colunaExiste = result != null && Convert.ToInt32(result) > 0 ? 1 : 0;
+
+                                    if (colunaExiste == 0)
                                     {
-                                        createColumnCommand.ExecuteNonQuery();
+                                        string datatype = "";
+                                        using (FbCommand tipoDatatype = new FbCommand($"SELECT RDB$FIELD_TYPE FROM RDB$RELATION_FIELDS RF JOIN RDB$FIELDS F ON RF.RDB$FIELD_SOURCE = F.RDB$FIELD_NAME WHERE RF.RDB$FIELD_NAME = '{coluna}' AND RF.RDB$RELATION_NAME = '{tabela}'", conexaoOrigem))
+                                        {
+                                            object resultado = tipoDatatype.ExecuteScalar();
+
+                                            int tipoCampo = Convert.ToInt32(resultado);
+                                            switch (tipoCampo)
+                                            {
+                                                case 7:
+                                                    datatype = "SMALLINT";
+                                                    break;
+                                                case 8:
+                                                    datatype = "INTEGER";
+                                                    break;
+                                                case 10:
+                                                    datatype = "FLOAT";
+                                                    break;
+                                                case 12:
+                                                    datatype = "DATE";
+                                                    break;
+                                                case 13:
+                                                    datatype = "TIME";
+                                                    break;
+                                                case 14:
+                                                case 37:
+                                                    datatype = "VARCHAR(50)";
+                                                    break;
+                                                case 16:
+                                                    datatype = "BIGINT";
+                                                    break;
+                                                case 27:
+                                                    datatype = "DOUBLE PRECISION";
+                                                    break;
+                                                case 35:
+                                                    datatype = "TIMESTAMP";
+                                                    break;
+                                                default:
+                                                    datatype = "VARCHAR(50)";
+                                                    break;
+                                            }
+                                        }
+                                        using (FbCommand createColumnCommand = new FbCommand($"ALTER TABLE {tabela} ADD {coluna} {datatype}", conexaoDestino))
+                                        {
+                                            createColumnCommand.ExecuteNonQuery();
+                                        }
                                     }
                                 }
                             }
-                        }
 
-                        if (validar == false)
-                        {
-                            if (tabela != "TCSTCFOP" && tabela != "TCONFIGESTACAO" && tabela != "TCREDITOCLIENTE" && tabela != "THISTORICOCREDITOCLIENTE" && tabela != "TECF" && tabela != "TPARCELAMENTO" && tabela != "TSCRIPT" && tabela != "TSEQUENCIANFE" && tabela != "TXML" && tabela != "TAUTORIZACAOXML" && tabela != "VACOUGUE" && tabela != "VCASHBACK" && tabela != "VGNRE" && tabela != "VLIGACAOCRM" && tabela != "VESTOQUEACOUGUE")
+                            while (leitor.Read())
                             {
+                                string insert;
+
+                                if (temPk)
+                                {
+                                    string matchingClause = string.Join(" AND ", primaryKeyColumns.Select(pk => $"{pk} = @{pk}"));
+                                    insert = $"UPDATE OR INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)}) MATCHING ({string.Join(",", primaryKeyColumns)})";
+                                }
+                                else
+                                {
+                                    insert = $"INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
+                                }
+
                                 try
                                 {
-                                    if (leitor.IsClosed == false)
+                                    using (FbCommand comandoInsert = new FbCommand(insert, conexaoDestino))
                                     {
-                                        while (leitor.Read())
+                                        foreach (string coluna in colunas)
                                         {
-                                            string insert;
-
-                                            if (temPk)
-                                            {
-                                                insert = $"UPDATE OR INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
-                                            }
-                                            else
-                                            {
-                                                insert = $"INSERT INTO {tabela} ({string.Join(",", colunas)}) VALUES ({string.Join(",", parametros)})";
-                                            }
-
-                                            using (FbCommand comandoInsert = new FbCommand(insert, conexaoDestino))
-                                            {
-                                                foreach (string coluna in colunas)
-                                                {
-                                                    comandoInsert.Parameters.AddWithValue($@"{coluna}", leitor[coluna]);
-                                                }
-                                                comandoInsert.ExecuteNonQuery();
-                                            }
+                                            comandoInsert.Parameters.AddWithValue($@"{coluna}", leitor[coluna]);
                                         }
+                                        comandoInsert.ExecuteNonQuery();
                                     }
                                 }
-                                catch (Exception ex)
+                                catch (FbException ex) when (ex.Message.Contains("violation of PRIMARY or UNIQUE KEY constraint"))
                                 {
-                                    MessageBox.Show(ex.Message);
+                                    Console.WriteLine($"Erro ao inserir na tabela {tabela}: {ex.Message}");
                                 }
                             }
                         }
                     }
                 }
+                lblStatus.Text = "Importação Concluída com Sucesso!";
+                lblStatus.Refresh();
+                progresso.Value = 0;
+                Application.DoEvents(); 
+                MessageBox.Show("Importação Concluída com Sucesso!", "Importação FDB5", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            MessageBox.Show("Importação Concluída com Sucesso!", "Importação FDB5", MessageBoxButtons.OK);
-            lblStatus.Visible = false;
-            progresso.Value = 0;
         }
     }
 }
