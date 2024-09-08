@@ -331,6 +331,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "< Importador FBD >";
             this.Load += new System.EventHandler(this.frmImportador_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnFechar);
             ((System.ComponentModel.ISupportInitialize)(this.pcbAlvo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBanco)).EndInit();
             this.ResumeLayout(false);
@@ -340,18 +341,15 @@
 
         #endregion
         private System.Windows.Forms.ProgressBar pgbImportar;
-        private System.Windows.Forms.Button btnOrigem;
         private System.Windows.Forms.TextBox txtDestino;
         private System.Windows.Forms.Label lblOrigem;
         private System.Windows.Forms.Label lblVUm;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnDestino;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnStatusDestino;
         private System.Windows.Forms.Button btnStatusOrigem;
         public System.Windows.Forms.TextBox txtOrigem;
         public System.Windows.Forms.Label lblTabela;
-        private System.Windows.Forms.Button btnTrocarMod;
         public System.Windows.Forms.PictureBox pcbBanco;
         public System.Windows.Forms.PictureBox pcbAlvo;
         public System.Windows.Forms.Button btnImportar;
@@ -360,6 +358,9 @@
         private System.Windows.Forms.Label btnFUm;
         private System.Windows.Forms.Label btnFDois;
         private System.Windows.Forms.Label btnFTres;
+        public System.Windows.Forms.Button btnOrigem;
+        public System.Windows.Forms.Button btnDestino;
+        public System.Windows.Forms.Button btnTrocarMod;
     }
 }
 

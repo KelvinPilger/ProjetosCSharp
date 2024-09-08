@@ -30,6 +30,8 @@ namespace ImportadorFDB5
         {
             InitializeComponent();
             SetColor();
+
+   
         }
 
 
@@ -96,7 +98,8 @@ namespace ImportadorFDB5
         }
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            if (btnStatusDestino.BackColor != Color.Red && btnStatusOrigem.BackColor != Color.Red) {
+            if (btnStatusDestino.BackColor != Color.Red && btnStatusOrigem.BackColor != Color.Red)
+            {
                 Importacao.CreateFaltantes();
                 Importacao.ImportarTabelas(Importacao.PreencherNomeTabelas(), pgbImportar, lblImportacao);
                 btnImportar.Enabled = true;
@@ -112,13 +115,16 @@ namespace ImportadorFDB5
 
         private void frmImportador_Load(object sender, EventArgs e)
         {
-            if (ControladorMod.ligado)
+            if (ControladorMod.corFonte == Color.White)
             {
-                lblDestino.ForeColor = Color.White;
-            } else
-            {
-                lblDestino.ForeColor = Color.FromArgb(242, 242, 242);
+                ForeColor = Color.Black;
+               
             }
+        }
+
+        private void btnFechar(object sender, KeyEventArgs e)
+        {
+            KeyPreview = true;
         }
     }
 }

@@ -15,11 +15,41 @@ namespace ImportadorFDB5
         [STAThread]
         static void Main()
         {
+          
             ControladorMod.TrocarMod();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmImportador());
+             // Application.Run(new frmImportador());
+            frmImportador frmImportador = new frmImportador();
+            ConfigureKeyBindings(frmImportador);
+            Application.Run(frmImportador);
 
+        }
+        static void ConfigureKeyBindings(frmImportador frmImportador)
+        {
+            frmImportador.KeyPreview = true;
+
+            frmImportador.KeyDown += (sender, e) =>
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.F1:
+                        frmImportador.btnOrigem.PerformClick();
+                        break;
+                    case Keys.F2:
+                        frmImportador.btnDestino.PerformClick();
+                        break;
+                    case Keys.F3:
+                        frmImportador.btnImportar.PerformClick();
+                        break;
+                    case Keys.F4:
+                        frmImportador.btnTrocarMod.PerformClick();
+                        break;
+                    case Keys.Escape:
+                        frmImportador.Close();
+                        break;
+                }
+            };
         }
     }
 }
