@@ -26,14 +26,12 @@ namespace ImportadorFDB5
                 DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
             }
         }
+
         public frmImportador()
         {
             InitializeComponent();
             SetColor();
-
-   
         }
-
 
         private void SetColor()
         {
@@ -63,12 +61,12 @@ namespace ImportadorFDB5
             {
                 txtOrigem.Text = origem.FileName;
                 Importacao.diretorioOrigem = txtOrigem.Text;
-
                 Importacao.ConexaoOrigem(txtOrigem, btnStatusOrigem);
             }
             else
             {
-                txtOrigem.Text = "Selecione o banco de destino.";
+                txtOrigem.Text = "Selecione o banco de origem.";
+                btnStatusOrigem.BackColor = Color.Red;
             }
 
         }
@@ -96,6 +94,7 @@ namespace ImportadorFDB5
                 btnStatusDestino.BackColor = Color.Red;
             }
         }
+
         private void btnImportar_Click(object sender, EventArgs e)
         {
             if (btnStatusDestino.BackColor != Color.Red && btnStatusOrigem.BackColor != Color.Red)
@@ -111,15 +110,6 @@ namespace ImportadorFDB5
         {
             ControladorMod.TrocarMod();
             SetColor();
-        }
-
-        private void frmImportador_Load(object sender, EventArgs e)
-        {
-            if (ControladorMod.corFonte == Color.White)
-            {
-                ForeColor = Color.Black;
-               
-            }
         }
 
         private void btnFechar(object sender, KeyEventArgs e)
