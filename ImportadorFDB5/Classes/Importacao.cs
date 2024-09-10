@@ -574,6 +574,14 @@ namespace ImportadorFDB5.Classes
                                 {
                                     Console.WriteLine($"Erro ao inserir na tabela {tabela}: {ex.Message}");
                                 }
+                                catch (FbException ex) when (ex.Message.Contains("violation of FOREIGN KEY constraint"))
+                                {
+                                    Console.WriteLine($"Erro de chave estrangeira ao inserir na tabela {tabela}: {ex.Message}");
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine($"Erro genérico ao inserir na tabela {tabela}: {ex.Message}");
+                                }
                             }
                         }
                     }

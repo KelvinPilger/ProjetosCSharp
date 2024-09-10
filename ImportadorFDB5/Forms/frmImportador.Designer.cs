@@ -50,6 +50,7 @@
             this.btnFUm = new System.Windows.Forms.Label();
             this.btnFDois = new System.Windows.Forms.Label();
             this.btnFTres = new System.Windows.Forms.Label();
+            this.lblFQuatro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAlvo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBanco)).BeginInit();
             this.SuspendLayout();
@@ -293,6 +294,16 @@
             this.btnFTres.TabIndex = 22;
             this.btnFTres.Text = "F3";
             // 
+            // lblFQuatro
+            // 
+            this.lblFQuatro.AutoSize = true;
+            this.lblFQuatro.Font = new System.Drawing.Font("Verdana", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFQuatro.Location = new System.Drawing.Point(710, 210);
+            this.lblFQuatro.Name = "lblFQuatro";
+            this.lblFQuatro.Size = new System.Drawing.Size(14, 8);
+            this.lblFQuatro.TabIndex = 23;
+            this.lblFQuatro.Text = "F4";
+            // 
             // frmImportador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +311,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(740, 253);
+            this.Controls.Add(this.lblFQuatro);
             this.Controls.Add(this.btnFTres);
             this.Controls.Add(this.btnFDois);
             this.Controls.Add(this.btnFUm);
@@ -360,6 +372,7 @@
         public System.Windows.Forms.Button btnOrigem;
         public System.Windows.Forms.Button btnDestino;
         public System.Windows.Forms.Button btnTrocarMod;
+        private System.Windows.Forms.Label lblFQuatro;
     }
 }
 
