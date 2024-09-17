@@ -115,7 +115,7 @@ namespace ImportadorFDB5.Classes
             {
                 conexaoDest.Open();
 
-                string[] create = new string[4];
+                string[] create = new string[12];
 
                 create[0] = $@"EXECUTE BLOCK AS
                 BEGIN
@@ -187,6 +187,164 @@ namespace ImportadorFDB5.Classes
                     END
                 END;";
 
+                create[4] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'TOFICINACHECKLIST')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                            CREATE TABLE TOFICINACHECKLIST (
+	                            CONTROLE INTEGER NOT NULL,
+	                            CODPRODUTO INTEGER,
+	                            PRODUTO VARCHAR(100),
+	                            DESCRICAO VARCHAR(30),
+	                            UTILIZANAIMPRESSAO CHAR(1),
+	                            DATAEHORACADASTRO TIMESTAMP,
+	                            CONSTRAINT PK_TOFICINACHECKLIST PRIMARY KEY (CONTROLE)
+                            );
+                        ';
+                    END
+                END;";
+
+                create[5] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'TOFICINAVEICULO')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                            CREATE TABLE TOFICINAVEICULO (
+	                            CONTROLE INTEGER NOT NULL,
+	                            CODPROPRIETARIO INTEGER NOT NULL,
+	                            PROPRIETARIO VARCHAR(100),
+	                            MARCA VARCHAR(50),
+	                            MODELO VARCHAR(100),
+	                            ATIVO CHAR(1),
+	                            PLACA VARCHAR(8),
+	                            CATEGORIA VARCHAR(20),
+	                            COR VARCHAR(25),
+	                            ANOMODELOFABRICACAO VARCHAR(4),
+	                            ANOFABRICACAO INTEGER,
+	                            TIPOCOMBUSTIVEL VARCHAR(30),
+	                            CHASSI VARCHAR(17),
+	                            QUILOMETRAGEM VARCHAR(10),
+	                            OBS BLOB SUB_TYPE TEXT,
+	                            DATAEHORACADASTRO TIMESTAMP,
+	                            POTENCIA VARCHAR(10),
+	                            CONSTRAINT PK_TOFICINAVEICULO PRIMARY KEY (CONTROLE)
+                            );
+                        ';
+                    END
+                END;";
+
+                create[6] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'TSEGURADORA')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                            CREATE TABLE TSEGURADORA (
+	                            CONTROLE INTEGER NOT NULL,
+	                            SEGURADORA VARCHAR(100),
+	                            RESPONSAVELSEGURO CHAR(1),
+	                            CNPJSEGURADORA VARCHAR(14),
+	                            NROAPOLICE VARCHAR(20),
+	                            NROAVERBACAO VARCHAR(20),
+	                            DATAHORACADASTRO TIMESTAMP,
+	                            CONSTRAINT PK_TSEGURADORA PRIMARY KEY (CONTROLE)
+                            );
+                        ';
+                    END
+                END;";
+
+                create[7] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'TOFICINALOCALIZACAOVEICULO')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                                CREATE TABLE TOFICINALOCALIZACAOVEICULO (
+	                            CONTROLE INTEGER NOT NULL,
+	                            LOCALIZACAO VARCHAR(50),
+	                            DATAHORACADASTRO TIMESTAMP,
+	                            CONSTRAINT PK_TOFICINALOCALIZACAOVEICULO PRIMARY KEY (CONTROLE)
+                            );
+                        ';
+                    END
+                END;";
+
+                create[8] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'THISTORICOOS')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                                CREATE TABLE THISTORICOOS (
+                                CONTROLE INTEGER NOT NULL,
+                                CODOPERADOR INTEGER,
+                                CODOS INTEGER NOT NULL,
+                                SITUACAOANTIGA VARCHAR(100),
+                                SITUACAONOVA VARCHAR(100),
+                                DATAALTERACAO TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                CONSTRAINT PK_THISTORICOOS PRIMARY KEY (CONTROLE),
+                                CONSTRAINT FK_THISTORICOOS_1 FOREIGN KEY (CODOS) REFERENCES TOS(CONTROLE)
+                                );
+                             
+                        ';
+                    END
+                END;";
+
+                create[9] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'TOSOFICINA')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                                CREATE TABLE TOSOFICINA (
+	                            CONTROLE INTEGER NOT NULL,
+	                            CODVEICULOOFICINA INTEGER,
+	                            CODOS INTEGER NOT NULL,
+	                            PERCTANQUECOMBUSTIVEL INTEGER,
+	                            LOCALIZACAOVEICULO VARCHAR(50),
+	                            CONSTRAINT PK_TOSOFICINA PRIMARY KEY (CONTROLE),
+	                            CONSTRAINT FK_TOSOFICINA_1 FOREIGN KEY (CODOS) REFERENCES TOS(CONTROLE)
+                                );
+                            
+                        ';
+                    END
+                END;";
+
+                create[10] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'TANEXOOS')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                                CREATE TABLE TANEXOOS (
+	                            CONTROLE INTEGER NOT NULL,
+	                            CODOS INTEGER,
+	                            ANEXOLOCAL VARCHAR(200),
+	                            ANEXOFTP VARCHAR(50),
+	                            DATAEHORACADASTRO TIMESTAMP,
+	                            CONSTRAINT PK_TANEXOOS PRIMARY KEY (CONTROLE),
+	                            CONSTRAINT FK_TANEXOOS_1 FOREIGN KEY (CODOS) REFERENCES TOS(CONTROLE)
+                                );
+                            
+                        ';
+                    END
+                END;";
+
+                create[11] = $@"EXECUTE BLOCK AS
+                BEGIN
+                    IF (NOT EXISTS(SELECT 1 FROM rdb$relations WHERE rdb$relation_name = 'TOFICINAIMAGEMVEICULO')) THEN
+                    BEGIN
+                        EXECUTE STATEMENT '
+                                CREATE TABLE TOFICINAIMAGEMVEICULO (
+	                            CONTROLE INTEGER NOT NULL,
+	                            CODVEICULO INTEGER NOT NULL,
+	                            IMAGEMLOCAL VARCHAR(200),
+	                            IMAGEMFTP VARCHAR(50),
+	                            DATAEHORACADASTRO TIMESTAMP,
+	                            CONSTRAINT PK_TOFICINAIMAGEMVEICULO PRIMARY KEY (CONTROLE),
+	                            CONSTRAINT FK_TOFICINAIMAGEMVEICULO_1 FOREIGN KEY (CODVEICULO) REFERENCES TOFICINAVEICULO(CONTROLE)
+                                );
+                            
+                        ';
+                    END
+                END;";
+
                 try
                 {
                     foreach (string query in create)
@@ -197,9 +355,9 @@ namespace ImportadorFDB5.Classes
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (FbException ex) when (ex.Message.Contains("SQL error code = -607"))
                 {
-                    MessageBox.Show(ex.Message);
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
@@ -537,9 +695,16 @@ namespace ImportadorFDB5.Classes
                                                     break;
                                             }
                                         }
-                                        using (FbCommand createColumnCommand = new FbCommand($"ALTER TABLE {tabela} ADD {coluna} {datatype}", conexaoDestino))
+                                        try
                                         {
-                                            createColumnCommand.ExecuteNonQuery();
+                                            using (FbCommand createColumnCommand = new FbCommand($"ALTER TABLE {tabela} ADD {coluna} {datatype}", conexaoDestino))
+                                            {
+                                                createColumnCommand.ExecuteNonQuery();
+                                            }
+                                        }
+                                        catch (FbException ex) when (ex.Message.Contains("SQL error code = -607"))
+                                        {
+                                            Console.WriteLine(ex.Message);
                                         }
                                     }
                                 }
@@ -578,9 +743,9 @@ namespace ImportadorFDB5.Classes
                                 {
                                     Console.WriteLine($"Erro de chave estrangeira ao inserir na tabela {tabela}: {ex.Message}");
                                 }
-                                catch (Exception ex)
-                                {
-                                    Console.WriteLine($"Erro genérico ao inserir na tabela {tabela}: {ex.Message}");
+                                catch (FbException ex) when (ex.Message.Contains("SQL error code = -607")) 
+                                { 
+                                    Console.WriteLine($"Tabela inexistente. {ex.Message}");
                                 }
                             }
                         }
