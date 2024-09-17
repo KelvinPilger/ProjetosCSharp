@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>f6040fb6-8878-4f9a-a3b8-c61357619ebf.ico</ApplicationIcon>
+    <ApplicationIcon>1e4fe882-681d-468c-8994-5f439d6f86e5 %282%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=10.3.1.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">

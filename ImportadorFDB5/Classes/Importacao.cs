@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using FirebirdSql.Data.FirebirdClient;
 using System.IO;
+using System.Diagnostics.Eventing.Reader;
 
 namespace ImportadorFDB5.Classes
 {
@@ -17,18 +18,26 @@ namespace ImportadorFDB5.Classes
 
         public static string PortaFdbDois()
         {
-            string diretorioFdb = @"C:\Program Files\Firebird\Firebird_2_5\firebird.conf";
-            if (!File.Exists(diretorioFdb))
+            string portaOrigem;
+            string diretorioFdb = null;
+            try
             {
-                diretorioFdb = @"C:\Program Files (x86)\Firebird\Firebird_2_5\firebird.conf";
+                diretorioFdb = @"C:\Program Files\Firebird\Firebird_2_5\firebird.conf";
+                if (!File.Exists(diretorioFdb))
+                {
+                    diretorioFdb = @"C:\Program Files (x86)\Firebird\Firebird_2_5\firebird.conf";
+                }
+
+                string[] lines = File.ReadAllLines(diretorioFdb);
+                portaOrigem = lines.FirstOrDefault(line => line.Trim().StartsWith("RemoteServicePort", StringComparison.OrdinalIgnoreCase));
+
+                if (portaOrigem is null)
+                {
+                    portaOrigem = "3050";
+                }
             }
-
-            string[] lines = File.ReadAllLines(diretorioFdb);
-            string portaOrigem = lines.FirstOrDefault(line => line.Trim().StartsWith("RemoteServicePort", StringComparison.OrdinalIgnoreCase));
-
-            if (portaOrigem is null)
-            {
-                portaOrigem = "3050";
+            catch {
+                portaOrigem = null;
             }
 
             return portaOrigem;
@@ -36,27 +45,41 @@ namespace ImportadorFDB5.Classes
 
         public static string PortaFdbCinco()
         {
-            string diretorioFdb = @"C:\Program Files\Firebird\Firebird_5_0\firebird.conf";
-            if (!File.Exists(diretorioFdb))
+            string portaOrigem = null;
+            string diretorioFdb = null;
+            try
             {
-                diretorioFdb = @"C:\Program Files (x86)\Firebird\Firebird_5_0\firebird.conf";
+                diretorioFdb = @"C:\Program Files\Firebird\Firebird_5_0\firebird.conf";
+                if (!File.Exists(diretorioFdb))
+                {
+                    diretorioFdb = @"C:\Program Files (x86)\Firebird\Firebird_5_0\firebird.conf";
+                }
+
+
+                string[] lines = File.ReadAllLines(diretorioFdb);
+                portaOrigem = lines.FirstOrDefault(line => line.Trim().StartsWith("RemoteServicePort", StringComparison.OrdinalIgnoreCase));
+
+                if (portaOrigem is null)
+                {
+                    portaOrigem = "3051";
+                }
             }
-
-            string[] lines = File.ReadAllLines(diretorioFdb);
-            string portaOrigem = lines.FirstOrDefault(line => line.Trim().StartsWith("RemoteServicePort", StringComparison.OrdinalIgnoreCase));
-
-            if (portaOrigem is null)
-            {
-                portaOrigem = "3051";
+            catch {
             }
 
             return portaOrigem;
         }
 
-        public static string portaUm = PortaFdbDois().Replace("RemoteServicePort = ", "");
-        public static string portaDois = PortaFdbCinco().Replace("RemoteServicePort = ", "");
-
-
+        public static string portaUm = null;
+        public static string portaDois = null;
+        public static void CatchPorta() {
+            if (PortaFdbDois() != null) {
+                Importacao.portaUm = PortaFdbDois().Replace("RemoteServicePort = ", "");
+            }
+            if (PortaFdbCinco() != null) { 
+                Importacao.portaDois = PortaFdbCinco().Replace("RemoteServicePort = ", "");
+            }   
+        }
         public static void ConexaoOrigem(TextBox origem, Button btnStatus)
         {
             string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={diretorioOrigem};DataSource=localhost;Port={portaUm};
@@ -83,7 +106,7 @@ namespace ImportadorFDB5.Classes
 
         public static void ConexaoDestino(TextBox destino, Button btnStatus)
         {
-            string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
+             string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
         '                           Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
                                     Packet Size=8192;\r\nServerType=0;";
             using (FbConnection conexaoDest = new FbConnection(stringConexao))
