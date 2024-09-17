@@ -40,17 +40,19 @@
             this.btnStatusDestino = new System.Windows.Forms.Button();
             this.btnStatusOrigem = new System.Windows.Forms.Button();
             this.lblTabela = new System.Windows.Forms.Label();
+            this.lblImportacao = new System.Windows.Forms.Label();
+            this.btnFUm = new System.Windows.Forms.Label();
+            this.btnFDois = new System.Windows.Forms.Label();
+            this.btnFTres = new System.Windows.Forms.Label();
+            this.lblFQuatro = new System.Windows.Forms.Label();
+            this.pcbLogo = new System.Windows.Forms.PictureBox();
             this.btnTrocarMod = new System.Windows.Forms.Button();
             this.btnImportar = new System.Windows.Forms.Button();
             this.pcbAlvo = new System.Windows.Forms.PictureBox();
             this.btnDestino = new System.Windows.Forms.Button();
             this.btnOrigem = new System.Windows.Forms.Button();
             this.pcbBanco = new System.Windows.Forms.PictureBox();
-            this.lblImportacao = new System.Windows.Forms.Label();
-            this.btnFUm = new System.Windows.Forms.Label();
-            this.btnFDois = new System.Windows.Forms.Label();
-            this.btnFTres = new System.Windows.Forms.Label();
-            this.lblFQuatro = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAlvo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBanco)).BeginInit();
             this.SuspendLayout();
@@ -172,6 +174,66 @@
             this.lblTabela.Size = new System.Drawing.Size(0, 10);
             this.lblTabela.TabIndex = 16;
             // 
+            // lblImportacao
+            // 
+            this.lblImportacao.AutoSize = true;
+            this.lblImportacao.Enabled = false;
+            this.lblImportacao.Font = new System.Drawing.Font("Verdana", 5.5F, System.Drawing.FontStyle.Bold);
+            this.lblImportacao.Location = new System.Drawing.Point(62, 228);
+            this.lblImportacao.Name = "lblImportacao";
+            this.lblImportacao.Size = new System.Drawing.Size(0, 10);
+            this.lblImportacao.TabIndex = 19;
+            // 
+            // btnFUm
+            // 
+            this.btnFUm.AutoSize = true;
+            this.btnFUm.Font = new System.Drawing.Font("Verdana", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFUm.Location = new System.Drawing.Point(332, 37);
+            this.btnFUm.Name = "btnFUm";
+            this.btnFUm.Size = new System.Drawing.Size(14, 8);
+            this.btnFUm.TabIndex = 20;
+            this.btnFUm.Text = "F1";
+            // 
+            // btnFDois
+            // 
+            this.btnFDois.AutoSize = true;
+            this.btnFDois.Font = new System.Drawing.Font("Verdana", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFDois.Location = new System.Drawing.Point(332, 95);
+            this.btnFDois.Name = "btnFDois";
+            this.btnFDois.Size = new System.Drawing.Size(14, 8);
+            this.btnFDois.TabIndex = 21;
+            this.btnFDois.Text = "F2";
+            // 
+            // btnFTres
+            // 
+            this.btnFTres.AutoSize = true;
+            this.btnFTres.Font = new System.Drawing.Font("Verdana", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFTres.Location = new System.Drawing.Point(261, 135);
+            this.btnFTres.Name = "btnFTres";
+            this.btnFTres.Size = new System.Drawing.Size(14, 8);
+            this.btnFTres.TabIndex = 22;
+            this.btnFTres.Text = "F3";
+            // 
+            // lblFQuatro
+            // 
+            this.lblFQuatro.AutoSize = true;
+            this.lblFQuatro.Font = new System.Drawing.Font("Verdana", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFQuatro.Location = new System.Drawing.Point(710, 210);
+            this.lblFQuatro.Name = "lblFQuatro";
+            this.lblFQuatro.Size = new System.Drawing.Size(14, 8);
+            this.lblFQuatro.TabIndex = 23;
+            this.lblFQuatro.Text = "F4";
+            // 
+            // pcbLogo
+            // 
+            this.pcbLogo.Image = global::ImportadorFDB5.Properties.Resources.lglModClaro;
+            this.pcbLogo.Location = new System.Drawing.Point(351, 12);
+            this.pcbLogo.Name = "pcbLogo";
+            this.pcbLogo.Size = new System.Drawing.Size(323, 229);
+            this.pcbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbLogo.TabIndex = 24;
+            this.pcbLogo.TabStop = false;
+            // 
             // btnTrocarMod
             // 
             this.btnTrocarMod.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -179,9 +241,9 @@
             this.btnTrocarMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTrocarMod.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrocarMod.Image = global::ImportadorFDB5.Properties.Resources.ModLigth;
-            this.btnTrocarMod.Location = new System.Drawing.Point(676, 205);
+            this.btnTrocarMod.Location = new System.Drawing.Point(681, 206);
             this.btnTrocarMod.Name = "btnTrocarMod";
-            this.btnTrocarMod.Size = new System.Drawing.Size(52, 36);
+            this.btnTrocarMod.Size = new System.Drawing.Size(47, 35);
             this.btnTrocarMod.TabIndex = 18;
             this.btnTrocarMod.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnTrocarMod.UseVisualStyleBackColor = true;
@@ -254,56 +316,6 @@
             this.pcbBanco.TabIndex = 0;
             this.pcbBanco.TabStop = false;
             // 
-            // lblImportacao
-            // 
-            this.lblImportacao.AutoSize = true;
-            this.lblImportacao.Enabled = false;
-            this.lblImportacao.Font = new System.Drawing.Font("Verdana", 5.5F, System.Drawing.FontStyle.Bold);
-            this.lblImportacao.Location = new System.Drawing.Point(62, 228);
-            this.lblImportacao.Name = "lblImportacao";
-            this.lblImportacao.Size = new System.Drawing.Size(0, 10);
-            this.lblImportacao.TabIndex = 19;
-            // 
-            // btnFUm
-            // 
-            this.btnFUm.AutoSize = true;
-            this.btnFUm.Font = new System.Drawing.Font("Verdana", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFUm.Location = new System.Drawing.Point(332, 37);
-            this.btnFUm.Name = "btnFUm";
-            this.btnFUm.Size = new System.Drawing.Size(14, 8);
-            this.btnFUm.TabIndex = 20;
-            this.btnFUm.Text = "F1";
-            // 
-            // btnFDois
-            // 
-            this.btnFDois.AutoSize = true;
-            this.btnFDois.Font = new System.Drawing.Font("Verdana", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFDois.Location = new System.Drawing.Point(332, 95);
-            this.btnFDois.Name = "btnFDois";
-            this.btnFDois.Size = new System.Drawing.Size(14, 8);
-            this.btnFDois.TabIndex = 21;
-            this.btnFDois.Text = "F2";
-            // 
-            // btnFTres
-            // 
-            this.btnFTres.AutoSize = true;
-            this.btnFTres.Font = new System.Drawing.Font("Verdana", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFTres.Location = new System.Drawing.Point(261, 135);
-            this.btnFTres.Name = "btnFTres";
-            this.btnFTres.Size = new System.Drawing.Size(14, 8);
-            this.btnFTres.TabIndex = 22;
-            this.btnFTres.Text = "F3";
-            // 
-            // lblFQuatro
-            // 
-            this.lblFQuatro.AutoSize = true;
-            this.lblFQuatro.Font = new System.Drawing.Font("Verdana", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFQuatro.Location = new System.Drawing.Point(710, 210);
-            this.lblFQuatro.Name = "lblFQuatro";
-            this.lblFQuatro.Size = new System.Drawing.Size(14, 8);
-            this.lblFQuatro.TabIndex = 23;
-            this.lblFQuatro.Text = "F4";
-            // 
             // frmImportador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,6 +323,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(740, 253);
+            this.Controls.Add(this.pcbLogo);
             this.Controls.Add(this.lblFQuatro);
             this.Controls.Add(this.btnFTres);
             this.Controls.Add(this.btnFDois);
@@ -343,6 +356,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "< Importador FBD >";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnFechar);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAlvo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBanco)).EndInit();
             this.ResumeLayout(false);
@@ -373,6 +387,7 @@
         public System.Windows.Forms.Button btnDestino;
         public System.Windows.Forms.Button btnTrocarMod;
         private System.Windows.Forms.Label lblFQuatro;
+        public System.Windows.Forms.PictureBox pcbLogo;
     }
 }
 

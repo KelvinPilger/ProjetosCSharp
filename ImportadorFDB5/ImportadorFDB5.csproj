@@ -117,6 +117,12 @@
     <Content Include="1e4fe882-681d-468c-8994-5f439d6f86e5.ico" />
     <Content Include="f6040fb6-8878-4f9a-a3b8-c61357619ebf.ico" />
     <Content Include="firebird-logo-500-removebg-preview.ico" />
+    <None Include="Resources\lglModClaro.png" />
+    <None Include="Resources\lglModDark.png" />
+    <None Include="Resources\Remake KA.png" />
+    <None Include="Resources\logo ka vetorizada.png" />
+    <None Include="Resources\lgoDark.png" />
+    <None Include="Resources\LogoWhi1.png" />
     <None Include="Resources\AlvoLigth1.png" />
     <None Include="Resources\PastaDark1.png" />
     <None Include="Resources\PastaLigth1.png" />

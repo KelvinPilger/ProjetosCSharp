@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Forms;
 
 namespace ImportadorFDB5
 {
+
     public partial class frmImportador : Form
     {
         [DllImport("DwmApi")]
@@ -43,6 +45,7 @@ namespace ImportadorFDB5
             pcbAlvo.Image = ControladorMod.alvoMod;
             pcbBanco.Image = ControladorMod.bdMod;
             btnImportar.Image = ControladorMod.intercambioMod;
+            pcbLogo.Image = ControladorMod.logo;
         }
 
         private void btnOrigem_Click(object sender, EventArgs e)

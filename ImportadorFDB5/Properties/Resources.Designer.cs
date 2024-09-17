@@ -163,6 +163,56 @@ namespace ImportadorFDB5.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lglModClaro {
+            get {
+                object obj = ResourceManager.GetObject("lglModClaro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lglModDark {
+            get {
+                object obj = ResourceManager.GetObject("lglModDark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lgoDark {
+            get {
+                object obj = ResourceManager.GetObject("lgoDark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_ka_vetorizada {
+            get {
+                object obj = ResourceManager.GetObject("logo ka vetorizada", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LogoWhi {
+            get {
+                object obj = ResourceManager.GetObject("LogoWhi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ModDark {
             get {
                 object obj = ResourceManager.GetObject("ModDark", resourceCulture);
@@ -237,6 +287,16 @@ namespace ImportadorFDB5.Properties {
             get {
                 object obj = ResourceManager.GetObject("png-transparent-bathroom-aesthetics-person-ak-logo-angle-text-triangle-thumbnail-" +
                         "removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Remake_KA {
+            get {
+                object obj = ResourceManager.GetObject("Remake KA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

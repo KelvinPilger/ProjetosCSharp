@@ -17,6 +17,7 @@ namespace ImportadorFDB5.Classes
         public static Image alvoMod;
         public static Image bdMod;
         public static Image intercambioMod;
+        public static Image logo;
         public static bool ligado = false;
 
 
@@ -39,6 +40,7 @@ namespace ImportadorFDB5.Classes
             bdMod = Resources.base_de_dadosLigth;
             intercambioMod = Resources.intercambio;
             imgMod = Resources.ModLigth;
+            logo = Resources.lglModClaro;
             corFonte = Color.Black;
             corFundo = Color.FromArgb(242, 242, 242);
             ligado = true;
@@ -51,6 +53,7 @@ namespace ImportadorFDB5.Classes
             bdMod = Resources.BaseDedadosDark   ;
             intercambioMod = Resources.intercambioDark;
             imgMod = Resources.ModDark;
+            logo = Resources.lglModDark;
             corFonte = Color.White;
             corFundo = Color.FromArgb(51, 51, 51);
             ligado = false;
