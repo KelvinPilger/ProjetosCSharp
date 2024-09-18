@@ -42,3 +42,5 @@ Melhorias/Ideias:
 - A aplicação iniciar com o tema de acordo com o definido no S.O (Claro/Escuro);
 - Histórico de Importações;
 - Opção de continuar/iniciar importação a partir de uma tabela específica.
+
+Para realizar a configuração de duas versões do Firebird, foi utilizado o seguinte vídeo: https://www.youtube.com/watch?v=ySvGyhw9ZgA
