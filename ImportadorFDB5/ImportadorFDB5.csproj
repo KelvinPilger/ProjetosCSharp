@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Classes\ControladorMod.cs" />
     <Compile Include="Classes\Importacao.cs" />
+    <Compile Include="Classes\Logs.cs" />
     <Compile Include="Forms\frmImportador.cs">
       <SubType>Form</SubType>
     </Compile>

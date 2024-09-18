@@ -124,13 +124,18 @@ namespace ImportadorFDB5
 
         private void btnTrocarMod_Click(object sender, EventArgs e)
         {
-            ControladorMod.TrocarMod();
-            SetColor();
+                ControladorMod.TrocarMod();
+                SetColor();
         }
 
         private void btnFechar(object sender, KeyEventArgs e)
         {
             KeyPreview = true;
+        }
+
+        private void frmImportador_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

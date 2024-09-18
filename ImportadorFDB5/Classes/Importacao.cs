@@ -36,7 +36,8 @@ namespace ImportadorFDB5.Classes
                     portaOrigem = "3050";
                 }
             }
-            catch {
+            catch
+            {
                 portaOrigem = null;
             }
 
@@ -45,7 +46,7 @@ namespace ImportadorFDB5.Classes
 
         public static string PortaFdbCinco()
         {
-            string portaOrigem = null;
+            string portaDestino = null;
             string diretorioFdb = null;
             try
             {
@@ -57,28 +58,32 @@ namespace ImportadorFDB5.Classes
 
 
                 string[] lines = File.ReadAllLines(diretorioFdb);
-                portaOrigem = lines.FirstOrDefault(line => line.Trim().StartsWith("RemoteServicePort", StringComparison.OrdinalIgnoreCase));
+                portaDestino = lines.FirstOrDefault(line => line.Trim().StartsWith("RemoteServicePort", StringComparison.OrdinalIgnoreCase));
 
-                if (portaOrigem is null)
+                if (portaDestino is null)
                 {
-                    portaOrigem = "3051";
+                    portaDestino = "3051";
                 }
             }
-            catch {
+            catch
+            {
+                portaDestino = null;
             }
-
-            return portaOrigem;
+            return portaDestino;
         }
 
         public static string portaUm = null;
         public static string portaDois = null;
-        public static void CatchPorta() {
-            if (PortaFdbDois() != null) {
+        public static void CatchPorta()
+        {
+            if (PortaFdbDois() != null)
+            {
                 Importacao.portaUm = PortaFdbDois().Replace("RemoteServicePort = ", "");
             }
-            if (PortaFdbCinco() != null) { 
+            if (PortaFdbCinco() != null)
+            {
                 Importacao.portaDois = PortaFdbCinco().Replace("RemoteServicePort = ", "");
-            }   
+            }
         }
         public static void ConexaoOrigem(TextBox origem, Button btnStatus)
         {
@@ -106,7 +111,7 @@ namespace ImportadorFDB5.Classes
 
         public static void ConexaoDestino(TextBox destino, Button btnStatus)
         {
-             string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
+            string stringConexao = $@"User=SYSDBA;Password=masterkey;Database={diretorioDestino};DataSource=localhost;Port={portaDois};
         '                           Dialect=3;Charset=NONE;Pooling=true;MinPoolSize=0;MaxPoolSize=50;
                                     Packet Size=8192;\r\nServerType=0;";
             using (FbConnection conexaoDest = new FbConnection(stringConexao))
@@ -664,8 +669,8 @@ namespace ImportadorFDB5.Classes
 
                             progresso.Value = Math.Min(progresso.Value + 1, progresso.Maximum);
                             lblStatus.Text = $"Importando tabela: {tabela}";
-                            lblStatus.Refresh();  
-                            Application.DoEvents();  
+                            lblStatus.Refresh();
+                            Application.DoEvents();
 
                             foreach (string coluna in colunas)
                             {
@@ -733,9 +738,12 @@ namespace ImportadorFDB5.Classes
                                 }
                             }
 
+                            int contaRegistros = 0;
+
                             while (leitor.Read())
                             {
                                 string insert;
+                                 
 
                                 if (temPk)
                                 {
@@ -756,19 +764,33 @@ namespace ImportadorFDB5.Classes
                                             comandoInsert.Parameters.AddWithValue($@"{coluna}", leitor[coluna]);
                                         }
                                         comandoInsert.ExecuteNonQuery();
+                                        contaRegistros++;
                                     }
                                 }
                                 catch (FbException ex) when (ex.Message.Contains("violation of PRIMARY or UNIQUE KEY constraint"))
                                 {
-                                    Console.WriteLine($"Erro ao inserir na tabela {tabela}: {ex.Message}");
+                                    Logs.AlimentarLog(diretorioDestino, $"Erro ao inserir na tabela {tabela}: {ex.Message}");
                                 }
                                 catch (FbException ex) when (ex.Message.Contains("violation of FOREIGN KEY constraint"))
                                 {
-                                    Console.WriteLine($"Erro de chave estrangeira ao inserir na tabela {tabela}: {ex.Message}");
+                                    Logs.AlimentarLog(diretorioDestino, $"Erro de chave estrangeira ao inserir na tabela {tabela}: {ex.Message}");
                                 }
-                                catch (FbException ex) when (ex.Message.Contains("SQL error code = -607")) 
-                                { 
-                                    Console.WriteLine($"Tabela inexistente. {ex.Message}");
+                                catch (FbException ex) when (ex.Message.Contains("SQL error code = -607"))
+                                {
+                                    Logs.AlimentarLog(diretorioDestino, $"Tabela inexistente. {ex.Message}");
+                                }
+                                catch (FbException ex) when (ex.Message.Contains("*** null ***"))
+                                {
+                                    Logs.AlimentarLog(diretorioDestino, $@"O registro não possui o valor de FK definido na tabela: {tabela}");
+                                }
+                            }
+                            if (contaRegistros > 0)
+                            {
+                                try
+                                {
+                                    Logs.AlimentarLog(diretorioDestino, $@"Registros da tabela {tabela} importados com sucesso! Total de Registros: {contaRegistros}");
+                                }
+                                catch { 
                                 }
                             }
                         }
@@ -777,7 +799,7 @@ namespace ImportadorFDB5.Classes
                 lblStatus.Text = "Importação Concluída com Sucesso!";
                 lblStatus.Refresh();
                 progresso.Value = 0;
-                Application.DoEvents(); 
+                Application.DoEvents();
                 MessageBox.Show("Importação Concluída com Sucesso!", "Importação FDB5", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

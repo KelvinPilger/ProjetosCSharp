@@ -355,6 +355,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "< Importador FBD >";
+            this.Load += new System.EventHandler(this.frmImportador_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnFechar);
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbAlvo)).EndInit();
