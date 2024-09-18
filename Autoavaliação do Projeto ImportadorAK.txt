@@ -1,0 +1,44 @@
+Autoavaliação do Projeto
+Importador AK
+
+Kelvin/Alexandre
+
+Features:
+
+- Importação Automática de Todas as Tabelas, via select nas tabelas de estrutura da BD;
+- Ordenação Topológica, via select;
+- Create das novas tabelas do sistema até 16/09/2024;
+- Validação de erros genéricos;
+- Recria colunas não existentes em tabelas;
+- Label que atualiza em tempo real, a tabela que está sendo importada;
+- Atalhos para Seleção de Bancos (Origem/Destino), Importação e Troca de Tema;
+- Validações para não presença do Firebird 2.5/5.0 no S.O;
+- Validação para importação inicial de tabelas sem dependências;
+- Validações de BD de origem exclusivamente na versão 2.5;
+- Validações de BD de destino exclusivamente na versão 5.0;
+- Realizar o catch das portas respectivas das duas versões de modo automático;
+- Log que especifica as tabelas importadas/atualizadas, com quantidade de registros;
+- Log que aponta erros possíveis de estrutura, falta de tabelas, etc.
+
+Style/Design:
+
+- Progress Bar Flexível ao número de tabelas que a BD possuí;
+- Troca entre tema escuro/claro, via botão, ou atalho direto;
+- Logo Personalizada, que altera de acordo com o tema;
+- Teclas de atalho para todas as funções;
+- Status de banco conectado/desconectado (verde/vermelho);
+- Estrutura simples, intuitiva e fácil de usar.
+
+
+Melhorias/Ideias: 
+
+- Deixar a FBConnection dos bancos como sendo geral dentro da classe de Importacao, sem precisar declarar em cada método/função;
+- Instalação automática dos Firebirds, ou ao menos induzir o usuário, a instalar o mesmo;
+- Aplicação do paralelismo em algumas funções;
+- Alguns erros na log, poderiam sem melhor especificados;
+- O processo poderia ser um pouco mais rápido;
+- Validação de apenas uma instância do Importador aberta;
+- Ter um banco na 5.0 atualizado via FTP, eliminaria a necessidade de realizar os creates/alters em colunas/tabelas;
+- A aplicação iniciar com o tema de acordo com o definido no S.O (Claro/Escuro);
+- Histórico de Importações;
+- Opção de continuar/iniciar importação a partir de uma tabela específica.
