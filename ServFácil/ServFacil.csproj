@@ -83,7 +83,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\FirebirdSql.cs" />
+    <Compile Include="Classes\Cores.cs" />
+    <Compile Include="Classes\FirebirdServ.cs" />
     <Compile Include="Forms\frmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +96,12 @@
     </Compile>
     <Compile Include="Forms\frmConfiguracao.Designer.cs">
       <DependentUpon>frmConfiguracao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMensagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMensagem.Designer.cs">
+      <DependentUpon>frmMensagem.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmMenu.cs">
       <SubType>Form</SubType>
@@ -109,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmConfiguracao.resx">
       <DependentUpon>frmConfiguracao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMensagem.resx">
+      <DependentUpon>frmMensagem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
@@ -178,6 +188,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\luxa.org-opacity-changed-cancelar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

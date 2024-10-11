@@ -19,8 +19,7 @@ namespace LavaK.Forms
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            frmConfiguracao frmConfig = new frmConfiguracao();
-            frmConfig.Close();
+            this.Close();
         }
     }
 }

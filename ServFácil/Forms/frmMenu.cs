@@ -1,4 +1,5 @@
 ﻿using LavaK.Forms;
+using ServFacil.Classes;
 using ServFacil.Forms;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,7 @@ using System.Windows.Forms;
 namespace LavaK
 {
     public partial class frmMenu : Form
-    {
-        private bool passouMouse;
-
+    { 
         public frmMenu()
         {
             InitializeComponent();
@@ -26,115 +25,101 @@ namespace LavaK
         {
         }
 
-        private void MudarCor(Button btn)
-        {
-            if (!passouMouse)
-            {
-                btn.BackColor = Color.FromArgb(255, 251, 254);
-                btn.ForeColor = Color.Black;
-            }
-            else
-            {
-                btn.BackColor = Color.Black;
-                btn.ForeColor = Color.FromArgb(255, 251, 254);
-            }
-           
-        }
 
         private void btnCliente_MouseLeave(object sender, EventArgs e)
         {
-            passouMouse = true;
-            MudarCor(btnCliente);
+            Cores.passouMouse = true;
+            Cores.MudarCor(btnCliente);
         }
 
         private void btnCliente_MouseEnter(object sender, EventArgs e)
         {
-            passouMouse = false;
-            MudarCor(btnCliente);
+            Cores.passouMouse = false;
+            Cores.MudarCor(btnCliente);
         }
 
         private void btnVeiculo_MouseLeave(object sender, EventArgs e)
         {
-            passouMouse = true;
-            MudarCor(w);
+            Cores.passouMouse = true;
+            Cores.MudarCor(btnVeiculo);
         }
 
         private void btnVeiculo_MouseEnter(object sender, EventArgs e)
         {
-            passouMouse = false;
-            MudarCor(w);
+            Cores.passouMouse = false;
+            Cores.MudarCor(btnVeiculo);
         }
 
         private void btnFornecedor_MouseLeave(object sender, EventArgs e)
         {
-            passouMouse = true;
-            MudarCor(btnFornecedor);
+            Cores.passouMouse = true;
+            Cores.MudarCor(btnFornecedor);
         }
 
         private void btnFornecedor_MouseEnter(object sender, EventArgs e)
         {
-            passouMouse = false;
-            MudarCor(btnFornecedor);
+            Cores.passouMouse = false;
+            Cores.MudarCor(btnFornecedor);
         }
 
         private void btnFinanceiro_MouseLeave(object sender, EventArgs e)
         {
-            passouMouse = true;
-            MudarCor(btnFinanceiro);
+            Cores.passouMouse = true;
+            Cores.MudarCor(btnFinanceiro);
         }
 
         private void btnFinanceiro_MouseEnter(object sender, EventArgs e)
         {
-            passouMouse = false;
-            MudarCor(btnFinanceiro);
+            Cores.passouMouse = false;
+            Cores.MudarCor(btnFinanceiro);
         }
 
         private void btnUsuario_MouseLeave(object sender, EventArgs e)
         {
-            passouMouse = true;
-            MudarCor(btnUsuario);
+            Cores.passouMouse = true;
+            Cores.MudarCor(btnUsuario);
         }
 
         private void btnUsuario_MouseEnter(object sender, EventArgs e)
         {
-            passouMouse = false;
-            MudarCor(btnUsuario);
+            Cores.passouMouse = false;
+            Cores.MudarCor(btnUsuario);
         }
 
         private void btnEstoque_MouseLeave(object sender, EventArgs e)
         {
-            passouMouse = true;
-            MudarCor(btnEstoque);
+            Cores.passouMouse = true;
+            Cores.MudarCor(btnEstoque);
         }
 
         private void btnEstoque_MouseEnter(object sender, EventArgs e)
         {
-            passouMouse = false;
-            MudarCor(btnEstoque);
+            Cores.passouMouse = false;
+            Cores.MudarCor(btnEstoque);
         }
 
         private void btnEspecie_MouseLeave(object sender, EventArgs e)
         {
-            passouMouse = true;
-            MudarCor(btnEspecie);
+            Cores.passouMouse = true;
+            Cores.MudarCor(btnEspecie);
         }
 
         private void btnEspecie_MouseEnter(object sender, EventArgs e)
         {
-            passouMouse = false;
-            MudarCor(btnEspecie);
+            Cores.passouMouse = false;
+            Cores.MudarCor(btnEspecie);
         }
 
         private void btnServico_MouseLeave(object sender, EventArgs e)
         {
-            passouMouse = true;
-            MudarCor(btnServico);
+            Cores.passouMouse = true;
+            Cores.MudarCor(btnServico);
         }
 
         private void btnServico_MouseEnter(object sender, EventArgs e)
         {
-            passouMouse = false;
-            MudarCor(btnServico);
+            Cores.passouMouse = false;
+            Cores.MudarCor(btnServico);
         }
 
         private void btnSair_Click(object sender, EventArgs e)

@@ -1,0 +1,2 @@
+# Buscar BD
+BD=C:\Projetos\ProjetoLavaRapido\BASEKELVIN.FDB

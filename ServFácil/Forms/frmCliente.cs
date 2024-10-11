@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LavaK;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace ServFacil.Forms
         public frmCliente()
         {
             InitializeComponent();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -73,6 +73,16 @@ namespace ServFacil.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancelar {
+            get {
+                object obj = ResourceManager.GetObject("cancelar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap contexto {
             get {
                 object obj = ResourceManager.GetObject("contexto", resourceCulture);
@@ -146,6 +156,16 @@ namespace ServFacil.Properties {
         internal static System.Drawing.Bitmap grupo_de_usuarios1 {
             get {
                 object obj = ResourceManager.GetObject("grupo-de-usuarios1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap luxa_org_opacity_changed_cancelar {
+            get {
+                object obj = ResourceManager.GetObject("luxa.org-opacity-changed-cancelar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

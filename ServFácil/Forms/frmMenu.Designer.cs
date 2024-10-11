@@ -35,7 +35,7 @@
             this.btnServico = new System.Windows.Forms.Button();
             this.btnFinanceiro = new System.Windows.Forms.Button();
             this.btnFornecedor = new System.Windows.Forms.Button();
-            this.w = new System.Windows.Forms.Button();
+            this.btnVeiculo = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
             this.lblEmitente = new System.Windows.Forms.Label();
             this.lblEmpresa = new System.Windows.Forms.Label();
@@ -154,23 +154,23 @@
             this.btnFornecedor.MouseEnter += new System.EventHandler(this.btnFornecedor_MouseEnter);
             this.btnFornecedor.MouseLeave += new System.EventHandler(this.btnFornecedor_MouseLeave);
             // 
-            // w
+            // btnVeiculo
             // 
-            this.w.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.w.FlatAppearance.BorderSize = 0;
-            this.w.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.w.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
-            this.w.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
-            this.w.Location = new System.Drawing.Point(-1, 73);
-            this.w.Name = "w";
-            this.w.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.w.Size = new System.Drawing.Size(189, 37);
-            this.w.TabIndex = 3;
-            this.w.Text = "Veículos";
-            this.w.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.w.UseVisualStyleBackColor = false;
-            this.w.MouseEnter += new System.EventHandler(this.btnVeiculo_MouseEnter);
-            this.w.MouseLeave += new System.EventHandler(this.btnVeiculo_MouseLeave);
+            this.btnVeiculo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnVeiculo.FlatAppearance.BorderSize = 0;
+            this.btnVeiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVeiculo.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnVeiculo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
+            this.btnVeiculo.Location = new System.Drawing.Point(-1, 73);
+            this.btnVeiculo.Name = "btnVeiculo";
+            this.btnVeiculo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnVeiculo.Size = new System.Drawing.Size(189, 37);
+            this.btnVeiculo.TabIndex = 3;
+            this.btnVeiculo.Text = "Veículos";
+            this.btnVeiculo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVeiculo.UseVisualStyleBackColor = false;
+            this.btnVeiculo.MouseEnter += new System.EventHandler(this.btnVeiculo_MouseEnter);
+            this.btnVeiculo.MouseLeave += new System.EventHandler(this.btnVeiculo_MouseLeave);
             // 
             // btnCliente
             // 
@@ -310,7 +310,7 @@
             this.Controls.Add(this.btnServico);
             this.Controls.Add(this.btnFinanceiro);
             this.Controls.Add(this.btnFornecedor);
-            this.Controls.Add(this.w);
+            this.Controls.Add(this.btnVeiculo);
             this.Controls.Add(this.btnCliente);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbxLateral);
@@ -338,7 +338,7 @@
         private System.Windows.Forms.PictureBox pbxLateral;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCliente;
-        private System.Windows.Forms.Button w;
+        private System.Windows.Forms.Button btnVeiculo;
         private System.Windows.Forms.Button btnFornecedor;
         private System.Windows.Forms.Button btnFinanceiro;
         private System.Windows.Forms.Button btnServico;

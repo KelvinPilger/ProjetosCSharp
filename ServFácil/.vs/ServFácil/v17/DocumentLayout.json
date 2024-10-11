@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|c:\\projetos\\projetolavarapido\\servf\u00E1cil\\forms\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\classes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|solutionrelative:classes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\forms\\frmmensagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|solutionrelative:forms\\frmmensagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|solutionrelative:forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\forms\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|solutionrelative:forms\\frmcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|c:\\projetos\\projetolavarapido\\servf\u00E1cil\\forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|c:\\projetos\\projetolavarapido\\servf\u00E1cil\\forms\\frmmensagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|solutionrelative:forms\\frmmensagem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|solutionrelative:forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\classes\\cores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|solutionrelative:classes\\cores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\forms\\frmconfiguracao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|solutionrelative:forms\\frmconfiguracao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|c:\\projetos\\projetolavarapido\\servf\u00E1cil\\forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCA747ED-24ED-430D-8F33-45C6B6B80F7F}|ServFacil.csproj|solutionrelative:forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "frmConfiguracao.cs [Design]",
               "DocumentMoniker": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Forms\\frmConfiguracao.cs",
               "RelativeDocumentMoniker": "Forms\\frmConfiguracao.cs",
@@ -38,12 +54,11 @@
               "RelativeToolTip": "Forms\\frmConfiguracao.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-09T16:31:48.895Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "frmMenu.cs [Design]",
               "DocumentMoniker": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Forms\\frmMenu.cs",
               "RelativeDocumentMoniker": "Forms\\frmMenu.cs",
@@ -92,27 +107,78 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmMensagem.cs [Design]",
+              "DocumentMoniker": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Forms\\frmMensagem.cs",
+              "RelativeDocumentMoniker": "Forms\\frmMensagem.cs",
+              "ToolTip": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Forms\\frmMensagem.cs [Design]",
+              "RelativeToolTip": "Forms\\frmMensagem.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T23:41:53.344Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmMensagem.cs",
+              "DocumentMoniker": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Forms\\frmMensagem.cs",
+              "RelativeDocumentMoniker": "Forms\\frmMensagem.cs",
+              "ToolTip": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Forms\\frmMensagem.cs",
+              "RelativeToolTip": "Forms\\frmMensagem.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAgwCIAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T00:41:47.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Classes\\Program.cs",
+              "RelativeDocumentMoniker": "Classes\\Program.cs",
+              "ToolTip": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Classes\\Program.cs",
+              "RelativeToolTip": "Classes\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T00:41:06.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "frmCliente.cs [Design]",
               "DocumentMoniker": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Forms\\frmCliente.cs",
               "RelativeDocumentMoniker": "Forms\\frmCliente.cs",
               "ToolTip": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Forms\\frmCliente.cs [Design]",
               "RelativeToolTip": "Forms\\frmCliente.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T23:44:21.209Z",
+              "WhenOpened": "2024-10-11T00:38:24.474Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "frmMenu.cs",
               "DocumentMoniker": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Forms\\frmMenu.cs",
               "RelativeDocumentMoniker": "Forms\\frmMenu.cs",
               "ToolTip": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Forms\\frmMenu.cs",
               "RelativeToolTip": "Forms\\frmMenu.cs",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAAAJkAAAAkAAAA",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAUwHgAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T23:48:48.598Z",
+              "WhenOpened": "2024-10-11T00:37:32.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Cores.cs",
+              "DocumentMoniker": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Classes\\Cores.cs",
+              "RelativeDocumentMoniker": "Classes\\Cores.cs",
+              "ToolTip": "C:\\Projetos\\ProjetoLavaRapido\\ServF\u00E1cil\\Classes\\Cores.cs",
+              "RelativeToolTip": "Classes\\Cores.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T00:36:36.617Z",
               "EditorCaption": ""
             }
           ]

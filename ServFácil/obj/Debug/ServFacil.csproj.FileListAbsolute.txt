@@ -38,3 +38,4 @@ C:\Projetos\ProjetoLavaRapido\ServFácil\bin\Debug\ServFacil.pdb
 C:\Projetos\ProjetoLavaRapido\ServFácil\obj\Debug\ServFacil.exe
 C:\Projetos\ProjetoLavaRapido\ServFácil\obj\Debug\ServFacil.pdb
 C:\Projetos\ProjetoLavaRapido\ServFácil\obj\Debug\ServFacil.Forms.frmCliente.resources
+C:\Projetos\ProjetoLavaRapido\ServFácil\obj\Debug\ServFacil.Forms.frmMensagem.resources
