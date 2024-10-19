@@ -1,4 +1,5 @@
-﻿using LavaK.Forms;
+﻿using LavaK.Classes;
+using LavaK.Forms;
 using ServFacil.Classes;
 using ServFacil.Forms;
 using System;
@@ -23,6 +24,7 @@ namespace LavaK
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
+            FdbGeral.PegaDiretorio();
         }
 
 

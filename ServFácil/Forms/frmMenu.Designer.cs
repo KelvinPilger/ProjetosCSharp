@@ -207,8 +207,9 @@
             this.lblEmpresa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
             this.lblEmpresa.Font = new System.Drawing.Font("Nirmala UI", 8F, System.Drawing.FontStyle.Bold);
             this.lblEmpresa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.lblEmpresa.Location = new System.Drawing.Point(194, 579);
+            this.lblEmpresa.Location = new System.Drawing.Point(1301, 35);
             this.lblEmpresa.Name = "lblEmpresa";
+            this.lblEmpresa.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblEmpresa.Size = new System.Drawing.Size(103, 13);
             this.lblEmpresa.TabIndex = 12;
             this.lblEmpresa.Text = "Dados da Empresa";

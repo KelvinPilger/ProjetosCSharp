@@ -16,11 +16,11 @@ namespace ServFacil.Classes
             if (!passouMouse)
             {
                 btn.BackColor = Color.FromArgb(255, 251, 254);
-                btn.ForeColor = Color.Black;
+                btn.ForeColor = Color.FromArgb(4, 15, 15);
             }
             else
             {
-                btn.BackColor = Color.Black;
+                btn.BackColor = Color.FromArgb(4, 15, 15);
                 btn.ForeColor = Color.FromArgb(255, 251, 254);
             }
 

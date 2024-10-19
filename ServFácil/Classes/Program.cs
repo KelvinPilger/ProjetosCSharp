@@ -17,17 +17,10 @@ namespace LavaK
         [STAThread]
         static void Main()
         {
-            if (FirebirdServ.AbreConexao() == true) {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new frmMenu());
-            } else
-            {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new frmMensagem(@"O sistema não será iniciado!
-Não há conexão com o banco de dados."));
-            } 
+            Application.EnableVisualStyles();
+            FdbGeral.PegaDiretorio();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new frmMenu());
         }
     }
 }
