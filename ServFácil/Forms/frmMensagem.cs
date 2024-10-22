@@ -41,5 +41,10 @@ namespace ServFacil.Forms
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void lblMensagem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -44,6 +44,7 @@
             this.lblMensagem.TabIndex = 0;
             this.lblMensagem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblMensagem.UseCompatibleTextRendering = true;
+            this.lblMensagem.Click += new System.EventHandler(this.lblMensagem_Click);
             // 
             // pictureBox1
             // 

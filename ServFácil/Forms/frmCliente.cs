@@ -30,16 +30,7 @@ namespace ServFacil.Forms
             using (var context = new MyDbContext())
             {
                 var listaClientesFornecedores = context.CLIENTE_FORNECEDOR.
-                    Select(cf => new
-                    {
-                        ID = cf.ID,
-                        Nome = cf.NOME,
-                        Contato = cf.CELULAR,
-                        Nascimento = cf.DT_NASCIMENTO,
-                        DataCadastro = cf.DT_HR_CADASTRO,
-                        Bairro = cf.BAIRRO,
-                        Rua = cf.RUA
-                    }).ToList();
+                    ToList();
 
                 dgvClienteFornecedor.DataSource = listaClientesFornecedores;
             }
