@@ -25,6 +25,8 @@ namespace LavaK
         private void frmMenu_Load(object sender, EventArgs e)
         {
             FdbGeral.PegaDiretorio();
+            btnTotalCliente.Text = $"Total de Clientes " +
+                $"Cadastrados: {Cliente_Fornecedor.CountCliente.ToString()}";
         }
 
 
@@ -136,6 +138,12 @@ namespace LavaK
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
+        {
+            frmCliente frmCliente = new frmCliente();
+            frmCliente.ShowDialog();
+        }
+
+        private void btnTotalCliente_Click(object sender, EventArgs e)
         {
             frmCliente frmCliente = new frmCliente();
             frmCliente.ShowDialog();

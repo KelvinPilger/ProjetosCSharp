@@ -29,7 +29,18 @@ namespace ServFacil.Forms
         {
             using (var context = new MyDbContext())
             {
-                var listaClientesFornecedores = context.CLIENTE_FORNECEDOR.
+                var listaClientesFornecedores = context.CLIENTE_FORNECEDOR.Select
+                    (cf => new { 
+                        ID = cf.ID,
+                        Nome = cf.NOME,
+                        cf.CPF,
+                        cf.CNPJ,
+                        Celular = cf.CELULAR,
+                        Telefone = cf.TELEFONE,
+                        UF = cf.UF,
+                        Cidade = cf.CIDADE,
+                        Rua = cf.RUA
+                    }).
                     ToList();
 
                 dgvClienteFornecedor.DataSource = listaClientesFornecedores;
@@ -90,6 +101,19 @@ namespace ServFacil.Forms
             frmCCliente.ShowDialog();
             frmCliente frmCliente = new frmCliente();
             frmCliente.Dispose();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (dgvClienteFornecedor.SelectedCells.Count > 0) {
+
+                frmCadastroCliente frm = new frmCadastroCliente();
+                frm.ShowDialog();
+            }
+        }
+
+        private void dgvClienteFornecedor_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

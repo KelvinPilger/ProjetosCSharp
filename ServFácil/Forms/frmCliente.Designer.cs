@@ -49,7 +49,7 @@
             // dgvClienteFornecedor
             // 
             this.dgvClienteFornecedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvClienteFornecedor.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvClienteFornecedor.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
             this.dgvClienteFornecedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvClienteFornecedor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -75,6 +75,7 @@
             this.dgvClienteFornecedor.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvClienteFornecedor.Size = new System.Drawing.Size(932, 493);
             this.dgvClienteFornecedor.TabIndex = 2;
+            this.dgvClienteFornecedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClienteFornecedor_CellClick);
             // 
             // label1
             // 
@@ -120,6 +121,7 @@
             this.btnAlterar.Text = "Alterar - F2";
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             this.btnAlterar.MouseEnter += new System.EventHandler(this.btnAlterar_MouseEnter);
             this.btnAlterar.MouseLeave += new System.EventHandler(this.btnAlterar_MouseLeave);
             // 
@@ -206,6 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
             this.CancelButton = this.btnSair;
             this.ClientSize = new System.Drawing.Size(1077, 541);
             this.ControlBox = false;

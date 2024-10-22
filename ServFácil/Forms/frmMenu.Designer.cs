@@ -46,6 +46,7 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnTotalCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLateral)).BeginInit();
@@ -290,6 +291,20 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Menu";
             // 
+            // btnTotalCliente
+            // 
+            this.btnTotalCliente.BackColor = System.Drawing.Color.Blue;
+            this.btnTotalCliente.FlatAppearance.BorderSize = 0;
+            this.btnTotalCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTotalCliente.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTotalCliente.ForeColor = System.Drawing.Color.White;
+            this.btnTotalCliente.Location = new System.Drawing.Point(204, 39);
+            this.btnTotalCliente.Name = "btnTotalCliente";
+            this.btnTotalCliente.Size = new System.Drawing.Size(150, 150);
+            this.btnTotalCliente.TabIndex = 18;
+            this.btnTotalCliente.UseVisualStyleBackColor = false;
+            this.btnTotalCliente.Click += new System.EventHandler(this.btnTotalCliente_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -298,6 +313,7 @@
             this.CancelButton = this.btnSair;
             this.ClientSize = new System.Drawing.Size(1411, 597);
             this.ControlBox = false;
+            this.Controls.Add(this.btnTotalCliente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSair);
@@ -353,6 +369,7 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnTotalCliente;
     }
 }
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore;
 using FirebirdSql.EntityFrameworkCore.Firebird;
+using System.Linq;
 
 namespace ServFacil.Classes
 {
@@ -24,6 +25,7 @@ namespace ServFacil.Classes
                 .HasKey(pk => pk.ID);
         }
     }
+
     public class Cliente_Fornecedor
     {
         public int ID { get; set; }
@@ -47,5 +49,17 @@ namespace ServFacil.Classes
         public string SITE { get; set; }
         public DateTime DT_NASCIMENTO { get; set; }
         public DateTime DT_HR_CADASTRO { get; set; }
+        public static int SomarCliente()
+        {
+            int somaCliente;
+            using (var cliente = new MyDbContext())
+            {
+                somaCliente = cliente.CLIENTE_FORNECEDOR.Count();
+            }
+
+            return somaCliente;
+        }
+
+        public static int CountCliente = SomarCliente();
     }
 }

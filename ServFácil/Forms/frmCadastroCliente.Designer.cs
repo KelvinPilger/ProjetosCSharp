@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroCliente));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbxCadastrais = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.mtbIe = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,6 +47,7 @@
             this.cbxSexo = new System.Windows.Forms.ComboBox();
             this.tbxNome = new System.Windows.Forms.TextBox();
             this.gbxContato = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tbxSite = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -55,6 +60,8 @@
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.tbxCidade = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.mtbCep = new System.Windows.Forms.MaskedTextBox();
             this.tbxNumero = new System.Windows.Forms.TextBox();
@@ -68,12 +75,7 @@
             this.cbxUf = new System.Windows.Forms.ComboBox();
             this.tbxPais = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
-            this.tbxCidade = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbxCadastrais.SuspendLayout();
             this.gbxContato.SuspendLayout();
@@ -111,10 +113,40 @@
             this.gbxCadastrais.ForeColor = System.Drawing.SystemColors.InfoText;
             this.gbxCadastrais.Location = new System.Drawing.Point(12, 34);
             this.gbxCadastrais.Name = "gbxCadastrais";
-            this.gbxCadastrais.Size = new System.Drawing.Size(453, 212);
+            this.gbxCadastrais.Size = new System.Drawing.Size(453, 233);
             this.gbxCadastrais.TabIndex = 1;
             this.gbxCadastrais.TabStop = false;
             this.gbxCadastrais.Text = "Dados Cadastrais";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(49, 145);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(12, 13);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "*";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(43, 105);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(12, 13);
+            this.label21.TabIndex = 21;
+            this.label21.Text = "*";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(53, 24);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(12, 13);
+            this.label20.TabIndex = 20;
+            this.label20.Text = "*";
             // 
             // label7
             // 
@@ -260,12 +292,22 @@
             this.gbxContato.Controls.Add(this.tbxEmailDois);
             this.gbxContato.Controls.Add(this.tbxEmail);
             this.gbxContato.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxContato.Location = new System.Drawing.Point(483, 35);
+            this.gbxContato.Location = new System.Drawing.Point(480, 35);
             this.gbxContato.Name = "gbxContato";
-            this.gbxContato.Size = new System.Drawing.Size(363, 242);
+            this.gbxContato.Size = new System.Drawing.Size(366, 232);
             this.gbxContato.TabIndex = 2;
             this.gbxContato.TabStop = false;
             this.gbxContato.Text = "Contato";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.ForeColor = System.Drawing.Color.Red;
+            this.label23.Location = new System.Drawing.Point(62, 23);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(12, 13);
+            this.label23.TabIndex = 21;
+            this.label23.Text = "*";
             // 
             // label11
             // 
@@ -395,17 +437,35 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.groupBox1.Location = new System.Drawing.Point(12, 252);
+            this.groupBox1.Location = new System.Drawing.Point(12, 273);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(453, 255);
+            this.groupBox1.Size = new System.Drawing.Size(453, 234);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Endereço";
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(241, 63);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(43, 13);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "Cidade";
+            // 
+            // tbxCidade
+            // 
+            this.tbxCidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbxCidade.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxCidade.Location = new System.Drawing.Point(240, 77);
+            this.tbxCidade.Name = "tbxCidade";
+            this.tbxCidade.Size = new System.Drawing.Size(185, 22);
+            this.tbxCidade.TabIndex = 3;
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(17, 25);
+            this.label15.Location = new System.Drawing.Point(207, 103);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(27, 13);
             this.label15.TabIndex = 20;
@@ -415,27 +475,27 @@
             // 
             this.mtbCep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mtbCep.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbCep.Location = new System.Drawing.Point(20, 40);
+            this.mtbCep.Location = new System.Drawing.Point(210, 118);
             this.mtbCep.Mask = "00000-000";
             this.mtbCep.Name = "mtbCep";
             this.mtbCep.Size = new System.Drawing.Size(61, 22);
-            this.mtbCep.TabIndex = 15;
+            this.mtbCep.TabIndex = 5;
             this.mtbCep.Leave += new System.EventHandler(this.ComponenteLeave);
             // 
             // tbxNumero
             // 
             this.tbxNumero.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxNumero.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxNumero.Location = new System.Drawing.Point(19, 203);
+            this.tbxNumero.Location = new System.Drawing.Point(19, 200);
             this.tbxNumero.Name = "tbxNumero";
             this.tbxNumero.Size = new System.Drawing.Size(45, 22);
-            this.tbxNumero.TabIndex = 19;
+            this.tbxNumero.TabIndex = 7;
             this.tbxNumero.Leave += new System.EventHandler(this.ComponenteLeave);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 187);
+            this.label14.Location = new System.Drawing.Point(16, 184);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(50, 13);
             this.label14.TabIndex = 18;
@@ -444,7 +504,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 146);
+            this.label13.Location = new System.Drawing.Point(16, 143);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(27, 13);
             this.label13.TabIndex = 17;
@@ -454,26 +514,26 @@
             // 
             this.tbxRua.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxRua.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxRua.Location = new System.Drawing.Point(19, 162);
+            this.tbxRua.Location = new System.Drawing.Point(19, 159);
             this.tbxRua.Name = "tbxRua";
             this.tbxRua.Size = new System.Drawing.Size(406, 22);
-            this.tbxRua.TabIndex = 16;
+            this.tbxRua.TabIndex = 6;
             this.tbxRua.Leave += new System.EventHandler(this.ComponenteLeave);
             // 
             // tbxBairro
             // 
             this.tbxBairro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxBairro.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxBairro.Location = new System.Drawing.Point(19, 121);
+            this.tbxBairro.Location = new System.Drawing.Point(19, 118);
             this.tbxBairro.Name = "tbxBairro";
             this.tbxBairro.Size = new System.Drawing.Size(185, 22);
-            this.tbxBairro.TabIndex = 15;
+            this.tbxBairro.TabIndex = 4;
             this.tbxBairro.Leave += new System.EventHandler(this.ComponenteLeave);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(16, 105);
+            this.label16.Location = new System.Drawing.Point(16, 102);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(38, 13);
             this.label16.TabIndex = 8;
@@ -482,7 +542,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(190, 65);
+            this.label17.Location = new System.Drawing.Point(190, 62);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(21, 13);
             this.label17.TabIndex = 5;
@@ -491,7 +551,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(17, 64);
+            this.label18.Location = new System.Drawing.Point(17, 61);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(28, 13);
             this.label18.TabIndex = 4;
@@ -536,7 +596,7 @@
             "SE",
             "SP",
             "TO"});
-            this.cbxUf.Location = new System.Drawing.Point(190, 81);
+            this.cbxUf.Location = new System.Drawing.Point(190, 78);
             this.cbxUf.MaxDropDownItems = 6;
             this.cbxUf.Name = "cbxUf";
             this.cbxUf.Size = new System.Drawing.Size(45, 21);
@@ -547,7 +607,7 @@
             // 
             this.tbxPais.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbxPais.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPais.Location = new System.Drawing.Point(20, 80);
+            this.tbxPais.Location = new System.Drawing.Point(20, 77);
             this.tbxPais.Name = "tbxPais";
             this.tbxPais.Size = new System.Drawing.Size(164, 22);
             this.tbxPais.TabIndex = 1;
@@ -560,80 +620,39 @@
             this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGravar.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnGravar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
-            this.btnGravar.Location = new System.Drawing.Point(697, 468);
+            this.btnGravar.Location = new System.Drawing.Point(687, 439);
             this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(163, 30);
+            this.btnGravar.Size = new System.Drawing.Size(173, 30);
             this.btnGravar.TabIndex = 19;
             this.btnGravar.Text = "Gravar Cadastro - F1";
-            this.btnGravar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGravar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
-            // tbxCidade
+            // btnCancelar
             // 
-            this.tbxCidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxCidade.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxCidade.Location = new System.Drawing.Point(241, 82);
-            this.tbxCidade.Name = "tbxCidade";
-            this.tbxCidade.Size = new System.Drawing.Size(185, 22);
-            this.tbxCidade.TabIndex = 21;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(241, 66);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(43, 13);
-            this.label19.TabIndex = 22;
-            this.label19.Text = "Cidade";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(53, 24);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(12, 13);
-            this.label20.TabIndex = 20;
-            this.label20.Text = "*";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(43, 105);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(12, 13);
-            this.label21.TabIndex = 21;
-            this.label21.Text = "*";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(49, 145);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(12, 13);
-            this.label22.TabIndex = 22;
-            this.label22.Text = "*";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.ForeColor = System.Drawing.Color.Red;
-            this.label23.Location = new System.Drawing.Point(62, 23);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(12, 13);
-            this.label23.TabIndex = 21;
-            this.label23.Text = "*";
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
+            this.btnCancelar.Location = new System.Drawing.Point(687, 477);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(173, 30);
+            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.Text = "Cancelar Registro - F2";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(858, 519);
             this.ControlBox = false;
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label12);
@@ -641,6 +660,7 @@
             this.Controls.Add(this.gbxCadastrais);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCadastroCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmCadastroCliente_Load);
@@ -704,5 +724,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
