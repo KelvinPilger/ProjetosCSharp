@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroCliente));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbxCadastrais = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -76,20 +75,14 @@
             this.tbxPais = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.gbxCadastrais.SuspendLayout();
             this.gbxContato.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(861, 32);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // gbxCadastrais
             // 
@@ -292,9 +285,9 @@
             this.gbxContato.Controls.Add(this.tbxEmailDois);
             this.gbxContato.Controls.Add(this.tbxEmail);
             this.gbxContato.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxContato.Location = new System.Drawing.Point(480, 35);
+            this.gbxContato.Location = new System.Drawing.Point(480, 273);
             this.gbxContato.Name = "gbxContato";
-            this.gbxContato.Size = new System.Drawing.Size(366, 232);
+            this.gbxContato.Size = new System.Drawing.Size(366, 234);
             this.gbxContato.TabIndex = 2;
             this.gbxContato.TabStop = false;
             this.gbxContato.Text = "Contato";
@@ -620,7 +613,7 @@
             this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGravar.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnGravar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
-            this.btnGravar.Location = new System.Drawing.Point(687, 439);
+            this.btnGravar.Location = new System.Drawing.Point(687, 44);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(173, 30);
             this.btnGravar.TabIndex = 19;
@@ -636,22 +629,59 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
-            this.btnCancelar.Location = new System.Drawing.Point(687, 477);
+            this.btnCancelar.Location = new System.Drawing.Point(687, 82);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(173, 30);
             this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar Registro - F2";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btnSair.BackgroundImage = global::ServFacil.Properties.Resources.fechar;
+            this.btnSair.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSair.FlatAppearance.BorderSize = 0;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Location = new System.Drawing.Point(832, 3);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(22, 22);
+            this.btnSair.TabIndex = 21;
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(861, 32);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Nirmala UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblInfo.Location = new System.Drawing.Point(703, 123);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(24, 13);
+            this.lblInfo.TabIndex = 22;
+            this.lblInfo.Text = "ID: ";
+            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(254)))));
+            this.CancelButton = this.btnSair;
             this.ClientSize = new System.Drawing.Size(858, 519);
             this.ControlBox = false;
+            this.Controls.Add(this.lblInfo);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.groupBox1);
@@ -664,13 +694,13 @@
             this.Name = "frmCadastroCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmCadastroCliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbxCadastrais.ResumeLayout(false);
             this.gbxCadastrais.PerformLayout();
             this.gbxContato.ResumeLayout(false);
             this.gbxContato.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -725,5 +755,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Label lblInfo;
     }
 }

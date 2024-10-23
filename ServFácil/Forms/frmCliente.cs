@@ -15,6 +15,7 @@ namespace ServFacil.Forms
 {
     public partial class frmCliente : Form
     {
+        public static int id = 0;
         public frmCliente()
         {
             InitializeComponent();
@@ -97,6 +98,8 @@ namespace ServFacil.Forms
 
         private void btnIncluir_Click(object sender, EventArgs e)
         {
+            frmCadastroCliente.origem = "Incluir";
+            id = 0;
             frmCadastroCliente frmCCliente = new frmCadastroCliente();
             frmCCliente.ShowDialog();
             frmCliente frmCliente = new frmCliente();
@@ -106,14 +109,47 @@ namespace ServFacil.Forms
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             if (dgvClienteFornecedor.SelectedCells.Count > 0) {
+                DataGridViewCell cell = dgvClienteFornecedor.SelectedCells[0];
+                DataGridViewRow row = cell.OwningRow;
 
-                frmCadastroCliente frm = new frmCadastroCliente();
-                frm.ShowDialog();
+                frmCadastroCliente.origem = "Alterar";
+                frmCliente.id = Convert.ToInt16(row.Cells["ID"].Value);
+                using (frmCadastroCliente cad = new frmCadastroCliente()) { 
+                    cad.ShowDialog();
+                }
+            }
+            else
+            {
+                frmMensagem mensagem = new frmMensagem("Nenhum ID selecionado " +
+                    "para alteração!");
+                mensagem.ShowDialog();
             }
         }
 
         private void dgvClienteFornecedor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            using (var context = new MyDbContext())
+            {
+                var listaClientesFornecedores = context.CLIENTE_FORNECEDOR.Select
+                    (cf => new {
+                        ID = cf.ID,
+                        Nome = cf.NOME,
+                        cf.CPF,
+                        cf.CNPJ,
+                        Celular = cf.CELULAR,
+                        Telefone = cf.TELEFONE,
+                        UF = cf.UF,
+                        Cidade = cf.CIDADE,
+                        Rua = cf.RUA
+                    }).
+                    ToList();
+
+                dgvClienteFornecedor.DataSource = listaClientesFornecedores;
+            }
         }
     }
 }

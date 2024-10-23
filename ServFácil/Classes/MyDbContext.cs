@@ -42,6 +42,7 @@ namespace ServFacil.Classes
         public string CIDADE { get; set; }
         public string RUA { get; set; }
         public string CEP { get; set; }
+        public string NUMERO { get; set; }
         public string CELULAR { get; set; }
         public string TELEFONE { get; set; }
         public string EMAIL { get; set; }

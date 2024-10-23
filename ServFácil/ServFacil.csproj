@@ -280,5 +280,11 @@
   <ItemGroup>
     <None Include="Resources\luxa.org-opacity-changed-cancelar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fechar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
